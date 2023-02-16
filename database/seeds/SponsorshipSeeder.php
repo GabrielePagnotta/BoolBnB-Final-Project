@@ -12,11 +12,15 @@ class SponsorshipSeeder extends Seeder
      */
     public function run()
     {
-        $datas=[
-            'name'->'Pacchetto Gold',
-            'duration'->144,
-            'price'->9.99,
+        $sponsor=config('sponsoship-plan');
 
-        ]
+        foreach ($sponsor as $elem) {
+            $newsponsorship= new Sponsorship();
+            $newsponsorship->name=$elem['name'];
+            $newsponsorship->duration=$elem['duration'];
+            $newsponsorship->price=$elem['price'];
+            $newsponsorship->save();
+
+        }
     }
 }
