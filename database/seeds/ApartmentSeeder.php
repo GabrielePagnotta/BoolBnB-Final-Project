@@ -1,7 +1,9 @@
 <?php
 
-use App\Models\Apartment;
+
 use Illuminate\Database\Seeder;
+
+use App\Models\Apartment;
 
 class ApartmentSeeder extends Seeder
 {
@@ -12,34 +14,22 @@ class ApartmentSeeder extends Seeder
      */
     public function run()
     {
-        $datas = [
-            'Casa vista mare',
-            3,
-            1,
-            1,
-            40.71226,
-            -74.00207,
-            60,
-            50,
-            true,
-            'ciao',
-            'Via Giacomo 12'
-        ];
+        $array_apartments = config('apartments');
 
-        foreach($datas as $data){
-            $newData = new Data();
-            $newData->title=$data['title'];
-            $newData->rooms=$data['rooms'];
-            $newData->bedrooms=$data['bedrooms'];
-            $newData->bathrooms=$data['bathrooms'];
-            $newData->latitude=$data['latitude'];
-            $newData->longitude=$data['longitude'];
-            $newData->square_meters=$data['square_meters'];
-            $newData->price=$data['price'];
-            $newData->visibility=$data['visibility'];
-            $newData->image=$data['image'];
-            $newData->address=$data['address'];
-            $newData->save();
+        foreach ($array_apartments as $elem) {
+            $new_data = new Apartment();
+            $new_data->title = $elem['title'];
+            $new_data->rooms = $elem['rooms'];
+            $new_data->bedrooms = $elem['bedrooms'];
+            $new_data->bathrooms = $elem['bathrooms'];
+            $new_data->latitude = $elem['latitude'];
+            $new_data->longitude = $elem['longitude'];
+            $new_data->square_meters = $elem['square_meters'];
+            $new_data->price = $elem['price'];
+            $new_data->visibility = $elem['visibility'];
+            $new_data->image = $elem['image'];
+            $new_data->address = $elem['address'];
+            $new_data->save();
         }
     }
 }
