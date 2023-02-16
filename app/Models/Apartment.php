@@ -24,10 +24,14 @@ class Apartment extends Model
     ];
 
     public function user(){
-        return $this->belongTo('App/User');
+        return $this->belongTo('App\User');
     }
 
     public function message(){
-        return $this->hasMany('App/Messages');
+        return $this->hasMany('App\Models\Messages');
+    }
+
+    public function services(){
+        return $this->hasMany('App\Models\Services');
     }
 }
