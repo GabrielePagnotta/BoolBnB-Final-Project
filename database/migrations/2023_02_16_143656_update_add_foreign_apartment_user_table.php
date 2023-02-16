@@ -15,7 +15,7 @@ class UpdateAddForeignApartmentUserTable extends Migration
     {
         Schema::table('apartments', function (Blueprint $table) {
             $table->unsignedBigInteger('userId')->nullable();
-            $table->foreign('userId')->references('id')->on('apartments')->onDelete('set null');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('set null');
         });
     }
 
