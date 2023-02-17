@@ -64,8 +64,12 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+<<<<<<< HEAD
 
-                                    <a href="{{route('admin.create_apartment')}}" class="dropdown-item">crea</a>
+
+=======
+                                    <a href="{{route('addApartment')}}" class="dropdown-item">Aggiungi appartamento</a>
+>>>>>>> 04bd4cc6a42b1af5cb16966157ab043b62c2a3ae
                                 </div>
 
                             </li>

@@ -16,9 +16,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $info= Apartment::all();
 
-        return view('admin.create_apartment', compact('info'));
+
     }
 
     /**
@@ -28,7 +27,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-
+        return view('admin.apartment.create_apartment');
     }
 
     /**
