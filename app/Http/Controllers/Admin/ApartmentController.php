@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\http\Controllers\Controller;
 
 class ApartmentController extends Controller
 {
@@ -14,7 +16,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $info= Apartment::all();
+
+        return view('admin.create_apartment', compact('info'));
     }
 
     /**

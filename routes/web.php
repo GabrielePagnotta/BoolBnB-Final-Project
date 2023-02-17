@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApartmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ Route::middleware('auth')
     ->group(function(){
         Route::get('/', 'HomeController@index')
         ->name('home');
+        Route::resource('/create', ApartmentController::class);
+
     });
 
 
