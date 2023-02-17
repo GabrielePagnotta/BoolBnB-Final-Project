@@ -1,4 +1,7 @@
 @extends('layouts.app')
+<?php
+    $check=0
+?>
 
 @section('content')
     <div class="container">
