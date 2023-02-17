@@ -38,4 +38,8 @@ class Apartment extends Model
     public function sponsorships(){
         return $this->belongsToMany('App\Models\Sponsorship');
     }
+
+    public function impressions(){
+        return $this->hasMany('App\Models\Impression');
+    }
 }
