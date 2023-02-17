@@ -40,10 +40,6 @@
                 <input type="number" class="form-control" id="">
             </div>
 
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="">Rendi visibile</label>
-            </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Immagine</label>
