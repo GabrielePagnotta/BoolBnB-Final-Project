@@ -18,6 +18,7 @@ class Apartment extends Model
         'square_meters',
         'price',
         'visibility',
+        'description',
         'image',
         'address',
         'userId'

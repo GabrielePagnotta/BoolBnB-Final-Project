@@ -51,7 +51,7 @@ class ApartmentController extends Controller
             $newRecord->services()->sync($data["services"]);
         }
 
-        return redirect()->route('admin.home');
+        return redirect()->route('home');
     }
 
     /**
