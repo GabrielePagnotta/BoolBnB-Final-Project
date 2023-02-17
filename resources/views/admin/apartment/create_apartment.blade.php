@@ -1,4 +1,7 @@
 @extends('layouts.app')
+<?php
+    $check=0
+?>
 
 @section('content')
     <div class="container">
@@ -54,7 +57,7 @@
 
             <div class="mb-3 form-check">
                 <label class="form-check-label">Rendi visibile</label>
-                <input type="checkbox" name="visibility" {{old('visibility' ? 'checked' : '')}} >
+                <input type="checkbox" name="visibility" value= 1 ?? 0 >
             </div>
 
             <div class="mb-3">
