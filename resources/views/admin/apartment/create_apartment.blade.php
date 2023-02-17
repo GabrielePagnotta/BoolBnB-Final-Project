@@ -54,7 +54,10 @@
 
             <div class="mb-3 form-check">
                 <label class="form-check-label">Rendi visibile</label>
-                <input type="checkbox" name="visibility" {{old('visibility' ? 'checked' : '')}} >
+                {{-- <input type="checkbox" name="visibility" value=""> --}}
+
+                <input type="hidden" name="visibility" value="0">
+                <input type="checkbox" name="visibility" value="1">
             </div>
 
             <div class="mb-3">
