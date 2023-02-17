@@ -47,8 +47,8 @@ class ApartmentController extends Controller
         $newRecord->fill($data);
         $newRecord->save();
 
-        if(array_key_exists("services", $data)){
-            $newRecord->services()->sync($data["services"]);
+        if(array_key_exists("service", $data)){
+            $newRecord->services()->sync($data["service"]);
         }
 
         return redirect()->route('home');
