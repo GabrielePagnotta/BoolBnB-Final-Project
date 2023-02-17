@@ -65,7 +65,7 @@
                                         @csrf
                                     </form>
 
-                                    <a href="{{route('admin.create_apartment')}}" class="dropdown-item">crea</a>
+                                    <a href="{{route('addApartment')}}" class="dropdown-item">Aggiungi Appartamento</a>
                                 </div>
 
                             </li>
