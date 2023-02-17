@@ -60,7 +60,7 @@
                 <label class="form-check-label" for="">Rendi visibile</label>
             </div>
 
-            <div class="mb-3 form-check">
+            <div class="mb-3">
                 <label for="">Servizi</label>
                 @foreach ($services as $service)
                     <input type="checkbox" name="services[]" value="{{$service->id}}">
