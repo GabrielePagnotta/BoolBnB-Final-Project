@@ -24,6 +24,7 @@ class ApartmentSeeder extends Seeder
             $new_data->bathrooms = $elem['bathrooms'];
             $new_data->latitude = $elem['latitude'];
             $new_data->longitude = $elem['longitude'];
+            $new_data->description = $elem['description'];
             $new_data->square_meters = $elem['square_meters'];
             $new_data->price = $elem['price'];
             $new_data->visibility = $elem['visibility'];

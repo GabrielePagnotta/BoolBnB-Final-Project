@@ -41,7 +41,17 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newRecord = new Apartment();
+        $newRecord->fill($data);
+        $newRecord->save();
+
+        if(array_key_exists("services", $data)){
+            $newRecord->services()->sync($data["services"]);
+        }
+
+        return redirect()->route('admin.home');
     }
 
     /**
