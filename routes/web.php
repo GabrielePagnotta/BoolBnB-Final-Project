@@ -24,9 +24,12 @@ Route::middleware('auth')
     ->group(function(){
         Route::get('/', 'HomeController@index')
         ->name('home');
-        Route::resource('/create', ApartmentController::class);
-
+        // Route::resource('/create', ApartmentController::class);
+        Route::get('/create', 'ApartmentController@index')
+        ->name('admin.create_apartment');
     });
+
+
 
 
 Route::get("{any?}", function(){
