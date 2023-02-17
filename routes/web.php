@@ -25,7 +25,8 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')
         ->name('home');
         // Route::resource('/create', ApartmentController::class);
-        Route::get('/create', 'ApartmentController@index');
+        Route::get('/create', 'ApartmentController@index')->name('mainPage');
+        Route::get('/create', 'ApartmentController@create')->name('addApartment');
     });
 
 
