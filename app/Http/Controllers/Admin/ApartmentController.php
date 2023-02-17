@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Service;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,8 +28,10 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartment.create_apartment');
+        $services = Service::all();
+        return view('admin.apartment.create_apartment',compact('services'));
     }
+
 
     /**
      * Store a newly created resource in storage.

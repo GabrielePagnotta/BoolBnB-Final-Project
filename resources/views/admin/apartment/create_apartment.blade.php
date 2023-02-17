@@ -52,12 +52,20 @@
 
             <div class="mb-3">
                 <label for="" class="form-label">Descrizione</label>
-                <textarea type="text" class="form-control" id="">
+                <textarea type="text" class="form-control" id=""></textarea>
             </div>
 
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="">Rendi visibile</label>
+            </div>
+
+            <div class="mb-3 form-check">
+                <label for="">Servizi</label>
+                @foreach ($services as $service)
+                    <input type="checkbox" name="services[]" value="{{$service->id}}">
+                    {{$service->typeOfService}}
+                @endforeach
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
