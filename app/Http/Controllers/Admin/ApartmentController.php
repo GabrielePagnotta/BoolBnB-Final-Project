@@ -29,7 +29,8 @@ class ApartmentController extends Controller
     public function create()
     {
         $services = Service::all();
-        return view('admin.apartment.create_apartment',compact('services'));
+
+        return view('admin.apartment.create_apartment', compact('services'));
     }
 
 
@@ -47,8 +48,8 @@ class ApartmentController extends Controller
         $newRecord->fill($data);
         $newRecord->save();
 
-        if(array_key_exists("service", $data)){
-            $newRecord->services()->sync($data["service"]);
+        if(array_key_exists("services", $data)){
+            $newRecord->services()->sync($data["services"]);
         }
 
         return redirect()->route('home');
