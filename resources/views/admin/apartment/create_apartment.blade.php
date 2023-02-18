@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{route('saveApartment')}}" method="GET">
+        <form action="{{route('saveApartment')}}" method="GET" enctype="multipart/form-data">
 
         @csrf
 

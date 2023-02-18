@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Service;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
@@ -45,6 +46,10 @@ class ApartmentController extends Controller
         $data = $request->all();
 
         $newRecord = new Apartment();
+        if(array_key_exists('image', $data)){
+            $image_url = Storage::put('post_covers', $data['image']);
+            $data['image'] = $image_url;
+        }
         $newRecord->fill($data);
         $newRecord->save();
 
