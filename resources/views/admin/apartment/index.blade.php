@@ -19,7 +19,7 @@
                 <td>{{$elem['address']}}</td>
                 <td>
                     @if($elem['cover'])
-                        {{$elem['cover']}}
+                       <img src="{{asset("storage/$elem->cover")}}" alt="cover-img">
                     @else
                         <img class='w-25' src="https://www.associazionejam.it/wp-content/uploads/2017/04/non-disponibile-300x300.png" alt="image-not-found">
                     @endif
