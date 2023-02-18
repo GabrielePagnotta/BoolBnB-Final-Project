@@ -96,9 +96,20 @@ class ApartmentController extends Controller
      * @param  \App\Models\Apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Apartment $apartment)
+    public function update(Request $request, $id)
     {
-        //
+        $new_info = $request->all();
+        dd($new_info);
+        $apartment = Apartment::findOrFail($id);
+        $apartment->update($new_info);
+
+        if(array_key_exists('services', $new_info)){
+            $apartment->services()->sync($new_info['services']);
+        }else{
+            $apartment->services()->sync([]);
+        }
+
+        return redirect()->route('admin.apartment.index');
     }
 
     /**
