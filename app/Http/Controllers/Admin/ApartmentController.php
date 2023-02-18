@@ -99,7 +99,7 @@ class ApartmentController extends Controller
     public function update(Request $request, $id)
     {
         $new_info = $request->all();
-        dd($new_info);
+
         $apartment = Apartment::findOrFail($id);
         $apartment->update($new_info);
 
@@ -109,7 +109,7 @@ class ApartmentController extends Controller
             $apartment->services()->sync([]);
         }
 
-        return redirect()->route('admin.apartment.index');
+        return redirect()->route('mainPage');
     }
 
     /**
