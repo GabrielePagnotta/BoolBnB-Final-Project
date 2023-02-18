@@ -118,8 +118,13 @@ class ApartmentController extends Controller
      * @param  \App\Models\Apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Apartment $apartment)
+    public function destroy($id)
     {
-        //
+        $destroy=Apartment::findOrFail($id);
+        $destroy->services()->sync([]);
+        $destroy->delete();
+
+        return redirect()->route('mainPage');
+
     }
 }

@@ -5,7 +5,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Indirizzo</th>
                 <th scope="col">Foto</th>
@@ -15,8 +14,8 @@
         <tbody>
             @foreach($info as $elem)
             <tr>
-                <th scope="row">1</th>
-                <td>{{$elem['title']}}</td>
+
+                <td class="w-25">{{$elem['title']}}</td>
                 <td>{{$elem['address']}}</td>
                 <td>
                     @if($elem['cover'])
@@ -28,7 +27,11 @@
                 <td>
                     <a href="{{route('editApartment',$elem->id)}}"><i class="fa-regular fa-pen-to-square fs-1"></i></a>
                     <a href=""><i class="fa-solid fa-chart-simple fs-1"></i></a>
-                    <a href=""><i class="fa-solid fa-trash fs-1"></i></a>
+                    <form class="d-inline" action="{{route('destroyApartment',$elem->id)}}" method="GET">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"><i class="fa-solid fa-trash fs-1"></i></button>
+                    </form>
                 </td>
             </tr>
 

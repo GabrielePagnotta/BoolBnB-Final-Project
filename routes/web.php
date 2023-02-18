@@ -30,6 +30,7 @@ Route::middleware('auth')
         Route::get('/save', 'ApartmentController@store')->name('saveApartment');
         Route::get('/edit{id}', 'ApartmentController@edit')->name('editApartment');
         Route::get('/update{id}', 'ApartmentController@update')->name('updateApartment');
+        Route::get('/destroy{id}', 'ApartmentController@destroy')->name('destroyApartment');
 
     });
 
