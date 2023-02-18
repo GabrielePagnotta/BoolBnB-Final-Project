@@ -18,8 +18,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-
-
+        $info=Apartment::all();
+        return view('admin.apartment.index', compact('info'));
     }
 
     /**
@@ -46,12 +46,16 @@ class ApartmentController extends Controller
         $data = $request->all();
 
         $newRecord = new Apartment();
-        if(array_key_exists('image',$data)){
-            $apartment_img_url=Storage::put('apartment_cover', $data['image']);
-            $data['image']=$apartment_img_url;
+
+        if(array_key_exists('image', $data)){
+            $cover_url= Storage::put('post_covers',$data['image']);
+            $datas['cover']=$cover_url;
         }
+
         $newRecord->fill($data);
         $newRecord->save();
+
+
         if(array_key_exists("services", $data)){
             $newRecord->services()->sync($data["services"]);
         }

@@ -12,7 +12,7 @@ return [
         "square_meters" => 65,
         "price" => 50,
         "visibility" => true,
-        "image" => "che mire bobo",
+        "cover" => "che mire bobo",
         "address" => "e sti cazzi"
     ],
 

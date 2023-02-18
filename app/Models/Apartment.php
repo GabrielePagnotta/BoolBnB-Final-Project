@@ -19,7 +19,7 @@ class Apartment extends Model
         'price',
         'visibility',
         'description',
-        'image',
+        'cover',
         'address',
         'userId'
     ];
