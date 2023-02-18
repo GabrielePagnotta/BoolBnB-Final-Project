@@ -52,7 +52,7 @@
             {{-- immagine --}}
             <div class="mb-3">
                 <label for="" class="form-label">Immagine</label>
-                <input type="file" name="image">
+                <input type="file" name="image" value="{{asset('storage/$elem->cover')}}">
             </div>
 
             {{-- Descrizione --}}
