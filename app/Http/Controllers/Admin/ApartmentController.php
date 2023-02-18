@@ -81,9 +81,11 @@ class ApartmentController extends Controller
      * @param  \App\Models\Apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment)
+    public function edit($id)
     {
-        //
+        $file=Apartment::findOrFail($id);
+
+        return view('admin.apartment.edit_apartment', compact('file'));
     }
 
     /**

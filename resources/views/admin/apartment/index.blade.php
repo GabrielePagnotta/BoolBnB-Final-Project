@@ -18,16 +18,21 @@
                 <th scope="row">1</th>
                 <td>{{$elem['title']}}</td>
                 <td>{{$elem['address']}}</td>
-                @if('cover'){
-                <td>img{{$elem['cover']}}</td>
-                }@else{
-                <td><img src="https://www.associazionejam.it/wp-content/uploads/2017/04/non-disponibile-300x300.png"
-                        alt="image-not-found"></td>
-                }
-
+                <td>
+                    @if($elem['cover'])
+                        {{$elem['cover']}}
+                    @else
+                        <img class='w-25' src="https://www.associazionejam.it/wp-content/uploads/2017/04/non-disponibile-300x300.png" alt="image-not-found">
+                    @endif
+                </td>
+                <td>
+                    <a href="{{route('editApartment',$elem->id)}}"><i class="fa-regular fa-pen-to-square fs-1"></i></a>
+                    <a href=""><i class="fa-solid fa-chart-simple fs-1"></i></a>
+                    <a href=""><i class="fa-solid fa-trash fs-1"></i></a>
+                </td>
             </tr>
 
-        @endforeach
+            @endforeach
         </tbody>
     </table>
 </div>
