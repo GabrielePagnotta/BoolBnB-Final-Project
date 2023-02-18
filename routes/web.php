@@ -28,7 +28,7 @@ Route::middleware('auth')
         Route::get('/index', 'ApartmentController@index')->name('mainPage');
         Route::get('/create', 'ApartmentController@create')->name('addApartment');
         Route::get('/save', 'ApartmentController@store')->name('saveApartment');
-        Route::get('/edit', 'ApartmentController@edit')->name('editApartment');
+        Route::get('/edit{id}', 'ApartmentController@edit')->name('editApartment');
 
     });
 

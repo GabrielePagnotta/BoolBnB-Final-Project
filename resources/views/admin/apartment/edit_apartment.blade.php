@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{route('editApartment', $file->id)}}" method="GET" enctype="multipart/form-data">
+        <form action="{{route('editApartment', $file->id)}}" method="POST" enctype="multipart/form-data">
 
         @csrf
          @method('PUT')

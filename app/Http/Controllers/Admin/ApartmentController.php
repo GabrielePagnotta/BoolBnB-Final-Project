@@ -84,8 +84,9 @@ class ApartmentController extends Controller
     public function edit($id)
     {
         $file=Apartment::findOrFail($id);
+        $services = Service::all();
 
-        return view('admin.apartment.edit_apartment', compact('file'));
+        return view('admin.apartment.edit_apartment', compact('file', 'services'));
     }
 
     /**
