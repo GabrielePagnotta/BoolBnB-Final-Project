@@ -23,7 +23,7 @@
             {{-- Posti letto --}}
             <div class="mb-3">
                 <label for="" class="form-label">Posti letto</label>
-                <input type="number" class="form-control" id="" name="bedrooms" value='{{$file->bedroomns}}'>
+                <input type="number" class="form-control" id="" name="bedrooms" value='{{$file->bedrooms}}'>
             </div>
             {{-- Numero bagni --}}
             <div class="mb-3">
@@ -58,7 +58,7 @@
             {{-- Descrizione --}}
             <div class="mb-3">
                 <label for="" class="form-label">Descrizione</label>
-                <textarea class="form-control"  name="description" value='{{$file->description}}'></textarea>
+                <textarea class="form-control"  name="description" >{{$file->description}}</textarea>
             </div>
 
             {{-- Visibilita' --}}
