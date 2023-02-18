@@ -7,6 +7,7 @@ use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -45,9 +46,12 @@ class ApartmentController extends Controller
         $data = $request->all();
 
         $newRecord = new Apartment();
+        if(array_key_exists('image',$data)){
+            $apartment_img_url=Storage::put('apartment_cover', $data['image']);
+            $data['image']=$apartment_img_url;
+        }
         $newRecord->fill($data);
         $newRecord->save();
-
         if(array_key_exists("services", $data)){
             $newRecord->services()->sync($data["services"]);
         }
