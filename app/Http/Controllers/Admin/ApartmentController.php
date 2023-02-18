@@ -100,6 +100,8 @@ class ApartmentController extends Controller
     {
         $new_info = $request->all();
 
+
+
         $apartment = Apartment::findOrFail($id);
         $apartment->update($new_info);
 
