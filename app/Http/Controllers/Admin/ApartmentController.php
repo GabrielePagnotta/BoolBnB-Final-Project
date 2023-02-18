@@ -49,7 +49,7 @@ class ApartmentController extends Controller
         $newRecord = new Apartment();
 
         if(array_key_exists('image', $data)){
-            $cover_url= Storage::put('post_covers',$data['image']);
+            $cover_url= Storage::put('apartment_covers', $data['image']);
             $datas['cover']=$cover_url;
         }
 

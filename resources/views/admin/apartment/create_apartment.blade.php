@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{route('saveApartment')}}" method="GET" enctype="multipart/form-data">
+        <form action="{{route('saveApartment')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -54,7 +54,7 @@
             {{-- immagine --}}
             <div class="mb-3">
                 <label for="" class="form-label">Immagine</label>
-                <input type="file" name="image">
+                <input type="file" name="image" class="form-control-file">
             </div>
 
             {{-- Descrizione --}}

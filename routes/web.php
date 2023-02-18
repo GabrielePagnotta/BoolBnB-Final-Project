@@ -27,7 +27,7 @@ Route::middleware('auth')
         // Route::resource('/create', ApartmentController::class);
         Route::get('/index', 'ApartmentController@index')->name('mainPage');
         Route::get('/create', 'ApartmentController@create')->name('addApartment');
-        Route::get('/save', 'ApartmentController@store')->name('saveApartment');
+        Route::post('/save', 'ApartmentController@store')->name('saveApartment');
         Route::get('/edit{id}', 'ApartmentController@edit')->name('editApartment');
         Route::get('/update{id}', 'ApartmentController@update')->name('updateApartment');
         Route::get('/destroy{id}', 'ApartmentController@destroy')->name('destroyApartment');
