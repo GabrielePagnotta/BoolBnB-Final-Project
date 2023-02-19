@@ -11,7 +11,7 @@
     </div>
     <div>
         <ul class="d-flex list-unstyled m-0">
-        <a :href="{{route('')}}"></a><li class="m-2 btn btn-success">accedi</li></a>
+        <a href=""></a><li class="m-2 btn btn-success">accedi</li></a>
         <li class="btn btn-outline-success m-2"><a class="text-decoration-none" href="http://127.0.0.1:8000/admin/register">registrati</a></li>
     </ul>
     </div>
