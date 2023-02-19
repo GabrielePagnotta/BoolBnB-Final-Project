@@ -2056,62 +2056,8 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("nav", {
-    staticClass: "navbar navbar-expand-lg bg-body-tertiary",
-    staticStyle: {
-      "background-color": "#e3f2fd"
-    }
-  }, [_c("div", {
-    staticClass: "container-fluid d-flex"
-  }, [_c("img", {
-    staticClass: "size-logo",
-    attrs: {
-      src: "https://www.ilfoglio.it/upload/1480336808148.png",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "navbar-toggler",
-    attrs: {
-      type: "button",
-      "data-bs-toggle": "collapse",
-      "data-bs-target": "#navbarNav",
-      "aria-controls": "navbarNav",
-      "aria-expanded": "false",
-      "aria-label": "Toggle navigation"
-    }
-  }, [_c("span", {
-    staticClass: "navbar-toggler-icon"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse",
-    attrs: {
-      id: "navbarNav"
-    }
-  }), _vm._v(" "), _c("div", [_c("ul", {
-    staticClass: "d-flex list-unstyled m-0"
-  }, [_c("a", {
-    attrs: {
-      href: "http://127.0.0.1:8000/admin/index"
-    }
-  }), _c("li", {
-    staticClass: "m-2 btn btn-success"
-  }, [_vm._v("accedi")]), _vm._v(" "), _c("li", {
-    staticClass: "btn btn-outline-success m-2"
-  }, [_c("a", {
-    staticClass: "text-decoration-none",
-    attrs: {
-      href: "http://127.0.0.1:8000/admin/register"
-    }
-  }, [_vm._v("registrati")])])])])])])]);
-}];
-render._withStripped = true;
+var render = function render() {};
+var staticRenderFns = [];
 
 
 /***/ }),
