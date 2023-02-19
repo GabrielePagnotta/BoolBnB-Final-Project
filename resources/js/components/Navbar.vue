@@ -9,11 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
 
     </div>
-    <div>
-        <ul class="d-flex list-unstyled m-0">
-        <a href=""></a><li class="m-2 btn btn-success">accedi</li></a>
-        <li class="btn btn-outline-success m-2"><a class="text-decoration-none" href="http://127.0.0.1:8000/admin/register">registrati</a></li>
-    </ul>
+    <div class="d-flex">
+        <a href="/login" class="m-2 btn btn-success">accedi</a>
+       <a class="text-decoration-none btn btn-outline-success m-2" href="/register">registrati</a>
     </div>
   </div>
 </nav>
