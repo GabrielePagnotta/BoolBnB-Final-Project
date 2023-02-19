@@ -1916,6 +1916,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\resources\\js\\views\\App.vue: Missing semicolon. (5:5)\n\n\u001b[0m \u001b[90m 3 |\u001b[39m         name\u001b[33m:\u001b[39m\u001b[32m'App'\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m     data() {\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m         \u001b[36mreturn\u001b[39m{\u001b[0m\n\u001b[0m \u001b[90m 8 |\u001b[39m             data\u001b[33m:\u001b[39m[]\u001b[33m,\u001b[39m\u001b[0m\n    at instantiate (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:64:32)\n    at constructor (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:362:12)\n    at Parser.raise (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:3254:19)\n    at Parser.semicolon (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:3625:10)\n    at Parser.parseExportDefaultExpression (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13747:10)\n    at Parser.parseExport (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13651:25)\n    at Parser.parseStatementContent (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12652:27)\n    at Parser.parseStatementLike (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseModuleItem (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12518:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13104:36)\n    at Parser.parseBlockBody (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13097:10)\n    at Parser.parseProgram (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12432:10)\n    at Parser.parseTopLevel (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12422:25)\n    at Parser.parse (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:14234:10)\n    at parse (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:14276:38)\n    at parser (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\parser\\index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:65:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\transformation\\index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\gensync\\index.js:261:32)\n    at C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\gensync\\index.js:273:13\n    at async.call.result.err.err (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\gensync\\index.js:223:11)");
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -1949,6 +1960,28 @@ var staticRenderFns = [function () {
     staticClass: "card-body"
   }, [_vm._v("\n                    I'm an example component.\n                ")])])])])]);
 }];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div");
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -49645,7 +49678,7 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '.views/App'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49678,7 +49711,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#root',
   render: function render(h) {
-    return h(!(function webpackMissingModule() { var e = new Error("Cannot find module '.views/App'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+    return h(_views_App__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 });
 
@@ -49802,6 +49835,78 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/views/App.vue":
+/*!************************************!*\
+  !*** ./resources/js/views/App.vue ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=91ac6b5c&scoped=true& */ "./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true&");
+/* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/views/App.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "91ac6b5c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/App.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/App.vue?vue&type=script&lang=js&":
+/*!*************************************************************!*\
+  !*** ./resources/js/views/App.vue?vue&type=script&lang=js& ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=template&id=91ac6b5c&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49820,8 +49925,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ilpanzer/Desktop/boolean/BoolBnB-Final-Project/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ilpanzer/Desktop/boolean/BoolBnB-Final-Project/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
