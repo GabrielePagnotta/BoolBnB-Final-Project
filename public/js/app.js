@@ -49640,9 +49640,12 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module '.views/App'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49671,8 +49674,12 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 var app = new Vue({
-  el: '#app'
+  el: '#root',
+  render: function render(h) {
+    return h(!(function webpackMissingModule() { var e = new Error("Cannot find module '.views/App'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+  }
 });
 
 /***/ }),
@@ -49813,8 +49820,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ilpanzer/Desktop/boolean/BoolBnB-Final-Project/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ilpanzer/Desktop/boolean/BoolBnB-Final-Project/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
