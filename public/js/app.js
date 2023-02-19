@@ -1920,10 +1920,31 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\resources\\js\\views\\App.vue: Missing semicolon. (5:5)\n\n\u001b[0m \u001b[90m 3 |\u001b[39m         name\u001b[33m:\u001b[39m\u001b[32m'App'\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m     data() {\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m         \u001b[36mreturn\u001b[39m{\u001b[0m\n\u001b[0m \u001b[90m 8 |\u001b[39m             data\u001b[33m:\u001b[39m[]\u001b[33m,\u001b[39m\u001b[0m\n    at instantiate (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:64:32)\n    at constructor (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:362:12)\n    at Parser.raise (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:3254:19)\n    at Parser.semicolon (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:3625:10)\n    at Parser.parseExportDefaultExpression (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13747:10)\n    at Parser.parseExport (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13651:25)\n    at Parser.parseStatementContent (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12652:27)\n    at Parser.parseStatementLike (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseModuleItem (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12518:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13104:36)\n    at Parser.parseBlockBody (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:13097:10)\n    at Parser.parseProgram (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12432:10)\n    at Parser.parseTopLevel (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:12422:25)\n    at Parser.parse (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:14234:10)\n    at parse (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\parser\\lib\\index.js:14276:38)\n    at parser (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\parser\\index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:65:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\transformation\\index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\@babel\\core\\lib\\transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\gensync\\index.js:261:32)\n    at C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\gensync\\index.js:273:13\n    at async.call.result.err.err (C:\\Users\\Gabriele\\Desktop\\Booleanesercizi\\BoolBnB\\BoolBnB-Final-Project\\node_modules\\gensync\\index.js:223:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "app",
+  data: function data() {
+    return {
+      Apartments: []
+    };
+  },
+  mounted: function mounted() {
+    this.getApartments();
+  },
+  methods: {
+    getApartments: function getApartments() {
+      var _this = this;
+      axios.get('http://127.0.0.1:8000/api/apartment').then(function (response) {
+        _this.Apartments = response.data;
+        console.log(response.data);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -49839,15 +49860,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************!*\
   !*** ./resources/js/views/App.vue ***!
   \************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_91ac6b5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=91ac6b5c&scoped=true& */ "./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&scoped=true&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/views/App.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49877,15 +49897,13 @@ component.options.__file = "resources/js/views/App.vue"
 /*!*************************************************************!*\
   !*** ./resources/js/views/App.vue?vue&type=script&lang=js& ***!
   \*************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

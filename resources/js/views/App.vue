@@ -6,28 +6,34 @@
 
 <script>
     export default {
-        name:'App',
+    name: "app",
 
-    },
     data() {
-        return{
-            data:[],
+        return {
+            Apartments: []
         };
+    },
+    mounted() {
 
+
+        this.getApartments();
     },
-    mounted(){
-        getapartment()
-    },
+
     methods:{
-        getapartment(){
+        getApartments(){
 
-            axios.get('https://localhost:8000/api/apartment')
+            axios.get('http://127.0.0.1:8000/api/apartment')
             .then( (response) => {
-             console.log( response.data );
-             this.data = response.data
+
+             this.Apartments = response.data;
+             console.log(response.data)
+
             })
+
         }
     }
+
+}
 </script>
 
 <style lang="scss" scoped>
