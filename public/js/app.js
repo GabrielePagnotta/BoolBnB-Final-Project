@@ -2094,22 +2094,19 @@ var staticRenderFns = [function () {
     attrs: {
       id: "navbarNav"
     }
-  }), _vm._v(" "), _c("div", [_c("ul", {
-    staticClass: "d-flex list-unstyled m-0"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
   }, [_c("a", {
+    staticClass: "m-2 btn btn-success",
     attrs: {
-      href: ""
+      href: "/login"
     }
-  }), _c("li", {
-    staticClass: "m-2 btn btn-success"
-  }, [_vm._v("accedi")]), _vm._v(" "), _c("li", {
-    staticClass: "btn btn-outline-success m-2"
-  }, [_c("a", {
-    staticClass: "text-decoration-none",
+  }, [_vm._v("accedi")]), _vm._v(" "), _c("a", {
+    staticClass: "text-decoration-none btn btn-outline-success m-2",
     attrs: {
-      href: "http://127.0.0.1:8000/admin/register"
+      href: "/register"
     }
-  }, [_vm._v("registrati")])])])])])])]);
+  }, [_vm._v("registrati")])])])])]);
 }];
 render._withStripped = true;
 
@@ -52386,8 +52383,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Andrea\Desktop\BOOLEAN\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\BOOLEAN\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
