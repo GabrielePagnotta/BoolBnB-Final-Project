@@ -123,6 +123,9 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         $destroy=Apartment::findOrFail($id);
+        if($destroy->cover){
+            Storage::delete($destroy->cover);
+        }
         $destroy->services()->sync([]);
         $destroy->delete();
 
