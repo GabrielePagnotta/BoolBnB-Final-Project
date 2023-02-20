@@ -54,7 +54,7 @@
 export default {
     name: 'Apartments',
     components: {
-        RouterLink
+
     },
     // props: {
     //     info: Array
