@@ -1926,11 +1926,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Apartments',
   components: {},
-  // props: {
-  //     info: Array
-  // },
   data: function data() {
-    return {};
+    return {
+      Apartments: []
+    };
+  },
+  mounted: function mounted() {
+    this.getApartments();
+  },
+  methods: {
+    getApartments: function getApartments() {
+      var _this = this;
+      axios.get('http://127.0.0.1:8000/api/apartment').then(function (response) {
+        _this.Apartments = response.data;
+        console.log(response.data);
+      });
+    }
   }
 });
 
@@ -1953,23 +1964,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "app",
   components: {
     Navbar: _components_Navbar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      Apartments: []
-    };
-  },
-  mounted: function mounted() {
-    this.getApartments();
-  },
-  methods: {
-    getApartments: function getApartments() {
-      var _this = this;
-      axios.get('http://127.0.0.1:8000/api/apartment').then(function (response) {
-        _this.Apartments = response.data;
-        console.log(response.data);
-      });
-    }
   }
 });
 
@@ -2084,7 +2078,7 @@ var render = function render() {
         name: "Show"
       }
     }
-  }, _vm._l(_vm.info, function (elem) {
+  }, _vm._l(_vm.Apartments, function (elem) {
     return _c("div", {
       key: elem.id
     }, [_c("div", {
@@ -2151,7 +2145,11 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("Navbar"), _vm._v(" "), _c("router-view")], 1);
+  return _c("div", [_c("Navbar"), _vm._v(" "), _c("router-view", {
+    attrs: {
+      info: _vm.Apartments
+    }
+  })], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -54255,8 +54253,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Pc Yuri\Boolean\Laravel\reg\Progetto Finale\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Pc Yuri\Boolean\Laravel\reg\Progetto Finale\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

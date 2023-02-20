@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <!-- <Apartments :info="Apartments"/> -->
-        <router-view></router-view>
+        <router-view :info="Apartments"></router-view>
     </div>
 </template>
 
@@ -14,31 +14,6 @@
     name: "app",
     components:{
         Navbar,
-    },
-
-    data() {
-        return {
-            Apartments: []
-        };
-    },
-    mounted() {
-
-
-        this.getApartments();
-    },
-
-    methods:{
-        getApartments(){
-
-            axios.get('http://127.0.0.1:8000/api/apartment')
-            .then( (response) => {
-
-             this.Apartments = response.data;
-             console.log(response.data)
-
-            })
-
-        }
     }
 
 }

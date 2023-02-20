@@ -3,7 +3,7 @@
         <h1>TUTTI GLI APPARTAMENTI:</h1>
         <div class="d-flex justify-content-center m-4">
             <router-link :to="{ name:'Show' }">
-                <div v-for="elem in info" :key="elem.id">
+                <div v-for="elem in Apartments" :key="elem.id">
                     <div class="card mx-3 border" style="max-width: 15rem; border-radius: 20px;">
                         <img v-if="elem.cover == null" class="w-100"
                             src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -56,14 +56,30 @@ export default {
     components: {
 
     },
-    // props: {
-    //     info: Array
-    // },
     data() {
         return {
-
+            Apartments: []
         };
     },
+    mounted() {
+
+
+        this.getApartments();
+    },
+
+    methods:{
+        getApartments(){
+
+            axios.get('http://127.0.0.1:8000/api/apartment')
+            .then( (response) => {
+
+             this.Apartments = response.data;
+             console.log(response.data)
+
+            })
+
+        }
+    }
 }
 </script>
 
