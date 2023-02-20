@@ -45,8 +45,9 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        $userData = Auth::user()->id;
         $newRecord = new Apartment();
+
 
         $request->validate([
             'title'=>'required|max:100',
@@ -67,6 +68,8 @@ class ApartmentController extends Controller
             $cover_url= Storage::put('apartment_covers', $data['image']);
             $data['cover']=$cover_url;
         }
+        array_push($data, $userData);
+
         $newRecord->fill($data);
         $newRecord->save();
 
