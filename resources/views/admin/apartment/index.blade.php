@@ -12,6 +12,7 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Indirizzo</th>
                 <th scope="col">Foto</th>
+                <th scope="col">Descrizione</th>
                 <th scope="col">Dati</th>
             </tr>
         </thead>
@@ -27,6 +28,9 @@
                     @else
                         <img style="max-width: 10%" src="https://www.associazionejam.it/wp-content/uploads/2017/04/non-disponibile-300x300.png" alt="image-not-found">
                     @endif
+                </td>
+                <td class="w-25">
+                    <article>{{$elem['description']}}</article>
                 </td>
                 <td>
                     <a href="{{route('editApartment',$elem->id)}}"><i class="fa-regular fa-pen-to-square fs-1"></i></a>

@@ -48,6 +48,20 @@ class ApartmentController extends Controller
 
         $newRecord = new Apartment();
 
+        $request->validate([
+            'title'=>'required|max:100',
+             'rooms'=>'required|numeric|min:1|max:10',
+             'bedrooms'=>'required|numeric|min:1|max:10',
+             'bathrooms'=>'required|numeric|min:1|max:10',
+            //  'latitude'=>'required|numeric|min:1|max:10',
+            //  'longitude'=>'required|numeric|min:1|max:10',
+             'square_meters'=>'required|numeric|min:1',
+             'price'=>'required|numeric|min:1',
+             'address'=>'required|max:100',
+             'description'=>'required|max:200',
+             'services'=>'required'
+        ]);
+
 
         if(array_key_exists('image', $data)){
             $cover_url= Storage::put('apartment_covers', $data['image']);

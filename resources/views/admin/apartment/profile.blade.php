@@ -1,3 +1,3 @@
-@extends('layouts.headerback')
+@extends('layouts.app')
 @section('content')
 @endsection
