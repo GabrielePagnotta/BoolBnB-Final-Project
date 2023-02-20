@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
   <div class="container-fluid d-flex">
     <a href="/">
-        <img class="size-logo w-75" src="../assets/B.png" alt="logo">
+        <img class="size-logo w-50" src="../assets/B.png" alt="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
