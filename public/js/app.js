@@ -2073,13 +2073,17 @@ var staticRenderFns = [function () {
     }
   }, [_c("div", {
     staticClass: "container-fluid d-flex"
+  }, [_c("a", {
+    attrs: {
+      href: "/"
+    }
   }, [_c("img", {
     staticClass: "size-logo",
     attrs: {
       src: "https://www.ilfoglio.it/upload/1480336808148.png",
-      alt: ""
+      alt: "logo"
     }
-  }), _vm._v(" "), _c("button", {
+  })]), _vm._v(" "), _c("button", {
     staticClass: "navbar-toggler",
     attrs: {
       type: "button",
