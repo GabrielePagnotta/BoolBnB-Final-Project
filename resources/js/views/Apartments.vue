@@ -1,8 +1,8 @@
 <template>
     <div>
         <h1>TUTTI GLI APPARTAMENTI:</h1>
+        <router-link class="text" :to="{ name:'Show' }">
         <div class="d-flex justify-content-center m-4">
-            <router-link :to="{ name:'Show' }">
                 <div v-for="elem in Apartments" :key="elem.id">
                     <div class="card mx-3 border" style="max-width: 15rem; border-radius: 20px;">
                         <img v-if="elem.cover == null" class="w-100"
@@ -42,8 +42,8 @@
                     </div>
 
                 </div>
-            </router-link>
-        </div>
+            </div>
+        </router-link>
 
     </div>
 </template>
@@ -89,6 +89,10 @@ export default {
 
     }
 
+        .text{
+            text-decoration: none;
+            color: black;
+        }
     .card{
         transition: transform 500ms;
     }

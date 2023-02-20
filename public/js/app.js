@@ -2015,9 +2015,9 @@ var staticRenderFns = [function () {
       href: "/"
     }
   }, [_c("img", {
-    staticClass: "size-logo",
+    staticClass: "size-logo w-75",
     attrs: {
-      src: "https://www.ilfoglio.it/upload/1480336808148.png",
+      src: __webpack_require__(/*! ../assets/B.png */ "./resources/js/assets/B.png"),
       alt: "logo"
     }
   })]), _vm._v(" "), _c("button", {
@@ -2070,14 +2070,15 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("TUTTI GLI APPARTAMENTI:")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center m-4"
-  }, [_c("router-link", {
+  return _c("div", [_c("h1", [_vm._v("TUTTI GLI APPARTAMENTI:")]), _vm._v(" "), _c("router-link", {
+    staticClass: "text",
     attrs: {
       to: {
         name: "Show"
       }
     }
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-center m-4"
   }, _vm._l(_vm.Apartments, function (elem) {
     return _c("div", {
       key: elem.id
@@ -2123,7 +2124,7 @@ var render = function render() {
     }), _vm._v(" "), _c("span", [_vm._v(_vm._s(elem["square_meters"]))])])])]), _vm._v(" "), _c("p", {
       staticClass: "text-center my-3"
     }, [_c("strong", [_vm._v("prezzo: ")]), _vm._v(_vm._s(elem["price"]) + "€")])])])]);
-  }), 0)], 1)]);
+  }), 0)])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -6580,7 +6581,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-bbaab540]:hover {\n  transform: scale(1.1);\n}\n.card[data-v-bbaab540] {\n  transition: transform 500ms;\n}", ""]);
+exports.push([module.i, ".card[data-v-bbaab540]:hover {\n  transform: scale(1.1);\n}\n.text[data-v-bbaab540] {\n  text-decoration: none;\n  color: black;\n}\n.card[data-v-bbaab540] {\n  transition: transform 500ms;\n}", ""]);
 
 // exports
 
@@ -53818,6 +53819,17 @@ var app = new Vue({
 
 /***/ }),
 
+/***/ "./resources/js/assets/B.png":
+/*!***********************************!*\
+  !*** ./resources/js/assets/B.png ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/B.png?6e5d82c30d802d9fb951fcfbd4bbefcd";
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -54253,8 +54265,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Pc Yuri\Boolean\Laravel\reg\Progetto Finale\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Pc Yuri\Boolean\Laravel\reg\Progetto Finale\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Gabriele\Desktop\Booleanesercizi\BoolBnB\BoolBnB-Final-Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
