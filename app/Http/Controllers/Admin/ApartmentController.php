@@ -68,7 +68,7 @@ class ApartmentController extends Controller
             $cover_url= Storage::put('apartment_covers', $data['image']);
             $data['cover']=$cover_url;
         }
-        array_push($data, $userData);
+        $data['userId'] = $userData;
 
         $newRecord->fill($data);
         $newRecord->save();
