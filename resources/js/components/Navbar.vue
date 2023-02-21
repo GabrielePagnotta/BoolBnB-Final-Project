@@ -11,9 +11,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
 
     </div>
-    <div class="d-flex">
-        <a href="/login" class="m-2 btn btn-success">accedi</a>
-       <a class="text-decoration-none btn btn-outline-success m-2" href="/register">registrati</a>
+    <div class="d-flex" v-if="authUser == null">
+        <li class="nav-item dropdown">
+            <a href="/login" class="m-2 btn btn-success">accedi</a>
+            <a class="text-decoration-none btn btn-outline-success m-2" href="/register">registrati</a>
+        </li>
+    </div>
+    <div class="d-flex" v-else>
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <i class="fa-solid fa-user"></i>
+        </a>
     </div>
   </div>
 </nav>
@@ -22,8 +29,16 @@
 
 <script>
     export default {
-        name:'Navbar'
-    }
+        name:'Navbar',
+        data(){
+            return {
+                authUser: window.authUser
+            };
+        },
+        mounted(){
+            console.log(this.authUser);
+        }
+}
 </script>
 
 <style lang="scss" scoped>
