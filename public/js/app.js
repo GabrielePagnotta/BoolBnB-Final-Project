@@ -1923,7 +1923,6 @@ __webpack_require__.r(__webpack_exports__);
     // chiamata API per verificare lo stato di autenticazione dell'utente
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/User').then(function (response) {
       _this.authUser = response.data;
-      console.log(_this.authUser);
     });
   },
   computed: {
@@ -1937,6 +1936,14 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/logout').then(function () {
         _this2.authUser = false;
       });
+    },
+    droptable: function droptable() {
+      var menu = document.getElementById('dropbar');
+      if (menu.style.display === 'none') {
+        menu.style.display = 'block';
+      } else {
+        menu.style.display = 'none';
+      }
     }
   }
 });
@@ -1971,7 +1978,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.get('http://127.0.0.1:8000/api/apartment').then(function (response) {
         _this.Apartments = response.data;
-        console.log(response.data);
       });
     },
     getServices: function getServices() {
@@ -2063,31 +2069,31 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("nav", {
-    staticClass: "navbar navbar-expand-lg bg-body-tertiary",
+    staticClass: "navbar navbar-expand-lg bg-body-tertiary position-relative p-3",
     staticStyle: {
       "background-color": "#e3f2fd"
     }
   }, [_c("div", {
     staticClass: "container-fluid d-flex"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse",
-    attrs: {
-      id: "navbarNav"
-    }
-  }), _vm._v(" "), _vm.isLoggedIn ? _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm.isLoggedIn ? _c("div", {
     staticClass: "d-flex align-items-center"
   }, [_c("img", {
-    staticClass: "rounded-circle me-2",
+    staticClass: "rounded-circle me-2 w-100 pointer",
     attrs: {
-      src: _vm.authUser.profile_photo_url,
+      src: "https://thumbs.dreamstime.com/b/immagine-del-segnaposto-di-profilo-siluetta-grigia-nessuna-foto-127393483.jpg",
       width: "30",
       height: "30",
       alt: "profile"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.droptable();
+      }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "dropdown"
   }, [_c("a", {
-    staticClass: "dropdown-toggle text-decoration-none text-dark",
+    staticClass: "text-decoration-none text-dark",
     attrs: {
       href: "#",
       role: "button",
@@ -2095,15 +2101,21 @@ var render = function render() {
       "data-bs-toggle": "dropdown",
       "aria-expanded": "false"
     }
-  }, [_vm._v("\n            " + _vm._s(_vm.authUser.name) + "\n          ")]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "dropdown-item",
+  }, [_vm._v("\n                        " + _vm._s(_vm.authUser.name) + "\n                    ")])])]) : _vm.logout ? _c("div", [_vm._m(2)]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "dropdown-column",
+    attrs: {
+      id: "dropbar"
+    }
+  }, [_c("ul", [_vm._m(3), _vm._v(" "), _c("li", {
+    staticClass: "d-flex justify-content-end mx-2"
+  }, [_c("a", {
     attrs: {
       href: "#"
     },
     on: {
       click: _vm.logout
     }
-  }, [_vm._v("Logout")])])]) : _c("div", [_vm._m(3)])])])]);
+  }, [_vm._v("Logout")])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2115,7 +2127,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "size-logo w-50",
     attrs: {
-      src: "https://picsum.photos/id/10/50",
+      src: __webpack_require__(/*! ../../../public/images/B.png */ "./public/images/B.png"),
       alt: "logo"
     }
   })]);
@@ -2138,20 +2150,6 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("ul", {
-    staticClass: "dropdown-menu",
-    attrs: {
-      "aria-labelledby": "dropdownMenuLink"
-    }
-  }, [_c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Profilo")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("ul", [_c("li", [_c("a", {
     attrs: {
       href: "/login"
@@ -2161,6 +2159,16 @@ var staticRenderFns = [function () {
       href: "/register"
     }
   }, [_vm._v("Registrati")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "d-flex justify-content-end my-2"
+  }, [_c("a", {
+    attrs: {
+      href: "/admin/index"
+    }
+  }, [_vm._v("i miei appartamenti")])]);
 }];
 render._withStripped = true;
 
@@ -6714,7 +6722,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".size-logo[data-v-6dde423b] {\n  width: 7%;\n}", ""]);
+exports.push([module.i, ".size-logo[data-v-6dde423b] {\n  width: 7%;\n}\n.dropdown-column[data-v-6dde423b] {\n  display: flex;\n  justify-content: flex-end;\n  position: absolute;\n  left: 88%;\n  top: 6%;\n  width: 200px;\n  padding: 5px;\n  background-color: rgb(255, 139, 156);\n  border-radius: 10px;\n  display: none;\n}\nul[data-v-6dde423b] {\n  list-style: none;\n}\nli[data-v-6dde423b]:hover {\n  background-color: crimson;\n}\n.pointer[data-v-6dde423b] {\n  cursor: pointer;\n}\na[data-v-6dde423b] {\n  text-decoration: none;\n  color: white;\n}", ""]);
 
 // exports
 
@@ -53937,6 +53945,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./public/images/B.png":
+/*!*****************************!*\
+  !*** ./public/images/B.png ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/B.png?6e5d82c30d802d9fb951fcfbd4bbefcd";
 
 /***/ }),
 

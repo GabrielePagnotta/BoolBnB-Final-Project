@@ -73,7 +73,7 @@ export default {
             axios.get('http://127.0.0.1:8000/api/apartment')
                 .then((response) => {
                     this.Apartments = response.data;
-                    console.log(response.data)
+
                 })
         },
         getServices() {
