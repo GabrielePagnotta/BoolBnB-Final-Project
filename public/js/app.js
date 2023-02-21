@@ -1978,8 +1978,28 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Show'
+  name: 'Show',
+  data: function data() {
+    return {
+      ShowApartment: []
+    };
+  },
+  mounted: function mounted() {
+    this.getShowApartments();
+  },
+  methods: {
+    getShowApartments: function getShowApartments() {
+      var _this = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/showed/" + this.$route.params.id).then(function (response) {
+        console.log(_this.$route.params.id);
+        _this.ShowApartment = response.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2015,7 +2035,7 @@ var staticRenderFns = [function () {
       href: "/"
     }
   }, [_c("img", {
-    staticClass: "size-logo w-75",
+    staticClass: "size-logo w-50",
     attrs: {
       src: __webpack_require__(/*! ../assets/B.png */ "./resources/js/assets/B.png"),
       alt: "logo"
@@ -2070,18 +2090,16 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("TUTTI GLI APPARTAMENTI:")]), _vm._v(" "), _c("router-link", {
-    staticClass: "text",
-    attrs: {
-      to: {
-        name: "Show"
-      }
-    }
-  }, [_c("div", {
+  return _c("div", [_c("h1", [_vm._v("TUTTI GLI APPARTAMENTI:")]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center m-4"
   }, _vm._l(_vm.Apartments, function (elem) {
     return _c("div", {
       key: elem.id
+    }, [_c("router-link", {
+      staticClass: "text",
+      attrs: {
+        to: "/showed/".concat(elem.id)
+      }
     }, [_c("div", {
       staticClass: "card mx-3 border",
       staticStyle: {
@@ -2123,8 +2141,8 @@ var render = function render() {
       staticClass: "fa-solid fa-ruler-combined"
     }), _vm._v(" "), _c("span", [_vm._v(_vm._s(elem["square_meters"]))])])])]), _vm._v(" "), _c("p", {
       staticClass: "text-center my-3"
-    }, [_c("strong", [_vm._v("prezzo: ")]), _vm._v(_vm._s(elem["price"]) + "€")])])])]);
-  }), 0)])], 1);
+    }, [_c("strong", [_vm._v("prezzo: ")]), _vm._v(_vm._s(elem["price"]) + "€")])])])])], 1);
+  }), 0)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2146,11 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("Navbar"), _vm._v(" "), _c("router-view", {
-    attrs: {
-      info: _vm.Apartments
-    }
-  })], 1);
+  return _c("div", [_c("Navbar"), _vm._v(" "), _c("router-view")], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2172,12 +2186,43 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("div", {
+    staticClass: "card mb-3"
+  }, [_vm.ShowApartment.cover == null ? _c("img", {
+    staticClass: "w-100",
+    attrs: {
+      src: "https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg",
+      alt: "fff"
+    }
+  }) : _c("img", {
+    staticClass: "w-100",
+    staticStyle: {
+      "border-radius": "10px"
+    },
+    attrs: {
+      src: "/storage/".concat(_vm.ShowApartment.cover),
+      alt: "apartment-image"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v(_vm._s(_vm.ShowApartment.title))]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v(_vm._s(_vm.ShowApartment.description))]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-around"
+  }, [_c("p", [_c("strong", [_vm._v("bagni:")]), _vm._v("  " + _vm._s(_vm.ShowApartment.bathrooms))]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("Camere:")]), _vm._v(" " + _vm._s(_vm.ShowApartment.rooms))]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("indirizzo:")]), _vm._v(" " + _vm._s(_vm.ShowApartment.address))]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("metri quadri:")]), _vm._v(" " + _vm._s(_vm.ShowApartment.square_meters))]), _vm._v(" "), _c("p", [_c("strong", [_vm._v("prezzo:")]), _vm._v(" " + _vm._s(_vm.ShowApartment.price) + "€")])]), _vm._v(" "), _vm._m(0)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("ciao")])]);
+  return _c("p", {
+    staticClass: "card-text"
+  }, [_c("small", {
+    staticClass: "text-muted"
+  }, [_vm._v("Last updated 3 mins ago")])]);
 }];
 render._withStripped = true;
 
@@ -53995,7 +54040,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'Apartments',
     component: _views_Apartments_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/show',
+    path: '/showed/:id',
     name: 'Show',
     component: _views_Show_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]

@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <!-- <Apartments :info="Apartments"/> -->
-        <router-view :info="Apartments"></router-view>
+        <router-view></router-view>
     </div>
 </template>
 

@@ -18,7 +18,7 @@ const router = new VueRouter({
             component: Apartments
         },
         {
-            path: '/show',
+            path: '/showed/:id',
             name: 'Show',
             component: Show
         }

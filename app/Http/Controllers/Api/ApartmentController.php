@@ -25,7 +25,7 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $id)
     {
         //
     }
@@ -38,7 +38,10 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $single_Apartment = Apartment::find($id);
+
+        return response()->json($single_Apartment);
+
     }
 
     /**

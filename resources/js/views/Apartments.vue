@@ -1,9 +1,9 @@
 <template>
     <div>
         <h1>TUTTI GLI APPARTAMENTI:</h1>
-        <router-link class="text" :to="{ name:'Show' }">
         <div class="d-flex justify-content-center m-4">
-                <div v-for="elem in Apartments" :key="elem.id">
+            <div v-for="elem in Apartments" :key="elem.id">
+                <router-link class="text" :to="`/showed/${elem.id}`">
                     <div class="card mx-3 border" style="max-width: 15rem; border-radius: 20px;">
                         <img v-if="elem.cover == null" class="w-100"
                             src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -41,9 +41,9 @@
                         </div>
                     </div>
 
+                </router-link>
                 </div>
             </div>
-        </router-link>
 
     </div>
 </template>
