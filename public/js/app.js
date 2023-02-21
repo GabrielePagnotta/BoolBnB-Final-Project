@@ -1928,11 +1928,14 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      Apartments: []
+      Apartments: [],
+      Service: [],
+      showup: false
     };
   },
   mounted: function mounted() {
     this.getApartments();
+    this.getServices();
   },
   methods: {
     getApartments: function getApartments() {
@@ -1940,6 +1943,18 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('http://127.0.0.1:8000/api/apartment').then(function (response) {
         _this.Apartments = response.data;
         console.log(response.data);
+      });
+    },
+    getServices: function getServices() {
+      var _this2 = this;
+      axios.get('http://127.0.0.1:8000/api/services').then(function (response) {
+        _this2.Service = response.data;
+      });
+    },
+    showApartments: function showApartments(serviceId) {
+      this.showup = true;
+      this.Apartments = this.Apartments.filter(function (apartment) {
+        return apartment.id === Service.id;
       });
     }
   }
@@ -2091,22 +2106,38 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("h1", [_vm._v("TUTTI GLI APPARTAMENTI:")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center m-4"
-  }, _vm._l(_vm.Apartments, function (elem) {
+    staticClass: "d-flex justify-content-center"
+  }, _vm._l(_vm.Service, function (service) {
     return _c("div", {
-      key: elem.id
-    }, [_c("router-link", {
+      key: service.id,
+      on: {
+        click: function click($event) {
+          return _vm.showApartments(service.id);
+        }
+      }
+    }, [_c("div", [_c("span", {
+      staticClass: "tag"
+    }, [_vm._v(_vm._s(service["typeOfService"].toUpperCase()))])])]);
+  }), 0), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center m-4"
+  }, _vm._l(_vm.Apartments, function (apartment) {
+    return _c("div", {
+      key: apartment.id
+    }, [_vm.showup ? _c("router-link", {
       staticClass: "text",
       attrs: {
-        to: "/showed/".concat(elem.id)
+        to: "/showed/".concat(apartment.id)
       }
     }, [_c("div", {
       staticClass: "card mx-3 border",
       staticStyle: {
         "max-width": "15rem",
         "border-radius": "20px"
+      },
+      attrs: {
+        id: "card"
       }
-    }, [elem.cover == null ? _c("img", {
+    }, [_vm.elem.cover == null ? _c("img", {
       staticClass: "w-100",
       attrs: {
         src: "https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg",
@@ -2118,30 +2149,30 @@ var render = function render() {
         "border-radius": "10px"
       },
       attrs: {
-        src: "/storage/".concat(elem.cover),
+        src: "/storage/".concat(_vm.elem.cover),
         alt: "apartment-image"
       }
     }), _vm._v(" "), _c("div", {
       staticClass: "card-body"
     }, [_c("h5", {
       staticClass: "card-title"
-    }, [_vm._v(_vm._s(elem["title"]))]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.elem["title"]))]), _vm._v(" "), _c("div", {
       staticClass: "d-flex justify-content-center"
     }, [_c("div", {
       staticClass: "d-flex w-100 justify-content-around"
     }, [_c("div", [_c("i", {
       staticClass: "fa-solid fa-toilet px-2"
-    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(elem["bathrooms"]))])]), _vm._v(" "), _c("div", [_c("i", {
+    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.elem["bathrooms"]))])]), _vm._v(" "), _c("div", [_c("i", {
       staticClass: "fa-solid fa-bed"
-    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(elem["bedrooms"]))])])]), _vm._v(" "), _c("div", {
+    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.elem["bedrooms"]))])])]), _vm._v(" "), _c("div", {
       staticClass: "d-flex w-100 justify-content-around"
     }, [_c("div", [_c("i", {
       staticClass: "fa-solid fa-door-closed"
-    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(elem["rooms"]))])]), _vm._v(" "), _c("div", [_c("i", {
+    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.elem["rooms"]))])]), _vm._v(" "), _c("div", [_c("i", {
       staticClass: "fa-solid fa-ruler-combined"
-    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(elem["square_meters"]))])])])]), _vm._v(" "), _c("p", {
+    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.elem["square_meters"]))])])])]), _vm._v(" "), _c("p", {
       staticClass: "text-center my-3"
-    }, [_c("strong", [_vm._v("prezzo: ")]), _vm._v(_vm._s(elem["price"]) + "€")])])])])], 1);
+    }, [_c("strong", [_vm._v("prezzo: ")]), _vm._v(_vm._s(_vm.elem["price"]) + "€")])])])]) : _vm._e()], 1);
   }), 0)]);
 };
 var staticRenderFns = [];
@@ -6626,7 +6657,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-bbaab540]:hover {\n  transform: scale(1.1);\n}\n.text[data-v-bbaab540] {\n  text-decoration: none;\n  color: black;\n}\n.card[data-v-bbaab540] {\n  transition: transform 500ms;\n}", ""]);
+exports.push([module.i, ".card[data-v-bbaab540]:hover {\n  transform: scale(1.1);\n}\n.text[data-v-bbaab540] {\n  text-decoration: none;\n  color: black;\n}\n.card[data-v-bbaab540] {\n  transition: transform 500ms;\n}\n.tag[data-v-bbaab540] {\n  font-size: 1.3rem;\n  background-color: pink;\n  border-radius: 10px;\n  padding: 10px;\n  margin: 1rem;\n  color: white;\n  cursor: pointer;\n}\n.tag[data-v-bbaab540]:hover {\n  background-color: crimson;\n}", ""]);
 
 // exports
 

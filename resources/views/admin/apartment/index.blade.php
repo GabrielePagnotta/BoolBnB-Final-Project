@@ -19,7 +19,6 @@
         <tbody>
             @foreach($info as $elem)
             <tr>
-
                 <td class="w-25">{{$elem['title']}}</td>
                 <td>{{$elem['address']}}</td>
                 <td>

@@ -14,7 +14,7 @@ class UpdateAddForeignApartmentUserTable extends Migration
     public function up()
     {
         Schema::table('apartments', function (Blueprint $table) {
-            $table->unsignedBigInteger('userId')->nullable();
+            $table->unsignedBigInteger('userId');
             $table->foreign('userId')->references('id')->on('users')->onDelete('set null');
         });
     }
