@@ -19,7 +19,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $info=Apartment::all();
+        $id = Auth::user()->id;
+        $info=Apartment::where('userId', $id)->get();
+
+
         return view('admin.apartment.index', compact('info'));
     }
 
@@ -68,7 +71,7 @@ class ApartmentController extends Controller
             $cover_url= Storage::put('apartment_covers', $data['image']);
             $data['cover']=$cover_url;
         }
-        array_push($data, $userData);
+        $data['userId'] = $userData;
 
         $newRecord->fill($data);
         $newRecord->save();
