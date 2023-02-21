@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Apartment;
-use App\Models\Service;
+USE App\Models\Service;
 
-class ApartmentController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,18 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $data=Apartment::All();
+        $data_service=Service::all();
+        return response()->json($data_service);
+    }
 
-
-        return response()->json($data);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -28,7 +35,7 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $id)
+    public function store(Request $request)
     {
         //
     }
@@ -41,10 +48,18 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        $single_Apartment = Apartment::find($id);
+        //
+    }
 
-        return response()->json($single_Apartment);
-
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**

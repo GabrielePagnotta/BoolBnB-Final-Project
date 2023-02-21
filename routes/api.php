@@ -22,3 +22,14 @@ Route::namespace('Api')->prefix('/apartment')->group(function(){
     Route::get('/', 'ApartmentController@index');
     Route::get('showed/{id}', 'ApartmentController@show');
 });
+
+Route::namespace('Api')->prefix('/services')->group(function(){
+    Route::get('/', 'ServiceController@index');
+
+});
+
+Route::namespace('Api')->prefix('/aptservices')->group(function(){
+    Route::get('/', 'ApartmentServiceController@index');
+
+});
+
