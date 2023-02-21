@@ -1908,8 +1908,37 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Navbar'
+  name: 'Navbar',
+  data: function data() {
+    return {
+      authUser: false // inizialmente impostata a null
+    };
+  },
+  created: function created() {
+    var _this = this;
+    // chiamata API per verificare lo stato di autenticazione dell'utente
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/User').then(function (response) {
+      _this.authUser = response.data;
+      console.log(_this.authUser);
+    });
+  },
+  computed: {
+    isLoggedIn: function isLoggedIn() {
+      return this.authUser !== false;
+    }
+  },
+  methods: {
+    logout: function logout() {
+      var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/logout').then(function () {
+        _this2.authUser = false;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2033,11 +2062,6 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", [_c("nav", {
     staticClass: "navbar navbar-expand-lg bg-body-tertiary",
     staticStyle: {
@@ -2045,17 +2069,60 @@ var staticRenderFns = [function () {
     }
   }, [_c("div", {
     staticClass: "container-fluid d-flex"
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "collapse navbar-collapse",
+    attrs: {
+      id: "navbarNav"
+    }
+  }), _vm._v(" "), _vm.isLoggedIn ? _c("div", {
+    staticClass: "d-flex align-items-center"
+  }, [_c("img", {
+    staticClass: "rounded-circle me-2",
+    attrs: {
+      src: _vm.authUser.profile_photo_url,
+      width: "30",
+      height: "30",
+      alt: "profile"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "dropdown"
   }, [_c("a", {
+    staticClass: "dropdown-toggle text-decoration-none text-dark",
+    attrs: {
+      href: "#",
+      role: "button",
+      id: "dropdownMenuLink",
+      "data-bs-toggle": "dropdown",
+      "aria-expanded": "false"
+    }
+  }, [_vm._v("\n            " + _vm._s(_vm.authUser.name) + "\n          ")]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "#"
+    },
+    on: {
+      click: _vm.logout
+    }
+  }, [_vm._v("Logout")])])]) : _c("div", [_vm._m(3)])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
     attrs: {
       href: "/"
     }
   }, [_c("img", {
     staticClass: "size-logo w-50",
     attrs: {
-      src: __webpack_require__(/*! ../assets/B.png */ "./resources/js/assets/B.png"),
+      src: "https://picsum.photos/id/10/50",
       alt: "logo"
     }
-  })]), _vm._v(" "), _c("button", {
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
     staticClass: "navbar-toggler",
     attrs: {
       type: "button",
@@ -2067,24 +2134,33 @@ var staticRenderFns = [function () {
     }
   }, [_c("span", {
     staticClass: "navbar-toggler-icon"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse",
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("ul", {
+    staticClass: "dropdown-menu",
     attrs: {
-      id: "navbarNav"
+      "aria-labelledby": "dropdownMenuLink"
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "d-flex"
-  }, [_c("a", {
-    staticClass: "m-2 btn btn-success",
+  }, [_c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Profilo")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("ul", [_c("li", [_c("a", {
     attrs: {
       href: "/login"
     }
-  }, [_vm._v("accedi")]), _vm._v(" "), _c("a", {
-    staticClass: "text-decoration-none btn btn-outline-success m-2",
+  }, [_vm._v("Accedi")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
       href: "/register"
     }
-  }, [_vm._v("registrati")])])])])]);
+  }, [_vm._v("Registrati")])])]);
 }];
 render._withStripped = true;
 
@@ -53892,17 +53968,6 @@ var app = new Vue({
     return h(_views_App__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
 });
-
-/***/ }),
-
-/***/ "./resources/js/assets/B.png":
-/*!***********************************!*\
-  !*** ./resources/js/assets/B.png ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/B.png?6e5d82c30d802d9fb951fcfbd4bbefcd";
 
 /***/ }),
 
