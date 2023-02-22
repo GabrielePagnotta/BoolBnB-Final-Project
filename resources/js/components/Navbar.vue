@@ -24,7 +24,7 @@
                 </div>
                 <div v-else-if="logout">
                     <ul>
-                        <li><a href="/login">Accedi</a></li>
+                        <li><a href="/login">Prova</a></li>
                         <li><a href="/register">Registrati</a></li>
                     </ul>
                 </div>
