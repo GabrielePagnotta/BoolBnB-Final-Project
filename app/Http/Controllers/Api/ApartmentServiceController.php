@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Service;
+use App\Models\Apartment;
 
 
 class ApartmentServiceController extends Controller
@@ -16,7 +16,7 @@ class ApartmentServiceController extends Controller
      */
     public function index()
     {
-        $apartmentServices = Service::with('apartments')->get();
+        $apartmentServices = Apartment::with('Services')->get();
         return response()->json($apartmentServices);
     }
 
