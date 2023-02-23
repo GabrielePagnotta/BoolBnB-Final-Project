@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>TUTTI GLI APPARTAMENTI:</h1>
         <!-- <div class="d-flex justify-content-center">
             <span @click="showApartments(false)" class="tag">tutti</span>
             <div v-for="service in Service" :key="service.id" @click="showApartments()">
@@ -12,10 +11,7 @@
                 </div>
             </div>
         </div> -->
-        <form>
-            Cerca:
-            <input type="text" v-model="search" placeholder="Città/Indirizzo...">
-        </form>
+
         <!-- appartamenti -->
         <div class="d-flex justify-content-start flex-wrap m-4">
             <!-- Ciclo stampa appartamenti -->
@@ -23,13 +19,15 @@
                 <!-- Redirect Show singolo appartamento -->
                 <router-link class="text" :to="`/showed/${apartment.id}`">
                     <!-- Carta -->
-                    <div id="card" class="card mx-3 border" style="max-width: 15rem; border-radius: 20px;">
-                        <!-- Controllo immagine non trovata -->
-                        <img v-if="apartment.cover == null" class="w-100"
-                            src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
-                            alt="fff">
-                        <img v-else class="w-100" style="border-radius: 10px;" :src="`/storage/${apartment.cover}`"
-                            alt="apartment-image">
+                    <div id="card" class="card mx-3 border" style="max-width: 300px; height: 600px; border-radius: 20px;">
+                        <div style="width: 100%; height: 300px; object-fit: cover; overflow: hidden;">
+                            <!-- Controllo immagine non trovata -->
+                            <img v-if="apartment.cover == null" class="w-100"
+                                src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
+                                alt="fff">
+                            <img v-else class="w-100" style="border-radius: 10px;" :src="`/storage/${apartment.cover}`"
+                                alt="apartment-image">
+                        </div>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ apartment['title'] }}</h5>
@@ -59,8 +57,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Prezzo -->
-                            <p class="text-center my-3"><strong>prezzo: </strong>{{ apartment['price'] }}€</p>
+                            <div>
+                                <!-- Prezzo -->
+                                <p class="text-center my-3"><strong>Prezzo: </strong>{{ apartment['price'] }}€</p>
+                                <p class="text-center my-3"><strong>Località: </strong>{{ apartment['address'] }}</p>
+                            </div>
                         </div>
                     </div>
 
@@ -127,11 +128,6 @@ export default {
                     });
                 })
         }
-        // showApartments() {
-        //     this.showup= !this.showup
-        // }
-
-
     }
 }
 
