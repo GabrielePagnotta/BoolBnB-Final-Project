@@ -144,11 +144,16 @@ $check = 0
             },
         };
 
-        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
         var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
         // document.body.append(searchBoxHTML)
         // var inputLat = document.getElementById("lat");
-        document.getElementById('inputIndirizzo').append(searchBoxHTML)
+
+
+        var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
+        inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+
+        document.getElementById('inputIndirizzo').append(searchBoxHTML);
 
         // Selezione campi input
         var resultLat = document.getElementById('inputLat');
