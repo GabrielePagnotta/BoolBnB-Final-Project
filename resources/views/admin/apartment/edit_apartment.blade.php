@@ -34,7 +34,14 @@
             {{-- Indirizzo --}}
             <div class="mb-3">
                 <label for="" class="form-label">Indirizzo</label>
-                <input type="text" class="form-control" id="" name="address" value='{{$file->address}}'>
+
+                <input type="hidden" name="latitude" id="inputLat">
+                <input type="hidden" name="longitude" id="inputLong">
+
+                {{-- Searchbar Geo --}}
+                <div id="inputIndirizzo"></div>
+                {{--
+                <input type="text" class="form-control" id="" name="address" value='{{$file->address}}'> --}}
             </div>
 
             {{-- Metri quadri --}}
@@ -84,4 +91,46 @@
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
     </div>
+
+<script>
+    var options = {
+            searchOptions: {
+                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                language: "en-GB",
+                limit: 5,
+            },
+            autocompleteOptions: {
+                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                language: "en-GB",
+            },
+        };
+
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+        // document.body.append(searchBoxHTML)
+        // var inputLat = document.getElementById("lat");
+
+
+        var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
+        inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+
+        document.getElementById('inputIndirizzo').append(searchBoxHTML);
+
+        // Selezione campi input
+        var resultLat = document.getElementById('inputLat');
+        var resultLong = document.getElementById('inputLong');
+
+
+
+        // stampa latitudine e longitudine in un div che crea
+        ttSearchBox.on('tomtom.searchbox.resultselected', function (event) {
+            var result = event.data.result;
+            var position = result.position;
+
+            resultLat.value = `${position.lat}`;
+            resultLong.value = `${position.lng}`;
+        });
+
+
+</script>
 @endsection

@@ -55,8 +55,8 @@ $check = 0
         <div class="mb-3">
             <label for="" class="form-label">Indirizzo</label>
 
-            <input type="text" name="latitude" id="inputLat">
-            <input type="text" name="longitude" id="inputLong">
+            <input type="hidden" name="latitude" id="inputLat">
+            <input type="hidden" name="longitude" id="inputLong">
 
             {{-- Searchbar Geo --}}
             <div id="inputIndirizzo"></div>
