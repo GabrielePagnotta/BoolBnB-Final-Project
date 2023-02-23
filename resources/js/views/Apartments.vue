@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- appartamenti -->
         <div v-if="this.showup" id="drf" class="d-flex justify-content-center m-4">
             <div v-for="apartment in Apartments" :key="apartment.id">
                 <router-link class="text" :to="`/showed/${apartment.id}`">
