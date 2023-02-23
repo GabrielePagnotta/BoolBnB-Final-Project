@@ -13,29 +13,30 @@
 
 
                 <!-- right side -->
-                <div v-if="isLoggedIn" class="d-flex align-items-center">
-                    <img src="https://thumbs.dreamstime.com/b/immagine-del-segnaposto-di-profilo-siluetta-grigia-nessuna-foto-127393483.jpg"  class="rounded-circle me-2 w-100 pointer"  width="30" height="30" alt="profile" @click="droptable()">
-                    <div class="dropdown">
-                        <a class=" text-decoration-none text-dark" href="#" role="button"
-                            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ authUser.name }}
-                        </a>
+                <div class="dropdown" v-if="authUser == null">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-address-card"></i>
+                    </a>
+
+                    <div class="dropdown-menu" style="left: auto; right: 0;">
+                        <a class="dropdown-item text-reset" href="/login">Login</a>
+                        <a class="dropdown-item text-reset" href="/register">Register</a>
                     </div>
                 </div>
-                <div v-else-if="logout">
-                    <ul>
-                        <li><a href="/login">Prova</a></li>
-                        <li><a href="/register">Registrati</a></li>
-                    </ul>
+                <div class="dropdown" v-else>
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-address-card"></i>
+                    </a>
+
+                    <div class="dropdown-menu" style="left: auto; right: 0;">
+                        <a class="dropdown-item text-reset" href="/admin/index">I Miei Appartamenti</a>
+                        <a class="dropdown-item text-reset" @click="logout(), reloadPage()">Logout</a>
+                    </div>
                 </div>
             </div>
         </nav>
-        <div class="dropdown-column" id="dropbar">
-            <ul>
-                <li class="d-flex justify-content-end my-2"><a href="/admin/index">i miei appartamenti</a></li>
-                <li class="d-flex justify-content-end mx-2"><a href="#" @click="logout">Logout</a></li>
-            </ul>
-        </div>
     </div>
 </template>
 
@@ -46,40 +47,22 @@ export default {
     name: 'Navbar',
     data() {
         return {
-            authUser: false, // inizialmente impostata a null
+            authUser: window.authUser // inizialmente impostata a null
         };
     },
     created() {
-        // chiamata API per verificare lo stato di autenticazione dell'utente
-        axios.get('/api/User').then((response) => {
-            this.authUser = response.data;
-
-        });
+        console.log(this.authUser)
     },
-    computed: {
-        isLoggedIn() {
-            return this.authUser !== false;
-        },
 
-    },
     methods: {
         logout() {
             axios.post('/logout').then(() => {
-                this.authUser = false;
+                window.localStorage.removeItem('token');
+                this.$router.push('/');
             });
         },
-
-        droptable() {
-            var menu = document.getElementById('dropbar');
-
-            if (menu.style.display === 'none') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-
-
-
+        reloadPage() {
+            window.location.reload();
         }
     },
 };
@@ -103,23 +86,21 @@ export default {
     display: none;
 }
 
-ul{
-  list-style: none;
+ul {
+    list-style: none;
 
 }
 
-li:hover{
+li:hover {
     background-color: crimson;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
-
-
 </style>
