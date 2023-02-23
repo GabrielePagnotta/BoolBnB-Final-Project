@@ -61,7 +61,7 @@ class ApartmentController extends Controller
             //  'longitude'=>'required|numeric|min:1|max:10',
              'square_meters'=>'required|numeric|min:1',
              'price'=>'required|numeric|min:1',
-             'address'=>'max:100',
+             'address'=>'required|max:100',
              'description'=>'required|max:200',
              'services'=>'required'
         ]);
