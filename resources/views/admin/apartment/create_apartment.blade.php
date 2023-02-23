@@ -11,9 +11,6 @@ $check = 0
 
 
         {{-- Nome appartamento --}}
-
-
-
         <div class="mb-3">
 
             <label for="" class="form-label">Nome appartamento</label>
@@ -36,7 +33,7 @@ $check = 0
         {{-- Posti letto --}}
         <div class="mb-3">
             <label for="" class="form-label">Posti letto</label>
-            <input type="number" class="form-control" id="" min='1' name="bedrooms" value="{{ old('bedroom') }}" required>
+            <input type="number" class="form-control" id="" min='1' name="bedrooms" value="{{ old('bedrooms') }}" required>
             @error('bedrooms')
             <div class="alert alert-danger"> Inserisci un numero valido</div>
             @enderror
@@ -59,11 +56,11 @@ $check = 0
             <input type="hidden" name="longitude" id="inputLong">
 
             {{-- Searchbar Geo --}}
-            <div id="inputIndirizzo"></div>
+            <div id="inputIndirizzo" name="indirizzo" value="{{ old('indirizzo') }}"></div>
             {{-- <input type="text" class="form-control" id="ricercaIndirizzo" min='1' name="address" value="{{ old('address') }}"> --}}
-            {{-- @error('address')
+            @error('address')
             <div class="alert alert-danger"> Inserisci un indirizzo valido</div>
-            @enderror --}}
+            @enderror
         </div>
 
 

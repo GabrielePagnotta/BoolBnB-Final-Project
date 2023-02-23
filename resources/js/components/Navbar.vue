@@ -1,11 +1,18 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3" style="background-color: #e3f2fd;">
-            <div class="container-fluid d-flex">
+            <div class="container d-flex align-items-center">
                 <!-- left side -->
                 <a href="/">
-                    <!-- <img class="size-logo w-50" src="../../../assets/B.png" alt="logo"> -->
+                    <!-- <img class="size-logo w-50" :src="asset('images/B.png')" alt="logo"> -->
+                    <span class="text-dark">[Logo]</span>
                 </a>
+                    <!-- <input type="text" v-model="search" placeholder="Città/Indirizzo..."> -->
+                    <div class="mb-3">
+                        <!-- <label for="searchApartments" class="form-label">Email address</label> -->
+                        <input type="text" class="form-control container-fluid" id="searchApartments" placeholder="Città/Indirizzo...">
+                    </div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -47,7 +54,8 @@ export default {
     name: 'Navbar',
     data() {
         return {
-            authUser: window.authUser // inizialmente impostata a null
+            // inizialmente impostata a null
+            authUser: window.authUser
         };
     },
     created() {

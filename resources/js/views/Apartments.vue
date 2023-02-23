@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>TUTTI GLI APPARTAMENTI:</h1>
         <!-- <div class="d-flex justify-content-center">
             <span @click="showApartments(false)" class="tag">tutti</span>
             <div v-for="service in Service" :key="service.id" @click="showApartments()">
@@ -12,10 +11,7 @@
                 </div>
             </div>
         </div> -->
-        <form>
-            Cerca:
-            <input type="text" v-model="search" placeholder="Città/Indirizzo...">
-        </form>
+
         <!-- appartamenti -->
         <div class="d-flex justify-content-start flex-wrap m-4">
             <!-- Ciclo stampa appartamenti -->
@@ -59,8 +55,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Prezzo -->
-                            <p class="text-center my-3"><strong>prezzo: </strong>{{ apartment['price'] }}€</p>
+                            <div>
+                                <!-- Prezzo -->
+                                <p class="text-center my-3"><strong>Prezzo: </strong>{{ apartment['price'] }}€</p>
+                                <p class="text-center my-3"><strong>Località: </strong>{{ apartment['address'] }}</p>
+                            </div>
                         </div>
                     </div>
 
