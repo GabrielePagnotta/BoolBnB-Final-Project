@@ -84,7 +84,19 @@ export default {
             Apartments: [],
             Service: [],
             Relation: [],
-            search: ''
+            search: '',
+             options : {
+            searchOptions: {
+                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                language: "en-GB",
+                limit: 5,
+            },
+            autocompleteOptions: {
+                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                language: "en-GB",
+            },
+        },
+
         };
     },
     mounted() {
@@ -124,6 +136,8 @@ export default {
 }
 
 </script>
+
+
 
 
 <style lang="scss" scoped>

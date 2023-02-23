@@ -1,33 +1,64 @@
 <template>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center background">
 
 
-            <div class="card mb-3">
-                <img v-if="ShowApartment.cover == null" class="w-100"
+            <div class="card mb-3 w-50 ">
+                <img v-if="ShowApartment.cover == null" class="w-100 "
                 src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                 alt="fff">
                 <img v-else class="w-100" style="border-radius: 10px;" :src="`/storage/${ShowApartment.cover}`" alt="apartment-image">
                 <div class="card-body">
-                    <h5 class="card-title">{{ ShowApartment.title }}</h5>
-                    <p class="card-text">{{ShowApartment.description}}</p>
-                    <div class="d-flex justify-content-around">
+                    <h2 class="card-title">{{ ShowApartment.title }}</h2>
+                    <hr class="mb-2" >
 
-                            <p> <strong>bagni:</strong>  {{ ShowApartment.bathrooms }}</p>
-                            <p><strong>Camere:</strong> {{ ShowApartment.rooms }}</p>
+                    <div class="d-flex justify-content-around my-4">
+                        <div class="col-6">
+                            <p class="mx-2"><strong>metri quadri: </strong> {{ShowApartment.square_meters}}</p>
+                            <hr>
+                            <p class="mx-2"><strong>Bagno/i:  </strong> {{ShowApartment.bathrooms}}</p>
+                            <hr>
+                            <p class="mx-2"><strong>Stanze/a: </strong> {{ShowApartment.rooms}}</p>
+                            <hr>
+                            <div>
+
+                                <p class="mx-2 btn btn-primary"><strong>Prezzo: </strong> {{ShowApartment.price}}€</p>
+                            </div>
+
+                        </div>
+                        <div class="col-6">
+
+                            <form action="" method="POST">
+                                <div v-if="authUser == null">
+                                    <input class="w-100 my-2" type="email" placeholder="inserisci email">
+                                </div>
+                                <div v-else>
+                                    <input class="w-100 my-2" type="email" :value=" authUser.email ">
+                                </div>
 
 
+                                <textarea class="w-100" name="" id="" cols="30" rows="10" placeholder="scrivi del testo..."></textarea>
+                                <button class="btn btn-primary">Invia</button>
 
-
-                            <p><strong>indirizzo:</strong> {{ ShowApartment.address }}</p>
-                            <p><strong>metri quadri:</strong> {{ ShowApartment.square_meters }}</p>
-
-
-
-                            <p><strong>prezzo:</strong> {{ ShowApartment.price }}€</p>
+                            </form>
+                        </div>
                     </div>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <hr>
+                    <h4>
+                        Descrizione:
+                    </h4>
+                    <div class="d-flex justify-content-center">
+                        <p class="card-text">{{ShowApartment.description}}</p>
+                    </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
     </div>
 </template>
 
@@ -39,7 +70,8 @@ export default {
 
     data() {
         return {
-            ShowApartment: []
+            ShowApartment: [],
+            authUser:window.authUser,
         }
     },
     mounted() {
@@ -64,6 +96,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.background{
+
+    background-image: url(../assets/pattern.jpg);
+}
+</style>
 
 

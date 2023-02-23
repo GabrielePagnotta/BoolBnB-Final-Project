@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,22 @@
 
     <title>Show</title>
 </head>
+
 <body>
-        <div id="root"></div>
-        <script src="{{asset('js/app.js')}}"></script>
+    <div id="root">
+        @if (Auth::check())
+        <script>
+            window.authUser = {
+                !!json_encode(Auth::user()) !!
+            };
+        </script>
+        @else
+        <script>
+            window.authUser = null;
+        </script>
+        @endif
+    </div>
+    <script src="{{asset('js/app.js')}}"></script>
 </body>
+
 </html>
