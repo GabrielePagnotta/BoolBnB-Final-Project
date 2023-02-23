@@ -54,9 +54,9 @@ class ApartmentController extends Controller
 
         $request->validate([
             'title'=>'required|max:100',
-             'rooms'=>'required|numeric|min:1|max:10',
-             'bedrooms'=>'required|numeric|min:1|max:10',
-             'bathrooms'=>'required|numeric|min:1|max:10',
+             'rooms'=>'required|numeric|min:1|max:100',
+             'bedrooms'=>'required|numeric|min:1|max:100',
+             'bathrooms'=>'required|numeric|min:1|max:100',
             //  'latitude'=>'required|numeric|min:1|max:10',
             //  'longitude'=>'required|numeric|min:1|max:10',
              'square_meters'=>'required|numeric|min:1',
