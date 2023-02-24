@@ -138,7 +138,7 @@ export default {
 
         var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
         inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
-        inputElement.setAttribute('value', '{{old("address")}}'); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
+        inputElement.setAttribute('value', ''); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
 
 
         document.getElementById('inputIndirizzo').append(searchBoxHTML);
