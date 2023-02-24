@@ -1,14 +1,17 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3" style="background-color: #e3f2fd;">
-            <div class="container d-flex align-items-center">
+            <div class="container d-flex justify-content-between align-items-center">
                 <!-- left side -->
-                <a href="/">
-                    <!-- <img class="size-logo w-50" :src="asset('images/B.png')" alt="logo"> -->
+                <div class="">
+                   <a href="/" style="width:200px;">
+                    <!-- <img class="size-logo w-100" src="../assets/B.png" alt="logo"> -->
                     <span class="text-dark">[Logo]</span>
-                </a>
+                   </a>
+                </div>
+
                     <!-- <input type="text" v-model="search" placeholder="Città/Indirizzo..."> -->
-                    <div class="mb-3">
+                    <div class="">
                         <!-- <label for="searchApartments" class="form-label">Email address</label> -->
                         <input type="text" class="form-control container-fluid" id="searchApartments" placeholder="Città/Indirizzo...">
                     </div>
