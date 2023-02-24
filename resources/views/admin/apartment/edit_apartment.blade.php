@@ -73,9 +73,13 @@
                 <label class="form-check-label">Rendi visibile</label>
 
 
-                {{-- <input type="checkbox" name="visibility" value=""> --}}
+                {{-- <input type="checkbox" name="visibility" value="{{$file->visibility}}"> --}}
+
                 <input type="hidden" name="visibility" value="0">
-                <input type="checkbox" name="visibility" value="1">
+                <input type="checkbox" name="visibility" value="1" {{ $file->visibility == 1 ? 'checked' : '' }}>
+
+
+
             </div>
 
             {{-- Servizi --}}
