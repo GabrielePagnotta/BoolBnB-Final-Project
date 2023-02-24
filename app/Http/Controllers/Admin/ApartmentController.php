@@ -109,6 +109,12 @@ class ApartmentController extends Controller
     {
         $file=Apartment::findOrFail($id);
         $services = Service::all();
+        $user = Auth::user();
+
+        if ($file->userId !== $user->id) {
+            // L'utente corrente non ha il permesso di modificare l'appartamento
+            return redirect()->route('mainPage');
+        }
 
         return view('admin.apartment.edit_apartment', compact('file', 'services'));
     }
