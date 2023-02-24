@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-center background">
 
 
-            <div class="card mb-3 w-50 ">
+            <div class="card mb-3 card ">
                 <img v-if="ShowApartment.cover == null" class="w-100 "
                 src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                 alt="fff">
@@ -11,8 +11,8 @@
                     <h2 class="card-title">{{ ShowApartment.title }}</h2>
                     <hr class="mb-2" >
 
-                    <div class="d-flex justify-content-around my-4">
-                        <div class="col-6">
+                    <div class="status justify-content-around my-4">
+                        <div class="area">
                             <p class="mx-2"><strong>metri quadri: </strong> {{ShowApartment.square_meters}}</p>
                             <hr>
                             <p class="mx-2"><strong>Bagno/i:  </strong> {{ShowApartment.bathrooms}}</p>
@@ -25,7 +25,7 @@
                             </div>
 
                         </div>
-                        <div class="col-6">
+                        <div class="area">
 
                             <form action="" method="POST">
                                 <div v-if="authUser == null">
@@ -98,9 +98,36 @@ export default {
 
 <style lang="scss" scoped>
 
+.status{
+    display: flex;
+}
+
 .background{
 
     background-image: url(../assets/pattern.jpg);
+}
+
+.card{
+    width: 50%;
+}
+
+.area{
+    width: 50%;
+}
+
+@media screen and (max-width: 900px) {
+  .card{
+    width: 80%;
+  }
+
+  .status{
+    display: block;
+  }
+
+  .area{
+    width: 80%;
+    margin: auto;
+  }
 }
 </style>
 
