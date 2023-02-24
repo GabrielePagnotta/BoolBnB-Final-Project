@@ -1,12 +1,12 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3" style="background-color: #e3f2fd;">
-            <div class="container d-flex justify-content-between align-items-center">
+            <div class="container-fluid d-flex justify-content-around align-items-center">
                 <!-- left side -->
                 <div class="">
-                   <a href="/" style="width:200px;">
-                    <!-- <img class="size-logo w-100" src="../assets/B.png" alt="logo"> -->
-                    <span class="text-dark">[Logo]</span>
+                   <a href="/" style="">
+                    <img class="size-logo w-50" src="../assets/B.png" alt="logo">
+                    <!-- <span class="text-dark">[Logo]</span> -->
                    </a>
                 </div>
 
@@ -15,11 +15,13 @@
                         <!-- <label for="searchApartments" class="form-label">Email address</label> -->
                         <input type="text" class="form-control container-fluid" id="searchApartments" placeholder="Città/Indirizzo...">
                     </div>
+                    <div class="">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
 
                 <!-- right side -->
