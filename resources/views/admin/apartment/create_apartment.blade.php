@@ -123,9 +123,9 @@ $check = 0
             @enderror
         </div>
 
-        <span class="text-danger">* Campi obbligatori</span>
-        <button type="submit" class="btn btn-primary">Submit</button>
 
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="campiObbligatori text-danger mt-2">* Campi obbligatori</div>
     </form>
 </div>
 
@@ -172,4 +172,10 @@ $check = 0
 
 
 </script>
+<style>
+    .campiObbligatori
+    {
+        font-size: 0.8rem;
+    }
+</style>
 @endsection
