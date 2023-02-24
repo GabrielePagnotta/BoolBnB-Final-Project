@@ -40,8 +40,9 @@
 
                 {{-- Searchbar Geo --}}
                 <div id="inputIndirizzo"></div>
-                {{--
-                <input type="text" class="form-control" id="" name="address" value='{{$file->address}}'> --}}
+                @error('address')
+                    <div class="alert alert-danger"> Inserisci un indirizzo valido</div>
+                @enderror
             </div>
 
             {{-- Metri quadri --}}
@@ -113,6 +114,8 @@
 
         var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
         inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+        inputElement.setAttribute('value', '{{$file->address}}'); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
+
 
         document.getElementById('inputIndirizzo').append(searchBoxHTML);
 

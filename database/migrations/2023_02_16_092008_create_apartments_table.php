@@ -25,7 +25,7 @@ class CreateApartmentsTable extends Migration
             $table->bigInteger('square_meters');
             $table->bigInteger('price');
             $table->boolean('visibility')->nullable();
-            $table->LongText('description');
+            $table->LongText('description')->nullable();
             $table->string('cover')->nullable();
             $table->string('address');
             $table->timestamps();

@@ -13,7 +13,7 @@ $check = 0
         {{-- Nome appartamento --}}
         <div class="mb-3">
 
-            <label for="" class="form-label">Nome appartamento</label>
+            <label for="" class="form-label">Nome appartamento <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="" name="title" value="{{ old('title') }}" required>
             @error('title')
             <div class="alert alert-danger"> Inserisci un titolo valido</div>
@@ -23,7 +23,7 @@ $check = 0
 
         {{-- Numero stanze --}}
         <div class="mb-3">
-            <label for="" class="form-label">Numero stanze</label>
+            <label for="" class="form-label">Numero stanze <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="" min='1' name="rooms" value="{{ old('rooms') }}" required>
             @error('rooms')
             <div class="alert alert-danger"> Inserisci un numero valido</div>
@@ -32,7 +32,7 @@ $check = 0
 
         {{-- Posti letto --}}
         <div class="mb-3">
-            <label for="" class="form-label">Posti letto</label>
+            <label for="" class="form-label">Posti letto <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="" min='1' name="bedrooms" value="{{ old('bedrooms') }}" required>
             @error('bedrooms')
             <div class="alert alert-danger"> Inserisci un numero valido</div>
@@ -40,7 +40,7 @@ $check = 0
         </div>
         {{-- Numero bagni --}}
         <div class="mb-3">
-            <label for="" class="form-label">Numero bagni</label>
+            <label for="" class="form-label">Numero bagni <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="" min='1' name="bathrooms" value="{{ old('bathrooms') }}" required>
             @error('bathrooms')
             <div class="alert alert-danger"> Inserisci un numero valido</div>
@@ -50,13 +50,13 @@ $check = 0
 
         {{-- Indirizzo --}}
         <div class="mb-3">
-            <label for="" class="form-label">Indirizzo</label>
+            <label for="" class="form-label">Indirizzo <span class="text-danger">*</span></label>
 
             <input type="hidden" name="latitude" id="inputLat">
             <input type="hidden" name="longitude" id="inputLong">
 
             {{-- Searchbar Geo --}}
-            <div id="inputIndirizzo" name="indirizzo" value="{{ old('indirizzo') }}"></div>
+            <div id="inputIndirizzo"></div>
             {{-- <input type="text" class="form-control" id="ricercaIndirizzo" min='1' name="address" value="{{ old('address') }}"> --}}
             @error('address')
             <div class="alert alert-danger"> Inserisci un indirizzo valido</div>
@@ -66,7 +66,7 @@ $check = 0
 
         {{-- Metri quadri --}}
         <div class="mb-3">
-            <label for="" class="form-label">Metri quadri</label>
+            <label for="" class="form-label">Metri quadri <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="" min='1' name="square_meters" value="{{ old('square_meters') }}" required>
             @error('square_meters')
             <div class="alert alert-danger"> Inserisci un numero valido</div>
@@ -75,7 +75,7 @@ $check = 0
 
         {{-- Prezzo --}}
         <div class="mb-3">
-            <label for="" class="form-label">Prezzo</label>
+            <label for="" class="form-label">Prezzo <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="" min='1' name="price" value="{{ old('price') }}" required>
             @error('price')
             <div class="alert alert-danger"> Inserisci un numero valido</div>
@@ -91,7 +91,7 @@ $check = 0
         {{-- Descrizione --}}
         <div class="mb-3">
             <label for="" class="form-label">Descrizione</label>
-            <textarea class="form-control" name="description" value="{{ old('description') }}" required></textarea>
+            <textarea class="form-control" name="description" value="{{ old('description') }}"></textarea>
             @error('description')
             <div class="alert alert-danger"> Inserisci una descrizione valida</div>
             @enderror
@@ -113,7 +113,7 @@ $check = 0
 
         {{-- Servizi --}}
         <div class="mb-3">
-            <label for="">Servizi</label>
+            <label for="">Servizi <span class="text-danger">*</span></label>
             @foreach ($services as $service)
             <input type="checkbox" name="services[]" value="{{$service->id}}">
             {{$service->typeOfService}}
@@ -123,8 +123,9 @@ $check = 0
             @enderror
         </div>
 
-
+        <span class="text-danger">* Campi obbligatori</span>
         <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 </div>
 
@@ -149,6 +150,8 @@ $check = 0
 
         var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
         inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+        inputElement.setAttribute('value', '{{old("address")}}'); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
+
 
         document.getElementById('inputIndirizzo').append(searchBoxHTML);
 
