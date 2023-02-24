@@ -16,56 +16,61 @@
         <div class="d-flex justify-content-center flex-wrap m-4">
             <!-- Ciclo stampa appartamenti -->
             <div v-for="apartment in Apartments" :key="apartment.id">
-                <!-- Redirect Show singolo appartamento -->
-                <router-link class="text" :to="`/showed/${apartment.id}`">
-                    <!-- Carta -->
-                    <div id="card" class="card mx-3 border" style="max-width: 300px; height: 600px; border-radius: 20px;">
-                        <div style="width: 100%; height: 300px; object-fit: cover; overflow: hidden;">
-                            <!-- Controllo immagine non trovata -->
-                            <img v-if="apartment.cover == null" class="w-100"
-                                src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
-                                alt="fff">
-                            <img v-else class="w-100" style="border-radius: 10px;" :src="`/storage/${apartment.cover}`"
-                                alt="apartment-image">
-                        </div>
+                <div v-if="apartment.visibility == 1">
+                    <!-- Redirect Show singolo appartamento -->
+                    <router-link class="text" :to="`/showed/${apartment.id}`">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ apartment['title'] }}</h5>
-                            <!-- Dettagli -->
-                            <div class="d-flex justify-content-center">
-                                <div class="d-flex w-100  justify-content-around ">
-                                    <div>
-                                        <i class="fa-solid fa-toilet px-2"></i>
-                                        <span>{{ apartment['bathrooms'] }}</span>
+                        <!-- Carta -->
+                        <div id="card" class="card mx-3 border"
+                            style="max-width: 300px; height: 600px; border-radius: 20px;">
+                            <div style="width: 100%; height: 300px; object-fit: cover; overflow: hidden;">
+                                <!-- Controllo immagine non trovata -->
+                                <img v-if="apartment.cover == null" class="w-100"
+                                    src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
+                                    alt="fff">
+                                <img v-else class="w-100" style="border-radius: 10px;" :src="`/storage/${apartment.cover}`"
+                                    alt="apartment-image">
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ apartment['title'] }}</h5>
+                                <!-- Dettagli -->
+                                <div class="d-flex justify-content-center">
+                                    <div class="d-flex w-100  justify-content-around ">
+                                        <div>
+                                            <i class="fa-solid fa-toilet px-2"></i>
+                                            <span>{{ apartment['bathrooms'] }}</span>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-bed"></i>
+                                            <span>{{ apartment['bedrooms'] }}</span>
+                                        </div>
                                     </div>
+                                    <div class="d-flex w-100 justify-content-around">
 
-                                    <div>
-                                        <i class="fa-solid fa-bed"></i>
-                                        <span>{{ apartment['bedrooms'] }}</span>
+                                        <div>
+                                            <i class="fa-solid fa-door-closed"></i>
+                                            <span>{{ apartment['rooms'] }}</span>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-ruler-combined"></i>
+                                            <span>{{ apartment['square_meters'] }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex w-100 justify-content-around">
-
-                                    <div>
-                                        <i class="fa-solid fa-door-closed"></i>
-                                        <span>{{ apartment['rooms'] }}</span>
-                                    </div>
-
-                                    <div>
-                                        <i class="fa-solid fa-ruler-combined"></i>
-                                        <span>{{ apartment['square_meters'] }}</span>
-                                    </div>
+                                <div>
+                                    <!-- Prezzo -->
+                                    <p class="text-center my-3"><strong>Prezzo: </strong>{{ apartment['price'] }}€</p>
+                                    <p class="text-center my-3"><strong>Località: </strong>{{ apartment['address'] }}</p>
                                 </div>
                             </div>
-                            <div>
-                                <!-- Prezzo -->
-                                <p class="text-center my-3"><strong>Prezzo: </strong>{{ apartment['price'] }}€</p>
-                                <p class="text-center my-3"><strong>Località: </strong>{{ apartment['address'] }}</p>
-                            </div>
                         </div>
-                    </div>
 
-                </router-link>
+                    </router-link>
+                </div>
+
 
             </div>
         </div>
@@ -86,17 +91,17 @@ export default {
             Service: [],
             Relation: [],
             search: '',
-             options : {
-            searchOptions: {
-                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-                language: "en-GB",
-                limit: 5,
+            options: {
+                searchOptions: {
+                    key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                    language: "en-GB",
+                    limit: 5,
+                },
+                autocompleteOptions: {
+                    key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                    language: "en-GB",
+                },
             },
-            autocompleteOptions: {
-                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-                language: "en-GB",
-            },
-        },
 
         };
     },
