@@ -37,7 +37,9 @@
                     <form class="d-inline" action="{{route('destroyApartment',$elem->id)}}" method="GET">
                         @csrf
                         @method('DELETE')
-                        <button type="submit"><i class="fa-solid fa-trash fs-1"></i></button>
+                        <button type="submit" onclick="return confirm('Are you sure?')">
+                            <i class="fa-solid fa-trash fs-1"></i>
+                        </button>
                     </form>
                 </td>
             </tr>
