@@ -13,7 +13,7 @@
         </div> -->
 
         <!-- appartamenti -->
-        <div class="d-flex justify-content-start flex-wrap m-4">
+        <div class="d-flex justify-content-center flex-wrap m-4">
             <!-- Ciclo stampa appartamenti -->
             <div v-for="apartment in Apartments" :key="apartment.id">
                 <!-- Redirect Show singolo appartamento -->
