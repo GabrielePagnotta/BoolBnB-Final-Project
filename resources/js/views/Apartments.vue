@@ -12,6 +12,15 @@
             </div>
         </div> -->
 
+        <div>
+            <input type="hidden" name="latitude" id="inputLat">
+            <input type="hidden" name="longitude" id="inputLong">
+
+            <!-- Searchbar Geo -->
+            <div id="inputIndirizzo"></div>
+        </div>
+
+
         <!-- appartamenti -->
         <div class="d-flex justify-content-center flex-wrap m-4">
             <!-- Ciclo stampa appartamenti -->
@@ -79,7 +88,7 @@
 
 <script>
 
-
+// import axios from 'axios';
 
 
 export default {
@@ -90,7 +99,6 @@ export default {
             Apartments: [],
             Service: [],
             Relation: [],
-            search: '',
             options: {
                 searchOptions: {
                     key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
@@ -108,7 +116,47 @@ export default {
     mounted() {
         this.getApartments();
         this.getServices();
-        this.getRelation()
+        this.getRelation();
+
+        var options = {
+            searchOptions: {
+                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                language: "en-GB",
+                limit: 5,
+            },
+            autocompleteOptions: {
+                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+                language: "en-GB",
+            },
+        };
+
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+        // document.body.append(searchBoxHTML)
+        // var inputLat = document.getElementById("lat");
+
+
+        var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
+        inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+        inputElement.setAttribute('value', '{{old("address")}}'); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
+
+
+        document.getElementById('inputIndirizzo').append(searchBoxHTML);
+
+        // Selezione campi input
+        var resultLat = document.getElementById('inputLat');
+        var resultLong = document.getElementById('inputLong');
+
+
+
+        // stampa latitudine e longitudine in un div che crea
+        ttSearchBox.on('tomtom.searchbox.resultselected', function (event) {
+            var result = event.data.result;
+            var position = result.position;
+
+            resultLat.value = `${position.lat}`;
+            resultLong.value = `${position.lng}`;
+        });
     },
     methods: {
         getApartments() {
