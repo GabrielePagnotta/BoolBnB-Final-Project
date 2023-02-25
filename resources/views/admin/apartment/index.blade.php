@@ -13,14 +13,20 @@
                 <th scope="col">Indirizzo</th>
                 <th scope="col">Foto</th>
                 <th scope="col">Descrizione</th>
+                <th scope="col">Stato</th>
                 <th scope="col">Dati</th>
             </tr>
         </thead>
         <tbody>
             @foreach($info as $elem)
             <tr>
+                {{-- Nome Appartamento --}}
                 <td class="w-25">{{$elem['title']}}</td>
+
+                {{-- Indirizzo Appartamento --}}
                 <td>{{$elem['address']}}</td>
+
+                {{-- Copertina Appartamento --}}
                 <td>
                     @if($elem['cover'])
                        <img style="max-width: 10%" src="{{asset("storage/$elem->cover")}}" alt="cover-img">
@@ -28,9 +34,24 @@
                         <img style="max-width: 10%" src="https://www.associazionejam.it/wp-content/uploads/2017/04/non-disponibile-300x300.png" alt="image-not-found">
                     @endif
                 </td>
+
+                {{-- Descrizione Appartamento --}}
                 <td class="w-25">
                     <article>{{$elem['description']}}</article>
                 </td>
+
+                {{-- Visibilità Appartamento --}}
+                <td class="w-25">
+                    <article>
+                        @if($elem['visibility'] == 0)
+                            Privato
+                        @elseif($elem['visibility'] == 1)
+                            Pubblico
+                        @endif
+                    </article>
+                </td>
+
+                {{-- Dati Appartamento --}}
                 <td>
                     <a href="{{route('editApartment',$elem->id)}}"><i class="fa-regular fa-pen-to-square fs-1"></i></a>
                     <a href=""><i class="fa-solid fa-chart-simple fs-1"></i></a>
