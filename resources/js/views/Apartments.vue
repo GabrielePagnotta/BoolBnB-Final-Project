@@ -134,7 +134,7 @@ export default {
         this.getApartments();
         this.getServices();
         this.getRelation();
-
+        this.Haversine(0, 0);
 
         var options = {
             searchOptions: {
