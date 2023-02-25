@@ -1,23 +1,23 @@
 <template>
   <div>
     <!-- <div class="d-flex justify-content-center">
-            <span @click="showApartments(false)" class="tag">tutti</span>
-            <div v-for="service in Service" :key="service.id" @click="showApartments()">
-                <div>
-                    <div>
+              <span @click="showApartments(false)" class="tag">tutti</span>
+              <div v-for="service in Service" :key="service.id" @click="showApartments()">
+                  <div>
+                      <div>
 
-                        <span class="tag">{{ service['typeOfService'].toUpperCase() }}</span>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+                          <span class="tag">{{ service['typeOfService'].toUpperCase() }}</span>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
 
     <div>
       <input type="hidden" name="latitude" id="inputLat" />
       <input type="hidden" name="longitude" id="inputLong" />
 
       <!-- Searchbar Geo -->
-      <div id="inputIndirizzo" class="container"></div>
+      <div id="inputIndirizzo"></div>
     </div>
 
     <!-- appartamenti -->
@@ -102,82 +102,74 @@
   </div>
 </template>
 
-<script>
-
+  <script>
 // import axios from 'axios';
 
-
 export default {
-    name: 'Apartments',
-    components: {},
-    data() {
-        return {
-            Apartments: [],
-            coordinates: [],
-            Service: [],
-            Relation: [],
-            options: {
-                searchOptions: {
-                    key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-                    language: "en-GB",
-                    limit: 5,
-                },
-                autocompleteOptions: {
-                    key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-                    language: "en-GB",
-                },
-            },
+  name: "Apartments",
+  components: {},
+  data() {
+    return {
+      Apartments: [],
+      coordinates: [],
+      Service: [],
+      Relation: [],
+      options: {
+        searchOptions: {
+          key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+          language: "en-GB",
+          limit: 5,
+        },
+        autocompleteOptions: {
+          key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+          language: "en-GB",
+        },
+      },
+    };
+  },
+  mounted() {
+    this.getApartments();
+    this.getServices();
+    this.getRelation();
 
-        };
-    },
-    mounted() {
-        this.getApartments();
-        this.getServices();
-        this.getRelation();
-        this.Haversine(0, 0);
+    var options = {
+      searchOptions: {
+        key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+        language: "en-GB",
+        limit: 5,
+      },
+      autocompleteOptions: {
+        key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+        language: "en-GB",
+      },
+    };
 
-        var options = {
-            searchOptions: {
-                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-                language: "en-GB",
-                limit: 5,
-            },
-            autocompleteOptions: {
-                key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-                language: "en-GB",
-            },
-        };
+    var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+    var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+    // document.body.append(searchBoxHTML)
+    // var inputLat = document.getElementById("lat");
 
-        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
-        var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
-        // document.body.append(searchBoxHTML)
-        // var inputLat = document.getElementById("lat");
+    var inputElement = searchBoxHTML.querySelector("input"); // Selezione input della barra di ricerca
+    inputElement.setAttribute("name", "address"); // Aggiunto l'attributo "name" con valore "address"
+    inputElement.setAttribute("value", ""); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
 
+    document.getElementById("inputIndirizzo").append(searchBoxHTML);
 
-        var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
-        inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
-
-        inputElement.setAttribute('value', ''); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
-
-
-        document.getElementById('inputIndirizzo').append(searchBoxHTML);
-
-        // Selezione campi input
-        var resultLat = document.getElementById('inputLat');
-        var resultLong = document.getElementById('inputLong');
-
-
+    // Selezione campi input
+    var resultLat = document.getElementById("inputLat");
+    var resultLong = document.getElementById("inputLong");
 
     // stampa latitudine e longitudine in un div che crea [funzione non puo avere this al suo interno]
-    ttSearchBox.on("tomtom.searchbox.resultselected", function (event) {
+    ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
       var result = event.data.result;
       var position = result.position;
 
       resultLat.value = `${position.lat}`;
       resultLong.value = `${position.lng}`;
 
-      console.log(resultLat.value, resultLong.value);
-      return this.Haversine(resultLat.value, resultLong.value);
+
+
+      this.Haversine(parseFloat(resultLat.value), parseFloat(resultLong.value));
     });
   },
   methods: {
@@ -218,6 +210,7 @@ export default {
     },
     Haversine(centerLat, centerLng) {
       // Ciclo per generare tutte le possibili coordinate nel raggio di 20 km
+      console.log(typeof centerLat);
       for (let lat = centerLat - 0.2; lat <= centerLat + 0.2; lat += 0.001) {
         for (let lng = centerLng - 0.2; lng <= centerLng + 0.2; lng += 0.001) {
           const distance = this.getDistanceFromLatLng(
@@ -226,25 +219,36 @@ export default {
             lat,
             lng
           );
-          if (distance <= 100) {
+          if (distance <= 20) {
             this.coordinates.push({
               lat: +lat.toFixed(4),
               lng: +lng.toFixed(4),
             });
           }
         }
-    }
-    console.log(this.coordinates);
-}
-}}
-
-
+      }
+      console.log(this.coordinates);
+    },
+  },
+};
 </script>
 
 
 <style lang="scss" scoped>
+#inputIndirizzo {
+  width: 80%;
+  margin: auto;
+}
 
-
+#inputIndirizzo * {
+  border-radius: 20px;
+}
+.tt-search-box {
+  border-radius: 20px;
+}
+.tt-search-box-input-container {
+  border-radius: 20px;
+}
 .card:hover {
   transform: scale(1.1);
 }
