@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3 personal-bg-pink">
             <div class="container-fluid d-flex justify-content-around align-items-center">
                 <!-- left side -->
                 <div class="">
@@ -10,11 +10,7 @@
                    </a>
                 </div>
 
-                    <!-- <input type="text" v-model="search" placeholder="Città/Indirizzo..."> -->
-                    <div class="">
-                        <!-- <label for="searchApartments" class="form-label">Email address</label> -->
-                        <input type="text" class="form-control container-fluid" id="searchApartments" placeholder="Città/Indirizzo...">
-                    </div>
+
                     <div class="">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,4 +112,10 @@ a {
     text-decoration: none;
     color: white;
 }
+
+
+
+// .personal-bg-pink {
+//     background: #f7b2c2;
+// }
 </style>

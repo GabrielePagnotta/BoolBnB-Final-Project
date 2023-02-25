@@ -17,7 +17,7 @@
       <input type="hidden" name="longitude" id="inputLong" />
 
       <!-- Searchbar Geo -->
-      <div id="inputIndirizzo"></div>
+      <div id="inputIndirizzo" class="container"></div>
     </div>
 
     <!-- appartamenti -->
@@ -156,6 +156,7 @@ export default {
 
         var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
         inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+
         inputElement.setAttribute('value', ''); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
 
 
@@ -242,6 +243,8 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
 .card:hover {
   transform: scale(1.1);
 }
