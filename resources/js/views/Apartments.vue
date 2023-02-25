@@ -17,7 +17,7 @@
       <input type="hidden" name="longitude" id="inputLong" />
 
       <!-- Searchbar Geo -->
-      <div id="inputIndirizzo" ></div>
+      <div id="inputIndirizzo"></div>
     </div>
 
     <!-- appartamenti -->
@@ -110,6 +110,8 @@ export default {
   components: {},
   data() {
     return {
+      Lat: 0,
+      Lng: 0,
       coordinates: [],
       Apartments: [],
       Service: [],
@@ -131,8 +133,6 @@ export default {
     this.getApartments();
     this.getServices();
     this.getRelation();
-    this.Haversine(45.6938, 9.43845);
-
 
     var options = {
       searchOptions: {
@@ -161,7 +161,7 @@ export default {
     var resultLat = document.getElementById("inputLat");
     var resultLong = document.getElementById("inputLong");
 
-    // stampa latitudine e longitudine in un div che crea
+    // stampa latitudine e longitudine in un div che crea [funzione non puo avere this al suo interno]
     ttSearchBox.on("tomtom.searchbox.resultselected", function (event) {
       var result = event.data.result;
       var position = result.position;
@@ -169,11 +169,9 @@ export default {
       resultLat.value = `${position.lat}`;
       resultLong.value = `${position.lng}`;
 
-
       console.log(resultLat.value, resultLong.value);
+      return this.Haversine(resultLat.value, resultLong.value);
     });
-
-
   },
   methods: {
     getApartments() {
@@ -211,7 +209,7 @@ export default {
       const distance = earthRadius * c; // distanza in km
       return distance;
     },
-    Haversine(centerLat, centerLng ) {
+    Haversine(centerLat, centerLng) {
       // Ciclo per generare tutte le possibili coordinate nel raggio di 20 km
       for (let lat = centerLat - 0.2; lat <= centerLat + 0.2; lat += 0.001) {
         for (let lng = centerLng - 0.2; lng <= centerLng + 0.2; lng += 0.001) {
@@ -222,7 +220,10 @@ export default {
             lng
           );
           if (distance <= 100) {
-            this.coordinates.push({ lat: +lat.toFixed(4), lng: +lng.toFixed(4) });
+            this.coordinates.push({
+              lat: +lat.toFixed(4),
+              lng: +lng.toFixed(4),
+            });
           }
         }
       }
