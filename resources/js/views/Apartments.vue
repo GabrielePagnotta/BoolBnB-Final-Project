@@ -113,6 +113,7 @@ export default {
     data() {
         return {
             Apartments: [],
+            coordinates: [],
             Service: [],
             Relation: [],
             options: {
@@ -133,6 +134,7 @@ export default {
         this.getApartments();
         this.getServices();
         this.getRelation();
+
 
         var options = {
             searchOptions: {
@@ -231,6 +233,7 @@ export default {
           }
         }
     }
+    console.log(this.coordinates);
 }
 }}
 
