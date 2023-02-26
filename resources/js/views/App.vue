@@ -1,5 +1,5 @@
 <template>
-    <div class="height-100 personal-gb-lightpink">
+    <div class="height-100 personal-bg-lightpink">
         <Navbar />
         <!-- <Apartments :info="Apartments"/> -->
         <router-view></router-view>
@@ -30,7 +30,7 @@
         height: 100vh;
     }
 
-    .personal-gb-lightpink {
+    .personal-bg-lightpink {
     background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);
 }
 </style>

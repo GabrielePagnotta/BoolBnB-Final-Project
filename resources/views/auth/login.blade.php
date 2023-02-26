@@ -5,17 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card personal-radius-top personal-radius-bottom personal-opacity-70">
-                <div class="card-header personal-radius-top personal-bg-lightblue-reverse text-light text-shadow"><h3>{{ __('Login') }}</h3></div>
+                <div class="card-header personal-radius-top personal-bg-pink-reverse text-light text-shadow"><h3>{{ __('Login') }}</h3></div>
 
-                <div class="card-body personal-radius-bottom personal-bg-lightblue">
+                <div class="card-body personal-radius-bottom personal-bg-pink">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right text-light text-shadow"><h5>{{ __('E-Mail Address') }}</h5></label>
+                        <div class="d-flex flex-column align-items-center mb-4">
+                            <label for="email" class="col-form-label text-md-right text-light text-shadow"><h5>{{ __('E-Mail Address') }}</h5></label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="text-center form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,11 +25,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right text-light text-shadow"><h5>{{ __('Password') }}</h5></label>
+                        <div class="d-flex flex-column align-items-center mb-4">
+                            <label for="password" class="col-form-label text-md-right text-light text-shadow"><h5>{{ __('Password') }}</h5></label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="text-center form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="d-flex flex-column align-items-center mb-4">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -51,9 +51,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-light text-dark box-shadow">
+                        <div class="d-flex flex-column align-items-center mb-4">
+                            <div class="col-md-8 d-flex flex-column align-items-center">
+                                <button type="submit" class="col-md-2 d-block btn btn-light border-danger text-danger box-shadow text-fw">
                                     {{ __('Login') }}
                                 </button>
 
@@ -73,17 +73,17 @@
 
 <style>
     .personal-radius-top {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
     .personal-radius-bottom {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 300px;
+        border-bottom-right-radius: 300px;
     }
-    .personal-bg-lightblue {
+    .personal-bg-pink {
         background-image: linear-gradient(to top, #ff617e 20%, #f696a8);
     }
-    .personal-bg-lightblue-reverse {
+    .personal-bg-pink-reverse {
         background-image: linear-gradient(to bottom, #ff617e 20%, #FF8098);
     }
     .text-shadow {
@@ -97,6 +97,9 @@
     }
     .personal-opacity-70 {
         opacity: 0.70;
+    }
+    .text-fw {
+        font-weight: 900;
     }
 </style>
 @endsection

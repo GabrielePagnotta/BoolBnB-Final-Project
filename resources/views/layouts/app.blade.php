@@ -38,7 +38,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md height-7 personal-bg-lightpink shadow-sm p-4">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="w-50" src="{{asset('images/B.png')}}" alt="logo">
@@ -58,11 +58,11 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link personal-text-LoginRegister" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link personal-text-LoginRegister" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
@@ -93,7 +93,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 personal-bg-lightpink-reverse height-93">
             @yield('content')
         </main>
     </div>
@@ -101,3 +101,31 @@
 </body>
 
 </html>
+
+<style>
+    .height-7 {
+        height: 7vh;
+    }
+    .height-93 {
+        height: 93vh;
+    }
+    .personal-bg-lightpink {
+        background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);
+    }
+    .personal-bg-lightpink-reverse {
+        background-image: linear-gradient(to top, #ffd2dc 20% , #fff0f3);
+    }
+    .height-100{
+        height: 100vh;
+    }
+    .personal-text-LoginRegister {
+        color: #ff3d60;
+        font-weight: bold;
+    }
+    .nav-link:hover {
+        transform: scale(1.1);
+        letter-spacing: 0.1rem;
+        color: #f33b5d;
+        text-shadow: 0 0 30px #cb1515;
+    }
+</style>
