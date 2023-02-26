@@ -166,8 +166,8 @@ $check = 0
             var result = event.data.result;
             var position = result.position;
 
-            resultLat.value = `${position.lat}`;
-            resultLong.value = `${position.lng}`;
+            resultLat.value = `${position.lat.toFixed(3)}`;
+            resultLong.value = `${position.lng.toFixed(3)}`;
         });
 
 
