@@ -4,7 +4,7 @@ $check = 0
 ?>
 
 @section('content')
-<div class="container">
+<div class="container mainscroll">
     <form action="{{route('saveApartment')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
@@ -173,8 +173,7 @@ $check = 0
 
 </script>
 <style>
-    .campiObbligatori
-    {
+    .campiObbligatori {
         font-size: 0.8rem;
     }
 </style>

@@ -108,6 +108,7 @@
     }
     .height-93 {
         height: 93vh;
+        overflow-y: scroll
     }
     .personal-bg-lightpink {
         background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);
