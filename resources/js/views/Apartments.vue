@@ -13,7 +13,7 @@
           </div> -->
 
     <div
-      class="d-flex m-auto justify-content-around"
+      class="d-flex m-auto justify-content-center"
       style="width: 60%; height: auto"
     >
       <input type="hidden" name="latitude" id="inputLat" />
@@ -22,7 +22,7 @@
       <!-- Searchbar Geo -->
       <div id="inputIndirizzo"></div>
 
-      <div  class="dropdown align-self-end">
+      <div  class="dropdown align-self-end my-1" style="margin-left: 20px;">
         <a
           class="btn btn-secondary dropdown-toggle"
           href="#"
@@ -90,7 +90,7 @@
               <!-- Carta -->
               <div
                 id="card"
-                class="card mx-3 border"
+                class="card m-3 border"
                 style="max-width: 300px; height: 400px; border-radius: 20px"
               >
                 <div
@@ -458,6 +458,7 @@ export default {
 
 
 <style lang="scss" scoped>
+
 .bFilter {
   color: white;
   background-color: black;
