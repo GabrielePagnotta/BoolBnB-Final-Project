@@ -264,8 +264,9 @@ export default {
       soldatino: false,
       camereDaLetto: 0,
       stanze: 0,
-      distanza: 20,
-
+      distanza: 40,
+      Lat: 0,
+      Lng: 0,
 
       options: {
         searchOptions: {
@@ -326,8 +327,11 @@ export default {
       resultLat.value = `${position.lat}`;
       resultLong.value = `${position.lng}`;
 
+      this.Lat = parseFloat(resultLat.value);
+      this.Lng = parseFloat(resultLong.value);
+
       //salvo tutte le coordinate nel raggio minimo prestabilito di 20km
-      this.Haversine(parseFloat(resultLat.value), parseFloat(resultLong.value));
+      //this.Haversine(parseFloat(resultLat.value), parseFloat(resultLong.value));
       //verifico se in quel raggio esistano o meno degli appartamenti
       this.researchApartment();
     });
@@ -369,8 +373,8 @@ export default {
       return distance;
     },
     Haversine(centerLat, centerLng) {
+      this.coordinates = [];
       // Ciclo per generare tutte le possibili coordinate nel raggio di 20 km
-      console.log(typeof centerLat);
       for (let lat = centerLat - 0.2; lat <= centerLat + 0.2; lat += 0.001) {
         for (let lng = centerLng - 0.2; lng <= centerLng + 0.2; lng += 0.001) {
           const distance = this.getDistanceFromLatLng(
@@ -379,7 +383,7 @@ export default {
             lat,
             lng
           );
-          if (distance <= this.distanza) {
+          if (distance <= 80) {
             this.coordinates.push({
               lat: +lat.toFixed(3),
               lng: +lng.toFixed(3),
@@ -427,6 +431,9 @@ export default {
     },
     researchApartment() {
       this.ApartmentsChecked = [];
+
+      this.Haversine(this.Lat, this.Lng);
+
       for (let i = 0; i < this.Apartments.length; i++) {
         for (let j = 0; j < this.coordinates.length; j++) {
           if (
@@ -452,13 +459,6 @@ export default {
       } else {
         return (bar.style.display = "none");
       }
-
-      //   var menu = document.getElementById('dropbar');
-      //         if (menu.style.display === 'none') {
-      //             menu.style.display = 'block';
-      //         } else {
-      //             menu.style.display = 'none';
-      //         }
     },
   },
 };
