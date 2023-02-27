@@ -513,7 +513,9 @@ export default {
 
 .search{
     display: none;
-
+    position: absolute;
+    z-index: 1;
+    border: 1px solid black;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
