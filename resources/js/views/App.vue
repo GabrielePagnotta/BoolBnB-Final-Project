@@ -26,9 +26,10 @@
         box-sizing: border-box;
 
     }
-    .height-100{
-        height: 100vh;
-    }
+    // .height-100{
+    //     height: 100vh;
+    //     overflow-y: scroll;
+    // }
 
     .personal-bg-lightpink {
     background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);

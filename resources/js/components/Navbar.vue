@@ -1,7 +1,7 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3 personal-bg-pink">
-            <div class="container-fluid d-flex justify-content-around align-items-center">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3 personal-bg-lightpink height-7 personal-shadow-bottom">
+            <div class="container-fluid d-flex justify-content-between align-items-center px-4">
                 <!-- left side -->
                 <div class="">
                    <a href="/" style="">
@@ -78,6 +78,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.height-7 {
+    height: 7vh;
+}
+
+.personal-bg-lightpink {
+    background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);
+}
+.personal-shadow-bottom {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
 .size-logo {
     width: 7%;
 }

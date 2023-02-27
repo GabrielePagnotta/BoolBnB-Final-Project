@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="personal-bg-lightpink-reverse height-93">
     <!-- <div class="d-flex justify-content-center">
               <span @click="showApartments(false)" class="tag">tutti</span>
               <div v-for="service in Service" :key="service.id" @click="showApartments()">
@@ -13,18 +13,19 @@
           </div> -->
 
     <div
-      class="d-flex m-auto justify-content-center"
+      class="d-flex m-auto justify-content-center align-items-center"
       style="width: 60%; height: auto"
     >
       <input type="hidden" name="latitude" id="inputLat" />
       <input type="hidden" name="longitude" id="inputLong" />
 
       <!-- Searchbar Geo -->
-      <div id="inputIndirizzo"></div>
+      <div id="inputIndirizzo" class="my-5"></div>
 
-      <div  class="dropdown align-self-end my-1" style="margin-left: 20px;">
+      <div  class="dropdown d-flex" style="margin-left: 20px;">
         <a
-          class="btn btn-secondary dropdown-toggle"
+          class="btn btn-secondary dropdown-toggle align-self-center"
+          style="margin-top: 10px;"
           href="#"
           role="button"
           data-toggle="dropdown"
@@ -80,8 +81,8 @@
     </div>
 
     <!-- appartamenti -->
-    <div class="d-flex justify-content-center flex-wrap m-4">
-      <div v-if="this.soldatino == false" class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap">
+      <div v-if="this.soldatino == false" class="d-flex justify-content-center flex-wrap">
         <!-- Ciclo stampa appartamenti -->
         <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta ">
           <div v-if="apartment.visibility == 1">
@@ -104,6 +105,7 @@
                   <!-- Controllo immagine non trovata -->
                   <img
                     v-if="apartment.cover == null"
+                    style="border-radius: 20px"
                     class="w-100"
                     src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                     alt="fff"
@@ -111,7 +113,7 @@
                   <img
                     v-else
                     class="w-100"
-                    style="border-radius: 10px"
+                    style="border-radius: 20px"
                     :src="`/storage/${apartment.cover}`"
                     alt="apartment-image"
                   />
@@ -519,5 +521,13 @@ export default {
     background-color: white;
     border-radius: 10px;
     padding: 10px;
+}
+
+.personal-bg-lightpink-reverse {
+    background-image: linear-gradient(to top, #ffd2dc 20% , #fff0f3);
+}
+.height-93 {
+    height: 93vh;
+    overflow-y: scroll;
 }
 </style>
