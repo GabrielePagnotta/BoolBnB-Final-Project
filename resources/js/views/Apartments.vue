@@ -338,7 +338,7 @@ export default {
                         lat,
                         lng
                     );
-                    if (distance <= 80) {
+                    if (distance <= parseInt(this.distanza)) {
                         this.coordinates.push({
                             lat: +lat.toFixed(3),
                             lng: +lng.toFixed(3),
