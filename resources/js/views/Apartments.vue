@@ -272,7 +272,6 @@ export default {
       Service: [],
       Relation: [],
       services2: [],
-      Pivot: [],
       soldatino: false,
       camereDaLetto: 0,
       stanze: 0,
@@ -294,7 +293,6 @@ export default {
     };
   },
   mounted() {
-    this.getApartments();
     this.getServices();
     this.getRelation();
     this.getPivot();
@@ -352,13 +350,8 @@ export default {
   methods: {
     getPivot(){
         axios.get('http://127.0.0.1:8000/api/pivot').then((response) => {
-            this.Pivot = response.data;
+            this.Apartments = response.data;
         })
-    },
-    getApartments() {
-      axios.get("http://127.0.0.1:8000/api/apartment").then((response) => {
-        this.Apartments = response.data;
-      });
     },
     getServices() {
       axios.get("http://127.0.0.1:8000/api/services").then((response) => {
@@ -463,7 +456,13 @@ export default {
             if (this.Apartments[i].rooms >= this.stanze) {
               if (this.Apartments[i].bedrooms >= this.camereDaLetto) {
                 console.log(this.Apartments[i].bedrooms);
-                this.ApartmentsChecked.push(this.Apartments[i]);
+                if(this.services2 == null){
+                    this.ApartmentsChecked.push(this.Apartments[i]);
+                }else{
+                    //du for
+
+                }
+                //this.ApartmentsChecked.push(this.Apartments[i]);
               }
             }
           }
