@@ -39,6 +39,7 @@
               </div>
             </div>
             <div class="area">
+                <!-- messaggio -->
               <form action="" method="POST">
                 <div v-if="authUser == null">
                   <input
@@ -62,6 +63,7 @@
                   cols="30"
                   rows="10"
                   placeholder="scrivi del testo..."
+                  v-model="messageValue"
                 ></textarea>
                 <button class="btn btn-primary">Invia</button>
               </form>
@@ -90,7 +92,7 @@
     data() {
       return {
         ShowApartment: [],
-
+        messageValue:'',
         authUser: window.authUser,
         center: [4, 4.44],
       };
@@ -124,8 +126,25 @@
             //this.center = [response.data.latitude, response.data.longitude];
           });
       },
+
+      sendMessage() {
+        axios.post("http://127.0.0.1:8000/api/messages", {
+        message: this.messageValue
+    })
+    .then((response) => {
+        console.log(response);
+        this.messageValue ;
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+      },
     },
-  };
+
+    }
+
+
   </script>
 
 
