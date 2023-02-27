@@ -39,7 +39,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md height-7 personal-bg-lightpink shadow-sm p-4">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="w-50" src="{{asset('images/B.png')}}" alt="logo">
                 </a>
@@ -57,36 +57,36 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link personal-text-LoginRegister" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link personal-text-LoginRegister" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <!-- username -->
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->first_name }}
-                            </a>
-                            <!-- logut -->
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a href="{{route('mainPage')}}" class="dropdown-item">i miei appartmenti</a>
-                                <!-- <a href="{{route('addApartment')}}" class="dropdown-item">Aggiungi appartamento</a> -->
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                            <li class="nav-item">
+                                <a class="nav-link personal-text-LoginRegister" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link personal-text-LoginRegister" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                            @endif
+                            @else
+                            <!-- username -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-danger" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span class="personal-font-weight-900">{{ Auth::user()->first_name }}</span>
                                 </a>
+                                <!-- logut -->
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a href="{{route('mainPage')}}" class="dropdown-item">I miei appartmenti</a>
+                                    <!-- <a href="{{route('addApartment')}}" class="dropdown-item">Aggiungi appartamento</a> -->
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                <!-- aggiungi appartamento -->
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                                    <!-- aggiungi appartamento -->
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
 
-                        </li>
+                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -128,5 +128,8 @@
         letter-spacing: 0.1rem;
         color: #f33b5d;
         text-shadow: 0 0 30px #cb1515;
+    }
+    .personal-font-weight-900 {
+        font-weight: 900;
     }
 </style>

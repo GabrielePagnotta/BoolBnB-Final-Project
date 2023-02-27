@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary position-relative p-3 personal-bg-lightpink height-7 personal-shadow-bottom">
+        <nav class="navbar navbar-expand-lg position-relative p-3 personal-bg-lightpink height-7 personal-shadow-bottom">
             <div class="container-fluid d-flex justify-content-between align-items-center px-4">
                 <!-- left side -->
                 <div class="">
@@ -11,20 +11,21 @@
                 </div>
 
 
-                    <div class="">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
+                <div class="">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
 
 
                 <!-- right side -->
                 <div class="dropdown" v-if="authUser == null">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    <a class="btn dropdown-toggle btn btn-light border-danger text-danger box-shadow text-fw" href="#" role="button" data-toggle="dropdown"
                         aria-expanded="false">
-                        <i class="fa-solid fa-address-card"></i>
+                        <i class="fas fa-user"></i>
+
                     </a>
 
                     <div class="dropdown-menu" style="left: auto; right: 0;">
@@ -33,13 +34,13 @@
                     </div>
                 </div>
                 <div class="dropdown" v-else>
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                         aria-expanded="false">
-                        <i class="fa-solid fa-address-card"></i>
+                        <i class="fas fa-user text-danger"></i>
                     </a>
 
                     <div class="dropdown-menu" style="left: auto; right: 0;">
-                        <a class="dropdown-item text-reset" href="/admin/index">I Miei Appartamenti</a>
+                        <a class="dropdown-item text-reset" href="/admin/index">I miei appartamenti</a>
                         <a class="dropdown-item text-reset" @click="logout(), reloadPage()">Logout</a>
                     </div>
                 </div>

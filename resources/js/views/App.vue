@@ -1,5 +1,5 @@
 <template>
-    <div class="height-100 personal-bg-lightpink">
+    <div class="personal-bg-lightpink">
         <Navbar />
         <!-- <Apartments :info="Apartments"/> -->
         <router-view></router-view>
