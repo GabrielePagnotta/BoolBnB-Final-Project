@@ -21,7 +21,7 @@
 
             <div class="dropdown d-flex" style="margin-left: 20px">
                 <a class="btn btn-secondary dropdown-toggle align-self-center" style="margin-top: 10px" href="#"
-                    role="button" data-toggle="dropdown" aria-expanded="false" @click="showSerarch()">
+                    role="button"  aria-expanded="false" @click="showSerarch()">
                     <i class="fa-solid fa-filter"></i>
                 </a>
 
