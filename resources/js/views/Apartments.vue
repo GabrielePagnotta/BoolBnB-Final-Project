@@ -422,7 +422,7 @@ export default {
             if (this.Apartments[i].rooms >= this.stanze) {
               if (this.Apartments[i].bedrooms >= this.camereDaLetto) {
                 console.log(this.Apartments[i].bedrooms);
-                return this.ApartmentsChecked.push(this.Apartments[i]);
+                this.ApartmentsChecked.push(this.Apartments[i]);
               }
             }
           }
