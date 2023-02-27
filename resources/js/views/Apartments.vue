@@ -265,8 +265,6 @@ export default {
       camereDaLetto: 0,
       stanze: 0,
       distanza: 20,
-      resultLat,
-      resultLong,
 
 
       options: {
@@ -325,11 +323,11 @@ export default {
       var result = event.data.result;
       var position = result.position;
 
-      this.resultLat.value = `${position.lat}`;
-      this.resultLong.value = `${position.lng}`;
+      resultLat.value = `${position.lat}`;
+      resultLong.value = `${position.lng}`;
 
       //salvo tutte le coordinate nel raggio minimo prestabilito di 20km
-      this.Haversine(parseFloat(this.resultLat.value), parseFloat(this.resultLong.value));
+      this.Haversine(parseFloat(resultLat.value), parseFloat(resultLong.value));
       //verifico se in quel raggio esistano o meno degli appartamenti
       this.researchApartment();
     });
