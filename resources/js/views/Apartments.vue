@@ -78,7 +78,7 @@
     <div class="d-flex justify-content-center flex-wrap m-4">
       <div v-if="this.soldatino == false" class="d-flex flex-wrap">
         <!-- Ciclo stampa appartamenti -->
-        <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta col-lg-2">
+        <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta">
           <div v-if="apartment.visibility == 1">
             <!-- Redirect Show singolo appartamento -->
             <router-link class="text" :to="`/showed/${apartment.id}`">
