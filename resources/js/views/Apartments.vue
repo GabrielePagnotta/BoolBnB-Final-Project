@@ -64,6 +64,16 @@
               @click="increment2(2)"
             ></i>
           </div>
+          <!--servizi-->
+          <div>
+            <p>Servizi:</p>
+            <div v-for="elem in Service" :key="elem.id">
+              <label>
+                <input type="checkbox" :value="elem.id" v-model="services2" />
+                <span>{{ elem.typeOfService }}</span>
+              </label>
+            </div>
+          </div>
 
           <!--distanza-->
           <div class="px-3">
@@ -261,6 +271,7 @@ export default {
       coordinates: [],
       Service: [],
       Relation: [],
+      services2: [],
       soldatino: false,
       camereDaLetto: 0,
       stanze: 0,
@@ -431,6 +442,7 @@ export default {
     },
     researchApartment() {
       this.ApartmentsChecked = [];
+      console.log('tu mamma', this.service2);
 
       this.Haversine(this.Lat, this.Lng);
 
