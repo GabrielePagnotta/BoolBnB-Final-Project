@@ -22,44 +22,49 @@
       <!-- Searchbar Geo -->
       <div id="inputIndirizzo"></div>
 
-      <div class="dropdown align-self-end">
+      <div  class="dropdown align-self-end">
         <a
           class="btn btn-secondary dropdown-toggle"
           href="#"
           role="button"
           data-toggle="dropdown"
           aria-expanded="false"
+          @click="showSerarch"
         >
           <i class="fa-solid fa-filter"></i>
         </a>
 
-        <div class="dropdown-menu">
+        <div  class="position-relative" id="searchContainer"></div>
           <!--Stanze NUMERO 1-->
-          <div class="d-flex justify-content-around">
-            <p class="m-0">Stanze:</p>
-            <i
-              class="fa-solid fa-minus align-self-center"
-              @click="decrease(1)"
-            ></i>
-            <div class="align-self-center">{{ this.stanze }}</div>
-            <i
-              class="fa-solid fa-plus align-self-center"
-              @click="increment(1)"
-            ></i>
+
+          <div class="search" id="hello">
+
+              <div class="d-flex justify-content-around">
+                <p class="m-0">Stanze:</p>
+                <i
+                  class="fa-solid fa-minus align-self-center"
+                  @click="decrease(1)"
+                ></i>
+                <div class="align-self-center">{{ this.stanze }}</div>
+                <i
+                  class="fa-solid fa-plus align-self-center"
+                  @click="increment(1)"
+                ></i>
+              </div>
+              <!--posti letto NUMERO 2-->
+              <div class="d-flex justify-content-around">
+                <p class="m-0">Posti letto:</p>
+                <i
+                  class="fa-solid fa-minus align-self-center"
+                  @click="decrease(2)"
+                ></i>
+                <div class="align-self-center">{{ this.camereDaLetto }}</div>
+                <i
+                  class="fa-solid fa-plus align-self-center"
+                  @click="increment(2)"
+                ></i>
           </div>
-          <!--posti letto NUMERO 2-->
-          <div class="d-flex justify-content-around">
-            <p class="m-0">Posti letto:</p>
-            <i
-              class="fa-solid fa-minus align-self-center"
-              @click="decrease(2)"
-            ></i>
-            <div class="align-self-center">{{ this.camereDaLetto }}</div>
-            <i
-              class="fa-solid fa-plus align-self-center"
-              @click="increment(2)"
-            ></i>
-          </div>
+
           <!--distanza-->
           <div class="px-3">
             <p class="m-0">Distanza : {{ this.distanza }}</p>
@@ -78,7 +83,7 @@
     <div class="d-flex justify-content-center flex-wrap m-4">
       <div v-if="this.soldatino == false" class="d-flex flex-wrap">
         <!-- Ciclo stampa appartamenti -->
-        <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta">
+        <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta ">
           <div v-if="apartment.visibility == 1">
             <!-- Redirect Show singolo appartamento -->
             <router-link class="text" :to="`/showed/${apartment.id}`">
@@ -417,7 +422,7 @@ export default {
             if (this.Apartments[i].rooms >= this.stanze) {
               if (this.Apartments[i].bedrooms >= this.camereDaLetto) {
                 console.log(this.Apartments[i].bedrooms);
-                this.ApartmentsChecked.push(this.Apartments[i]);
+                return this.ApartmentsChecked.push(this.Apartments[i]);
               }
             }
           }
@@ -425,6 +430,28 @@ export default {
       }
       console.log("controllo finito");
     },
+    showSerarch(){
+      var bar=  document.getElementById('hello')
+
+      if(bar.style.display === 'none'){
+        return bar.style.display = 'block'
+      }else{
+        return bar.style.display='none'
+      }
+
+
+
+
+    //   var menu = document.getElementById('dropbar');
+    //         if (menu.style.display === 'none') {
+    //             menu.style.display = 'block';
+    //         } else {
+    //             menu.style.display = 'none';
+    //         }
+
+
+
+    }
   },
 };
 </script>
@@ -481,5 +508,13 @@ export default {
 
 .stampaCarta {
     gap: 30px;
+}
+
+.search{
+    display: none;
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
 }
 </style>
