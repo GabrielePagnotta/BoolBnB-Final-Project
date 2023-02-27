@@ -63,12 +63,12 @@
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
-                                {{-- <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')" class="bg-danger text-light border-0 rounded">
+                                <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')" class="bg-danger text-light border-0 rounded">
                                     <i class="fa-solid fa-trash fs-1"></i>
-                                </button> --}}
+                                </button>
 
 
-                                <!-- Button trigger modal -->
+                                {{-- <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger p-0 px-1" data-toggle="modal" data-target="#exampleModal">
                                     <i class="fa-solid fa-trash fs-1"></i>
                                 </button>
@@ -84,15 +84,15 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                        Da qui perderai tutti i dati dell'appartamento.
+                                            Da qui perderai tutti i dati dell'appartamento.
                                         </div>
                                         <div class="modal-footer">
-                                        <button type="button" class="btn btn-light" data-dismiss="modal">Annulla</button>
-                                        <button type="submit" class="btn btn-danger">Conferma</button>
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">Annulla</button>
+                                            <button type="submit" class="btn btn-danger">Conferma</button>
                                         </div>
                                     </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </form>
                         </td>
                     </tr>
