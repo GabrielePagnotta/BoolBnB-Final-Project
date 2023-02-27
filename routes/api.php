@@ -28,6 +28,11 @@ Route::namespace('Api')->prefix('/services')->group(function(){
 
 });
 
+Route::namespace('Api')->prefix('/pivot')->group(function(){
+    Route::get('/', 'pivotController@index');
+
+});
+
 Route::namespace('Api')->prefix('/aptservices')->group(function(){
     Route::get('/', 'ApartmentServiceController@index');
 

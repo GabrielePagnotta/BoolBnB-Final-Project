@@ -272,6 +272,7 @@ export default {
       Service: [],
       Relation: [],
       services2: [],
+      Pivot: [],
       soldatino: false,
       camereDaLetto: 0,
       stanze: 0,
@@ -296,6 +297,7 @@ export default {
     this.getApartments();
     this.getServices();
     this.getRelation();
+    this.getPivot();
 
     var options = {
       searchOptions: {
@@ -348,6 +350,11 @@ export default {
     });
   },
   methods: {
+    getPivot(){
+        axios.get('http://127.0.0.1:8000/api/pivot').then((response) => {
+            this.Pivot = response.data;
+        })
+    },
     getApartments() {
       axios.get("http://127.0.0.1:8000/api/apartment").then((response) => {
         this.Apartments = response.data;
