@@ -69,7 +69,7 @@
             <p>Servizi:</p>
             <div v-for="elem in Service" :key="elem.id">
               <label>
-                <input type="checkbox" :value="elem.id" v-model="services2" />
+                <input type="checkbox" :value="elem.id" v-model="services2" @click="updateServices"/>
                 <span>{{ elem.typeOfService }}</span>
               </label>
             </div>
@@ -472,6 +472,9 @@ export default {
         return (bar.style.display = "none");
       }
     },
+    updateServices() {
+        this.services2 = this.services2.filter(service => this.Service.find(elem => elem.id === service));
+    }
   },
 };
 </script>
