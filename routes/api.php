@@ -33,3 +33,11 @@ Route::namespace('Api')->prefix('/aptservices')->group(function(){
 
 });
 
+Route::namespace('Api')->prefix('/messages')->group(function(){
+    Route::post('/', 'MessageController@store');
+
+
+});
+
+
+
