@@ -21,7 +21,7 @@
 
             <div class="dropdown d-flex" style="margin-left: 20px">
                 <a class="btn btn-secondary dropdown-toggle align-self-center" style="margin-top: 10px" href="#"
-                    role="button"  aria-expanded="false" @click="showSerarch()">
+                    role="button" aria-expanded="false" @click="showSerarch()">
                     <i class="fa-solid fa-filter"></i>
                 </a>
 
@@ -79,11 +79,11 @@
                             <div id="card" class="card m-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                        width: 100%;
-                                        height: 300px;
-                                        object-fit: cover;
-                                        overflow: hidden;
-                                      ">
+                                            width: 100%;
+                                            height: 300px;
+                                            object-fit: cover;
+                                            overflow: hidden;
+                                          ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" style="border-radius: 20px" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -143,11 +143,11 @@
                             <div id="card" class="card mx-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                        width: 100%;
-                                        height: 300px;
-                                        object-fit: cover;
-                                        overflow: hidden;
-                                      ">
+                                            width: 100%;
+                                            height: 300px;
+                                            object-fit: cover;
+                                            overflow: hidden;
+                                          ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -219,7 +219,7 @@ export default {
             soldatino: false,
             camereDaLetto: 0,
             stanze: 0,
-            distanza: 40,
+            distanza: 20,
             Lat: 0,
             Lng: 0,
 
@@ -338,6 +338,7 @@ export default {
                         lat,
                         lng
                     );
+                    console.log('distance:', distance, 'raggio:', parseInt(this.distanza));
                     if (distance <= parseInt(this.distanza)) {
                         this.coordinates.push({
                             lat: +lat.toFixed(3),
@@ -418,7 +419,7 @@ export default {
                                     if (fuckingFiltro.length == this.services2.length) {
                                         console.log('whatever you fucking want');
                                         this.ApartmentsChecked.push(this.Apartments[i]);
-                                    }else{
+                                    } else {
 
                                     }
 
