@@ -10,30 +10,30 @@
 
             {{-- Nome appartamento --}}
             <div class="mb-3">
-              <label for="" class="form-label">Nome ciao</label>
+              <label for="" class="form-label">Nome ciao<span class="asterisco">*</span></label>
               <input type="text" class="form-control" id="" name="title" value='{{$file->title}}'>
             </div>
 
             {{-- Numero stanze --}}
             <div class="mb-3">
-              <label for="" class="form-label">Numero stanze</label>
+              <label for="" class="form-label">Numero stanze<span class="asterisco">*</span></label>
               <input type="number" class="form-control" id="" name="rooms" value='{{$file->rooms}}'>
             </div>
 
             {{-- Posti letto --}}
             <div class="mb-3">
-                <label for="" class="form-label">Posti letto</label>
+                <label for="" class="form-label">Posti letto<span class="asterisco">*</span></label>
                 <input type="number" class="form-control" id="" name="bedrooms" value='{{$file->bedrooms}}'>
             </div>
             {{-- Numero bagni --}}
             <div class="mb-3">
-                <label for="" class="form-label">Numero bagni</label>
+                <label for="" class="form-label">Numero bagni<span class="asterisco">*</span></label>
                 <input type="number" class="form-control" id="" name="bathrooms" value='{{$file->bathrooms}}'>
             </div>
 
             {{-- Indirizzo --}}
             <div class="mb-3">
-                <label for="" class="form-label">Indirizzo</label>
+                <label for="" class="form-label">Indirizzo<span class="asterisco">*</span></label>
 
                 <input type="hidden" name="latitude" id="inputLat">
                 <input type="hidden" name="longitude" id="inputLong">
@@ -41,20 +41,20 @@
                 {{-- Searchbar Geo --}}
                 <div id="inputIndirizzo"></div>
                 @error('address')
-                    <div class="alert alert-danger"> Inserisci un indirizzo valido</div>
+                    <div class="alert alert-danger" required> Inserisci un indirizzo valido<span class="asterisco">*</span></div>
                 @enderror
             </div>
 
             {{-- Metri quadri --}}
             <div class="mb-3">
-                <label for="" class="form-label">Metri quadri</label>
-                <input type="number" class="form-control" id="" name="square_meters" value='{{$file->square_meters}}'>
+                <label for="" class="form-label">Metri quadri<span class="asterisco">*</span></label>
+                <input type="number" class="form-control" id="" name="square_meters" value='{{$file->square_meters}}' required>
             </div>
 
             {{-- Prezzo --}}
             <div class="mb-3">
-                <label for="" class="form-label">Prezzo</label>
-                <input type="number" class="form-control" id="" name="price" value='{{$file->price}}'>
+                <label for="" class="form-label">Prezzo<span class="asterisco">*</span></label>
+                <input type="number" class="form-control" id="" name="price" value='{{$file->price}}' required>
             </div>
 
             {{-- immagine --}}
@@ -65,8 +65,8 @@
 
             {{-- Descrizione --}}
             <div class="mb-3">
-                <label for="" class="form-label">Descrizione</label>
-                <textarea class="form-control"  name="description" >{{$file->description}}</textarea>
+                <label for="" class="form-label">Descrizione<span class="asterisco">*</span></label>
+                <textarea class="form-control"  name="description" required >{{$file->description}}</textarea>
             </div>
 
             {{-- Visibilita' --}}
@@ -77,7 +77,7 @@
                 {{-- <input type="checkbox" name="visibility" value="{{$file->visibility}}"> --}}
 
                 <input type="hidden" name="visibility" value="0">
-                <input type="checkbox" name="visibility" value="1" {{ $file->visibility == 1 ? 'checked' : '' }}>
+                <input type="checkbox" name="visibility" value="1"  required{{ $file->visibility == 1 ? 'checked' : '' }}>
 
 
 
@@ -85,15 +85,16 @@
 
             {{-- Servizi --}}
             <div class="mb-3">
-                <label for="">Servizi</label>
+                <label for="">Servizi<span class="asterisco">*</span></label>
                 @foreach ($services as $service)
 
-                    <input type="checkbox" name="services[]" value="{{$service->id}}" {{$file->services->contains($service) ? 'checked' : ''}}>
+                    <input type="checkbox" name="services[]" required  value="{{$service->id}}" {{$file->services->contains($service) ? 'checked' : ''}}>
                     {{$service->typeOfService}}
                 @endforeach
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+            <span class="asterisco">campo richiesto*</span>
           </form>
     </div>
 
@@ -141,3 +142,8 @@
 
 </script>
 @endsection
+<style>
+    .asterisco{
+        color: red;
+    }
+    </style>
