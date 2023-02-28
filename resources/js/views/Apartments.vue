@@ -79,11 +79,11 @@
                             <div id="card" class="card m-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                            width: 100%;
-                                            height: 300px;
-                                            object-fit: cover;
-                                            overflow: hidden;
-                                          ">
+                                                    width: 100%;
+                                                    height: 300px;
+                                                    object-fit: cover;
+                                                    overflow: hidden;
+                                                  ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" style="border-radius: 20px" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -143,11 +143,11 @@
                             <div id="card" class="card mx-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                            width: 100%;
-                                            height: 300px;
-                                            object-fit: cover;
-                                            overflow: hidden;
-                                          ">
+                                                    width: 100%;
+                                                    height: 300px;
+                                                    object-fit: cover;
+                                                    overflow: hidden;
+                                                  ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -338,7 +338,7 @@ export default {
                         lat,
                         lng
                     );
-                    console.log('distance:', distance, 'raggio:', parseInt(this.distanza));
+
                     if (distance <= parseInt(this.distanza)) {
                         this.coordinates.push({
                             lat: +lat.toFixed(3),
@@ -387,49 +387,97 @@ export default {
         },
         researchApartment() {
             this.ApartmentsChecked = [];
-            console.log('tu mamma', this.service2);
+
 
             this.Haversine(this.Lat, this.Lng);
 
-            for (let i = 0; i < this.Apartments.length; i++) {
-                for (let j = 0; j < this.coordinates.length; j++) {
-                    if (
-                        this.Apartments[i].latitude == this.coordinates[j].lat &&
-                        this.Apartments[i].longitude == this.coordinates[j].lng
-                    ) {
-                        //this.ApartmentsChecked.push(this.Apartments[i]);
-                        if (this.Apartments[i].rooms >= this.stanze) {
-                            if (this.Apartments[i].bedrooms >= this.camereDaLetto) {
-                                console.log(this.Apartments[i].bedrooms);
-                                if (this.services2.length == 0) {
+            // for (let i = 0; i < this.Apartments.length; i++) {
+            //     for (let j = 0; j < this.coordinates.length; j++) {
+            //         if (
+            //             this.Apartments[i].latitude == this.coordinates[j].lat &&
+            //             this.Apartments[i].longitude == this.coordinates[j].lng
+            //         ) {
+            //             //this.ApartmentsChecked.push(this.Apartments[i]);
+            //             if (this.Apartments[i].rooms >= this.stanze) {
+            //                 if (this.Apartments[i].bedrooms >= this.camereDaLetto) {
+            //                     console.log(this.Apartments[i].bedrooms);
+            //                     if (this.services2.length == 0) {
 
-                                    this.ApartmentsChecked.push(this.Apartments[i]);
-                                } else {
+            //                         this.ApartmentsChecked.push(this.Apartments[i]);
+            //                     } else {
 
-                                    let fuckingFiltro = [];
-                                    for (let z = 0; z < this.services2.length; z++) {
 
-                                        for (let y = 0; y < this.Apartments[i].services.length; y++) {
-                                            if (this.services2[z] == this.Apartments[i].services[y].id) {
-                                                fuckingFiltro.push(1);
-                                            }
-                                        }
-                                    }
-                                    console.log(fuckingFiltro);
-                                    if (fuckingFiltro.length == this.services2.length) {
-                                        console.log('whatever you fucking want');
-                                        this.ApartmentsChecked.push(this.Apartments[i]);
-                                    } else {
 
-                                    }
 
-                                }
-                            }
-                        }
-                    }
-                }
-                console.log("controllo finito");
-            }
+
+            //                         let fuckingFiltro = [];
+            //                         for (let z = 0; z < this.services2.length; z++) {
+
+            //                             for (let y = 0; y < this.Apartments[i].services.length; y++) {
+            //                                 if (this.services2[z] == this.Apartments[i].services[y].id) {
+            //                                     fuckingFiltro.push(1);
+            //                                 }
+            //                             }
+            //                         }
+            //                         console.log(fuckingFiltro);
+            //                         if (fuckingFiltro.length == this.services2.length) {
+            //                             console.log('whatever you fucking want');
+            //                             this.ApartmentsChecked.push(this.Apartments[i]);
+            //                         } else {
+
+            //                         }
+
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     console.log("controllo finito");
+            // }
+
+            // let params = {};
+            // params.coordinate = this.coordinates;
+            // params.rooms = this.stanze;
+            // params.bedrooms = this.camereDaLetto;
+
+
+            // axios.get('/api/apartment', { params }).then((res) => {
+
+            // })
+
+            // for(let i=0; i<this.coordinates.length; i++) {
+
+            //     let params = {};
+            //     var latitudine = this.coordinates[i].lat ;
+            //     var longitudine = this.coordinates[i].lng ;
+
+
+            //     params.latitude = latitudine; //.latitudine pue' essere x
+            //     params.longitude = longitudine;
+
+            //     axios.get('/api/apartment', {params}).then((res)=>{
+
+            //     })
+
+
+
+            // }
+
+            let params = {};
+            params.distance = this.distanza;
+            params.latitude = this.Lat.toFixed(3);
+            params.longitude = this.Lng.toFixed(3);
+            params.services = this.Service;
+
+            axios.get('/api/apartment', {params}).then((res)=>{
+                this.ApartmentsChecked = res.data;
+
+            })
+
+
+
+
+
 
 
         },
