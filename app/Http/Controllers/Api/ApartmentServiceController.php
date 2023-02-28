@@ -49,7 +49,9 @@ class ApartmentServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $single_Apartment = Apartment::with('services')->find($id);
+
+        return response()->json($single_Apartment);
     }
 
     /**
