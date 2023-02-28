@@ -29,7 +29,7 @@
                             <label for="password" class="col-form-label text-md-right text-light text-shadow"><h5>{{ __('Password') }}</h5></label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="text-center form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="text-center form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" minlength="8">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
