@@ -32,13 +32,18 @@
                 <strong>Stanze/a: </strong> {{ ShowApartment.rooms }}
               </p>
               <hr />
-              <div>
+              <div class="p-3">
                 <p>Servizi: </p>
-                <ul>
+                <div class="d-flex justify-content-between">
                     <!-- <li>{{ ShowService.services.ty }}</li> -->
                     <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
-                    <li class="" v-for="elem in ShowService.services" :key="elem.id">{{ elem.typeOfService }}</li>
-                </ul>
+                  <span
+                  class="badge badge-pill badge-primary p-2"
+                  v-for="elem in ShowService.services" :key="elem.id"
+                  style="font-size: 1.1rem;"
+                  >{{ elem.typeOfService }}</span>
+
+                </div>
 
 
 
