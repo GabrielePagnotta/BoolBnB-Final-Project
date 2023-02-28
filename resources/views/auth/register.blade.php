@@ -104,7 +104,7 @@
                                     <span class="textCampiObbligatori">*</span></label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="border border-danger form-control
+                                    <input id="password-confirm" type="password" class="border border-danger form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
