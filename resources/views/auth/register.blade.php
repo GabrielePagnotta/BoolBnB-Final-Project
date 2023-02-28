@@ -84,6 +84,7 @@
                                 </div>
                             </div>
 
+                            {{-- Password --}}
                             <div class="form-group row">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right text-light text-shadow">{{ __('Password') }}
@@ -91,24 +92,19 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="border border-danger form-control @error('password') is-invalid @enderror"
+                                        class="border border-danger form-control"
                                         name="password" required autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                             </div>
 
+                            {{-- Password Confirm --}}
                             <div class="form-group row">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right text-light text-shadow">{{ __('Confirm Password') }}
                                     <span class="textCampiObbligatori">*</span></label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="border border-danger form-control"
+                                    <input id="password-confirm" type="password" class="border border-danger form-control
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
@@ -128,6 +124,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("password-confirm").value;
+
+            if (password != confirmPassword) {
+                document.getElementById("password-confirm").setCustomValidity("Le password non corrispondono");
+            } else {
+                document.getElementById("password-confirm").setCustomValidity('');
+            }
+        }
+
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("password-confirm");
+
+        password.onchange = validatePassword;
+        confirmPassword.onkeyup = validatePassword;
+    </script>
+
     <style>
         .campiObbligatori {
             font-size: 0.8rem;
