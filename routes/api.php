@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('Api')->prefix('/apartment')->group(function(){
     Route::get('/', 'ApartmentController@index');
     Route::get('showed/{id}', 'ApartmentController@show');
+    Route::get('/', 'ApartmentController@filter');
 });
 
 Route::namespace('Api')->prefix('/services')->group(function(){
