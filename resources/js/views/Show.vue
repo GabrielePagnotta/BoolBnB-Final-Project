@@ -37,6 +37,7 @@
                 <ul>
                     <!-- <li>{{ ShowService.services.ty }}</li> -->
                     <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
+                    <li class="" v-for="elem in ShowService.services" :key="elem.id">{{ elem.typeOfService }}</li>
                 </ul>
 
 
@@ -146,9 +147,11 @@
             .then((response) => {
                 this.ShowService = response.data;
                 //this.center = [response.data.latitude, response.data.longitude];
-                ShowService.forEach(elem => {
-                    console.log(elem);
+                console.log('Gab <3: ', this.ShowService);
+                this.ShowService.forEach(elem => {
+                    console.log(elem.typeOfService)
                 });
+
             });
 
         },
