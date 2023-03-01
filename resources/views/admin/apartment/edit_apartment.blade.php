@@ -91,7 +91,7 @@
             <input type="checkbox" name="services[]" value="{{$service->id}}" {{$file->services->contains($service) ? 'checked' : ''}}>
             {{$service->typeOfService}}
             @endforeach
-            <div class="testServizi"></div>
+            <div class="erroreServizi"></div>
         </div>
 
         <button type="submit" id="submitBtnEdit" class="btn btn-primary">Submit</button>
@@ -140,13 +140,16 @@
         resultLong.value = `${position.lng.toFixed(3)}`;
     });
 
+
     // Trova tutti i checkbox con il nome "services[]"
     var checkboxes = document.querySelectorAll('input[name="services[]"]');
     // Trova il pulsante di invio
     var submitBtnEdit = document.getElementById('submitBtnEdit');
+    //Seleziona div per errore servizi e lo setta a d-none
+    var erroreServizi = document.querySelector('.erroreServizi');
+
 
     // Disabilita il pulsante di invio se nessun checkbox è selezionato
-
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener('change', function() {
             // Controlla se almeno un checkbox è selezionato
@@ -160,8 +163,11 @@
             // Abilita o disabilita il pulsante di invio a seconda dello stato di selezione dei checkbox
             if (atLeastOneChecked) {
                 submitBtnEdit.disabled = false;
+                erroreServizi.style.display = 'none';
             } else {
                 submitBtnEdit.disabled = true;
+                erroreServizi.style.display = 'block';
+                erroreServizi.innerHTML = '<span class="badge badge-pill badge-danger text-light">Devi selezionare almeno un servizio</span>';
             }
         });
     }

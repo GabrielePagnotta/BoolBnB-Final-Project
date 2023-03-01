@@ -100,7 +100,7 @@ $check = 0
         </div>
 
         {{-- Visibilita' --}}
-        <div class="mb-3 form-check">
+        <div class="mb-3 form-check p-0">
             <label class="form-check-label">Rendi visibile</label>
 
 
@@ -118,9 +118,8 @@ $check = 0
             <input type="checkbox" name="services[]" value="{{$service->id}}">
             {{$service->typeOfService}}
             @endforeach
-            <div class="testServizi"></div>
+            <div class="erroreServizi px-2"></div>
         </div>
-
 
         <button type="submit" id="submitBtnCreate" class="btn btn-primary">Submit</button>
         <div class="campiObbligatori text-danger mt-2">* Campi obbligatori</div>
@@ -164,10 +163,14 @@ $check = 0
         resultLong.value = `${position.lng.toFixed(3)}`;
     });
 
+
     // Trova tutti i checkbox con il nome "services[]"
     var checkboxes = document.querySelectorAll('input[name="services[]"]');
     // Trova il pulsante di invio
     var submitBtnCreate = document.getElementById('submitBtnCreate');
+    //Seleziona div per errore servizi e lo setta a d-none
+    var erroreServizi = document.querySelector('.erroreServizi');
+    erroreServizi.innerHTML = '<span class="badge badge-pill badge-danger text-light">Ricorda di selezionare almeno un servizio</span>';
 
     // Disabilita il pulsante di invio se nessun checkbox è selezionato
     submitBtnCreate.disabled = true;
@@ -184,8 +187,11 @@ $check = 0
             // Abilita o disabilita il pulsante di invio a seconda dello stato di selezione dei checkbox
             if (atLeastOneChecked) {
                 submitBtnCreate.disabled = false;
+                erroreServizi.style.display = 'none';
             } else {
                 submitBtnCreate.disabled = true;
+                erroreServizi.style.display = 'block';
+                erroreServizi.innerHTML = '<span class="badge badge-pill badge-danger text-light">Devi selezionare almeno un servizio</span>';
             }
         });
     }
