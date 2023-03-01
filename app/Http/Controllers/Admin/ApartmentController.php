@@ -113,6 +113,7 @@ class ApartmentController extends Controller
 
         if ($file->userId !== $user->id) {
             // L'utente corrente non ha il permesso di modificare l'appartamento
+            session()->flash("error", "Non hai il permesso di modificare l'appartamento.");
             return redirect()->route('mainPage');
         }
 

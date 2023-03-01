@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        <div>
+           @if (session()->has('error'))
+               {{ session()->get('error') }}
+            @endif
+        </div>
         <div class="d-flex justify-content-between my-5">
             <h1>Aggiungi appartamento:</h1>
             <a class="btn btn-success p-3" href="{{ route('addApartment') }}">Aggiungi appartamento</a>
