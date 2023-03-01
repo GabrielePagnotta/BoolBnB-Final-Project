@@ -47,7 +47,7 @@
                         <p>Servizi:</p>
                         <div v-for="elem in Service" :key="elem.id">
                             <label>
-                                <input type="checkbox" :value="elem.id" v-model="services2" @click="updateServices" />
+                                <input type="checkbox" :value="elem.id" v-model="services2" />
                                 <span>{{ elem.typeOfService }}</span>
                             </label>
                         </div>
@@ -67,23 +67,27 @@
             </div>
         </div>
 
+
         <!-- appartamenti -->
         <div class="d-flex flex-wrap">
             <div v-if="this.soldatino == false" class="d-flex justify-content-center flex-wrap">
+
                 <!-- Ciclo stampa appartamenti -->
-                <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta">
+                <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta"
+                    @click="incrementCounter(apartment.id)">
+                    <!-- counter -->
+                    <div v-if="counters[apartment.id] === undefined">
+                        {{ $set(counters, apartment.id, 0) }}
+                    </div>
+                    <!--------------------->
                     <div v-if="apartment.visibility == 1">
                         <!-- Redirect Show singolo appartamento -->
                         <router-link class="text" :to="`/showed/${apartment.id}`">
                             <!-- Carta -->
                             <div id="card" class="card m-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
-                                <div style="
-                                                    width: 100%;
-                                                    height: 300px;
-                                                    object-fit: cover;
-                                                    overflow: hidden;
-                                                  ">
+                                <div style="width: 100%;height: 300px;object-fit: cover;overflow: hidden;"
+                                    @click="incrementCounter(apartment.id)">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" style="border-radius: 20px" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -143,11 +147,11 @@
                             <div id="card" class="card mx-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                                    width: 100%;
-                                                    height: 300px;
-                                                    object-fit: cover;
-                                                    overflow: hidden;
-                                                  ">
+                                                                                    width: 100%;
+                                                                                    height: 300px;
+                                                                                    object-fit: cover;
+                                                                                    overflow: hidden;
+                                                                                  ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -216,6 +220,7 @@ export default {
             Service: [],
             Relation: [],
             services2: [],
+            counters: [],
             soldatino: false,
             camereDaLetto: 0,
             stanze: 0,
@@ -236,11 +241,13 @@ export default {
             },
         };
     },
+    created() {
+  this.counters = JSON.parse(localStorage.getItem('counters')) || {};
+},
     mounted() {
         this.getServices();
         this.getRelation();
         this.getPivot();
-
         var options = {
             searchOptions: {
                 key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
@@ -292,6 +299,11 @@ export default {
         });
     },
     methods: {
+
+        incrementCounter(apartmentId) {
+            this.counters[apartmentId] = (this.counters[apartmentId] || 0) + 1;
+            localStorage.setItem('counters', JSON.stringify(this.counters));
+        },
         getPivot() {
             axios.get('http://127.0.0.1:8000/api/pivot').then((response) => {
                 this.Apartments = response.data;
@@ -469,18 +481,13 @@ export default {
             params.longitude = this.Lng.toFixed(3);
             params.services = this.Service;
 
-            axios.get('/api/apartment', {params}).then((res)=>{
+            axios.get('/api/apartment', { params }).then((res) => {
                 this.ApartmentsChecked = res.data;
 
             })
-
-
-
-
-
-
-
         },
+
+
         showSerarch() {
             var bar = document.getElementById("hello");
             if (bar.style.display == "none") {
@@ -492,8 +499,9 @@ export default {
         updateServices() {
             this.services2 = this.services2.filter(service => this.Service.find(elem => elem.id === service));
         }
-    }
+    },
 }
+
 </script>
 
 
