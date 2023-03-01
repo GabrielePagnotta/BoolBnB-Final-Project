@@ -91,12 +91,10 @@
             <input type="checkbox" name="services[]" value="{{$service->id}}" {{$file->services->contains($service) ? 'checked' : ''}}>
             {{$service->typeOfService}}
             @endforeach
-            @error('services')
-            <div class="alert alert-danger" required> Inserisci un indirizzo valido</div>
-            @enderror
+            <div class="testServizi"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submitBtnEdit" class="btn btn-primary">Submit</button>
         <span class="asterisco">campo richiesto*</span>
     </form>
 </div>
@@ -141,6 +139,32 @@
         resultLat.value = `${position.lat.toFixed(3)}`;
         resultLong.value = `${position.lng.toFixed(3)}`;
     });
+
+    // Trova tutti i checkbox con il nome "services[]"
+    var checkboxes = document.querySelectorAll('input[name="services[]"]');
+    // Trova il pulsante di invio
+    var submitBtnEdit = document.getElementById('submitBtnEdit');
+
+    // Disabilita il pulsante di invio se nessun checkbox è selezionato
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function() {
+            // Controlla se almeno un checkbox è selezionato
+            let atLeastOneChecked = false;
+            for (let j = 0; j < checkboxes.length; j++) {
+                if (checkboxes[j].checked) {
+                    atLeastOneChecked = true;
+                    break;
+                }
+            }
+            // Abilita o disabilita il pulsante di invio a seconda dello stato di selezione dei checkbox
+            if (atLeastOneChecked) {
+                submitBtnEdit.disabled = false;
+            } else {
+                submitBtnEdit.disabled = true;
+            }
+        });
+    }
 </script>
 @endsection
 <style>

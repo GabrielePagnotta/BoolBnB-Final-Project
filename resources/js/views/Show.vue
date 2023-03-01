@@ -32,15 +32,15 @@
                 <strong>Stanze/a: </strong> {{ ShowApartment.rooms }}
               </p>
               <hr />
+              <p>Servizi: </p>
               <div class="p-3">
-                <p>Servizi: </p>
-                <div class="d-flex justify-content-between">
+
+                <div class="d-flex flex-wrap gap-15 mb-4">
                     <!-- <li>{{ ShowService.services.ty }}</li> -->
                     <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
                   <span
-                  class="badge badge-pill badge-primary p-2"
+                  class="badge badge-pill badge-primary p-2 personal-lightblue-gradient"
                   v-for="elem in ShowService.services" :key="elem.id"
-                  style="font-size: 1.1rem;"
                   >{{ elem.typeOfService }}</span>
 
                 </div>
@@ -213,6 +213,13 @@
       width: 80%;
       margin: auto;
     }
+  }
+
+  .gap-15 {
+    gap: 15px;
+  }
+  .personal-lightblue-gradient {
+    background: linear-gradient(to top, #67b0ff, #007bff 30%);
   }
   </style>
 

@@ -118,13 +118,11 @@ $check = 0
             <input type="checkbox" name="services[]" value="{{$service->id}}">
             {{$service->typeOfService}}
             @endforeach
-            @error('services')
-            <div class="alert alert-danger"> Devi compilare il campo richiesto</div>
-            @enderror
+            <div class="testServizi"></div>
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submitBtnCreate" class="btn btn-primary">Submit</button>
         <div class="campiObbligatori text-danger mt-2">* Campi obbligatori</div>
     </form>
 </div>
@@ -142,34 +140,55 @@ $check = 0
             },
         };
 
-        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
-        var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
-        // document.body.append(searchBoxHTML)
-        // var inputLat = document.getElementById("lat");
+    var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+    var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+    // document.body.append(searchBoxHTML)
+    // var inputLat = document.getElementById("lat");
 
+    var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
+    inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
+    inputElement.setAttribute('value', '{{old("address")}}'); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
 
-        var inputElement = searchBoxHTML.querySelector('input');// Selezione input della barra di ricerca
-        inputElement.setAttribute('name', 'address');// Aggiunto l'attributo "name" con valore "address"
-        inputElement.setAttribute('value', '{{old("address")}}'); // Aggiunto l'attributo "value" con valore "{{ old('indirizzo') }}"
+    document.getElementById('inputIndirizzo').append(searchBoxHTML);
 
+    // Selezione campi input
+    var resultLat = document.getElementById('inputLat');
+    var resultLong = document.getElementById('inputLong');
 
-        document.getElementById('inputIndirizzo').append(searchBoxHTML);
+    // stampa latitudine e longitudine in un div che crea
+    ttSearchBox.on('tomtom.searchbox.resultselected', function (event) {
+        var result = event.data.result;
+        var position = result.position;
 
-        // Selezione campi input
-        var resultLat = document.getElementById('inputLat');
-        var resultLong = document.getElementById('inputLong');
+        resultLat.value = `${position.lat.toFixed(3)}`;
+        resultLong.value = `${position.lng.toFixed(3)}`;
+    });
 
+    // Trova tutti i checkbox con il nome "services[]"
+    var checkboxes = document.querySelectorAll('input[name="services[]"]');
+    // Trova il pulsante di invio
+    var submitBtnCreate = document.getElementById('submitBtnCreate');
 
-
-        // stampa latitudine e longitudine in un div che crea
-        ttSearchBox.on('tomtom.searchbox.resultselected', function (event) {
-            var result = event.data.result;
-            var position = result.position;
-
-            resultLat.value = `${position.lat.toFixed(3)}`;
-            resultLong.value = `${position.lng.toFixed(3)}`;
+    // Disabilita il pulsante di invio se nessun checkbox è selezionato
+    submitBtnCreate.disabled = true;
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function() {
+            // Controlla se almeno un checkbox è selezionato
+            let atLeastOneChecked = false;
+            for (let j = 0; j < checkboxes.length; j++) {
+                if (checkboxes[j].checked) {
+                    atLeastOneChecked = true;
+                    break;
+                }
+            }
+            // Abilita o disabilita il pulsante di invio a seconda dello stato di selezione dei checkbox
+            if (atLeastOneChecked) {
+                submitBtnCreate.disabled = false;
+            } else {
+                submitBtnCreate.disabled = true;
+            }
         });
-
+    }
 
 </script>
 <style>
