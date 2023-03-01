@@ -32,6 +32,22 @@
                 <strong>Stanze/a: </strong> {{ ShowApartment.rooms }}
               </p>
               <hr />
+              <p>Servizi: </p>
+              <div class="p-3">
+
+                <div class="d-flex flex-wrap gap-15 mb-4">
+                    <!-- <li>{{ ShowService.services.ty }}</li> -->
+                    <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
+                  <span
+                  class="badge badge-pill badge-primary p-2 personal-lightblue-gradient"
+                  v-for="elem in ShowService.services" :key="elem.id"
+                  >{{ elem.typeOfService }}</span>
+
+                </div>
+
+
+
+              </div>
               <div>
                 <p class="mx-2 btn btn-primary">
                   <strong>Prezzo: </strong> {{ ShowApartment.price }}€
@@ -92,6 +108,7 @@
     data() {
       return {
         ShowApartment: [],
+        ShowService: [],
         messageValue:'',
         authUser: window.authUser,
         center: [4, 4.44],
@@ -100,8 +117,9 @@
     mounted() {
       this.getShowApartments();
       // console.log(this.ShowApartment);
+      this.getShowService();
 
-      console.log(this.center);
+    //   console.log(this.center);
       const map = tt.map({
         key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
         container: "map",
@@ -115,28 +133,44 @@
     },
 
     methods: {
-      getShowApartments() {
+        getShowApartments() {
         axios
           .get(
             "http://127.0.0.1:8000/api/apartment/showed/" + this.$route.params.id
           )
           .then((response) => {
-            console.log(this.$route.params.id);
+            // console.log(this.$route.params.id);
             this.ShowApartment = response.data;
             //this.center = [response.data.latitude, response.data.longitude];
           });
-      },
+        },
+        getShowService() {
+            axios
+            .get(
+                "http://127.0.0.1:8000/api/aptservices/" + this.$route.params.id
+            )
+            .then((response) => {
+                this.ShowService = response.data;
+                //this.center = [response.data.latitude, response.data.longitude];
+                console.log('Gab <3: ', this.ShowService);
+                this.ShowService.forEach(elem => {
+                    console.log(elem.typeOfService)
+                });
+
+            });
+
+        },
 
       sendMessage() {
         axios.post("http://127.0.0.1:8000/api/messages", {
         message: this.messageValue
     })
     .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.messageValue ;
     })
     .catch((error) => {
-        console.log(error);
+        // console.log(error);
     });
 
       },
@@ -179,6 +213,13 @@
       width: 80%;
       margin: auto;
     }
+  }
+
+  .gap-15 {
+    gap: 15px;
+  }
+  .personal-lightblue-gradient {
+    background: linear-gradient(to top, #67b0ff, #007bff 30%);
   }
   </style>
 
