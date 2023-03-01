@@ -2,9 +2,13 @@
 @section('content')
     <div class="container">
         <div>
-           @if (session()->has('error'))
-               {{ session()->get('error') }}
-            @endif
+
+              @if (\Session::has('alert-message'))
+                <div class="alert alert-{{ \Session::get('alert-type') }}">
+                  {{ \Session::get('alert-message') }}
+                </div>
+              @endif
+
         </div>
         <div class="d-flex justify-content-between my-5">
             <h1>Aggiungi appartamento:</h1>
