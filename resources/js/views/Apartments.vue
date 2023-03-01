@@ -299,7 +299,7 @@ export default {
         });
     },
     methods: {
-
+        // counter
         incrementCounter(apartmentId) {
             this.counters[apartmentId] = (this.counters[apartmentId] || 0) + 1;
             localStorage.setItem('counters', JSON.stringify(this.counters));
