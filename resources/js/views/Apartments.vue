@@ -79,11 +79,11 @@
                             <div id="card" class="card m-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                                    width: 100%;
-                                                    height: 300px;
-                                                    object-fit: cover;
-                                                    overflow: hidden;
-                                                  ">
+                                                        width: 100%;
+                                                        height: 300px;
+                                                        object-fit: cover;
+                                                        overflow: hidden;
+                                                      ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" style="border-radius: 20px" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -143,11 +143,11 @@
                             <div id="card" class="card mx-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                                    width: 100%;
-                                                    height: 300px;
-                                                    object-fit: cover;
-                                                    overflow: hidden;
-                                                  ">
+                                                        width: 100%;
+                                                        height: 300px;
+                                                        object-fit: cover;
+                                                        overflow: hidden;
+                                                      ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -468,11 +468,16 @@ export default {
             params.latitude = this.Lat.toFixed(3);
             params.longitude = this.Lng.toFixed(3);
             params.services = this.Service;
+            params.rooms = this.stanze;
+            params.bedrooms = this.camereDaLetto;
 
-            axios.get('/api/apartment', {params}).then((res)=>{
+            axios.get('/api/apartment', { params }).then((res) => {
                 this.ApartmentsChecked = res.data;
 
             })
+
+
+
 
 
 

@@ -25,16 +25,18 @@ class ApartmentController extends Controller
 
     public function filter(Request $request)
     {
-        $appartamenti = Apartment::with('Services')->get();
         $lat = $request->input('latitude');
         $lng = $request->input('longitude');
         $distance = $request->input('distance');
+        $rooms = $request->input('rooms');
+        $bedrooms = $request->input('bedrooms');
         $earthRadius = 6371;
 
-        $appartamenti = DB::table('apartments')
-            ->select('*')
-            ->selectRaw("($earthRadius * acos(cos(radians($lat)) * cos(radians(latitude)) * cos(radians(longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(latitude)))) AS distance")
-            ->whereRaw("($earthRadius * acos(cos(radians($lat)) * cos(radians(latitude)) * cos(radians(longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(latitude)))) < $distance")
+        $appartamenti = Apartment::with('services')
+            ->where('rooms', '>=', $rooms)
+            ->where('bedrooms', '>=', $bedrooms)
+            ->selectRaw("*, ($earthRadius * ACOS(COS(RADIANS($lat)) * COS(RADIANS(latitude)) * COS(RADIANS(longitude) - RADIANS($lng)) + SIN(RADIANS($lat)) * SIN(RADIANS(latitude)))) AS distance")
+            ->havingRaw("distance < $distance")
             ->orderBy('distance')
             ->get();
         return response()->json($appartamenti);
