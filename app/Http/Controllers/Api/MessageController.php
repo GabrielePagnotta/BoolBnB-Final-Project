@@ -36,15 +36,21 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
+        $email= $request->input('email');
+        $message = $request->input('message');
+        $x = $request->input('apartmentId');
+        $apartmentId = parseInt($x);
+        dd($apartmentId);
+        $newRecord = new Message();
+        $request->validate([
+            'email' => 'required',
+            'message' => 'required',
+            'apartmentId' => 'required',
+        ]);
+        $newRecord->fill($data);
+        $newRecord->save();
 
-            $message = new Message;
-            $message->message = $request->input('message');
-
-            // Imposta gli altri campi del messaggio se necessario
-            $message->save();
-
-            return response()->json(['success' => true]);
-
+        return redirect()->route('/');
     }
 
     /**

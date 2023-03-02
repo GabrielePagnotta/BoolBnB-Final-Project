@@ -56,30 +56,36 @@
             </div>
             <div class="area">
                 <!-- messaggio -->
-              <form action="" method="POST">
+              <form @submit.prevent="sendMessage">
+
+
                 <div v-if="authUser == null">
                   <input
                     class="w-100 my-2"
                     type="email"
                     placeholder="inserisci email"
+                    name="mail"
+                    v-model="mail"
                   />
                 </div>
                 <div v-else>
                   <input
                     class="w-100 my-2"
                     type="email"
-                    :value="authUser.email"
+                    name="mail"
+                    v-model="authUser.email"
+
                   />
                 </div>
 
                 <textarea
                   class="w-100"
-                  name=""
+                  name="message"
                   id=""
                   cols="30"
                   rows="10"
                   placeholder="scrivi del testo..."
-                  v-model="messageValue"
+                  v-model="message"
                 ></textarea>
                 <button class="btn btn-primary">Invia</button>
               </form>
@@ -161,19 +167,11 @@
 
         },
 
-      sendMessage() {
-        axios.post("http://127.0.0.1:8000/api/messages", {
-        message: this.messageValue
-    })
-    .then((response) => {
-        // console.log(response);
-        this.messageValue ;
-    })
-    .catch((error) => {
-        // console.log(error);
-    });
+        sendMessage(){
+            axios.post('/api/messages', {mail: this.authUser.email, message: this.message, apartmentId: this.$route.params.id })
+        }
 
-      },
+
     },
 
     }

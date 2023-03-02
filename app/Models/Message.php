@@ -11,9 +11,6 @@ class Message extends Model
     protected $fillable = [
         'email',
         'message',
-        'date',
-        'first_name',
-        'last_name',
         'apartmentId',
     ];
 
