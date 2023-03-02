@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Models\Service;
+use App\Models\Message;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -94,9 +95,7 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        // $single_Apartment = Apartment::findOrFail($id);
 
-        // return view('', compact('singolo_post'));
     }
 
     /**

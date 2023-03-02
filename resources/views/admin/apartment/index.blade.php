@@ -23,6 +23,7 @@
                     <th scope="col">Foto</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Stato</th>
+                    <th scope="col">Messaggi</th>
                     <th scope="col">Dati</th>
                 </tr>
             </thead>
@@ -64,6 +65,8 @@
                             </article>
                         </td>
 
+                        <td><a href="{{route('showMessages', $elem->id)}}">leggi messaggi</a></td>
+
                         {{-- Dati Appartamento --}}
                         <td class="d-flex justify-content-between">
                             <a href="{{ route('editApartment', $elem->id) }}"><i
@@ -77,31 +80,6 @@
                                 </button>
 
 
-                                {{-- <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger p-0 px-1" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa-solid fa-trash fs-1"></i>
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Sei sicuro di voler eliminare l'appartamento?</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Da qui perderai tutti i dati dell'appartamento.
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-dismiss="modal">Annulla</button>
-                                            <button type="submit" class="btn btn-danger">Conferma</button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div> --}}
                             </form>
                         </td>
                     </tr>

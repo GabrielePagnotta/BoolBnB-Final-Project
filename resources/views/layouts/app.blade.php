@@ -16,7 +16,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
@@ -24,10 +26,10 @@
     <!-- Script Latitudine Longitudine -->
     <link rel="stylesheet" type="text/css"
         href="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css" />
-    <script
-        src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
-    <script
-        src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js">
+    </script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js">
+    </script>
 
 
 
@@ -41,9 +43,11 @@
         <nav class="navbar navbar-expand-md height-7 personal-bg-lightpink shadow-sm p-4">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="w-50" src="{{asset('images/B.png')}}" alt="logo">
+                    <img class="w-50" src="{{ asset('images/B.png') }}" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -58,24 +62,28 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link personal-text-LoginRegister" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link personal-text-LoginRegister"
+                                    href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link personal-text-LoginRegister" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link personal-text-LoginRegister"
+                                        href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
                             @endif
-                            @else
+                        @else
                             <!-- username -->
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-danger" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-danger" href="#"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class="personal-font-weight-900">{{ Auth::user()->first_name }}</span>
                                 </a>
                                 <!-- logut -->
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{route('mainPage')}}" class="dropdown-item">I miei appartmenti</a>
-                                    <!-- <a href="{{route('addApartment')}}" class="dropdown-item">Aggiungi appartamento</a> -->
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a href="{{ route('mainPage') }}" class="dropdown-item">I miei appartmenti</a>
+                                    <!-- <a href="{{ route('addApartment') }}" class="dropdown-item">Aggiungi appartamento</a> -->
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
@@ -93,11 +101,11 @@
             </div>
         </nav>
 
-        <main class="py-4 personal-bg-lightpink-reverse height-93">
-            @yield('content')
-        </main>
-    </div>
 
+    </div>
+    <main class="py-4 personal-bg-lightpink-reverse height-93">
+        @yield('content')
+    </main>
 </body>
 
 </html>
@@ -106,29 +114,36 @@
     .height-7 {
         height: 7vh;
     }
+
     .height-93 {
         height: 93vh;
         overflow-y: scroll
     }
+
     .personal-bg-lightpink {
-        background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);
+        background-image: linear-gradient(to bottom, #ffd2dc 20%, #fff0f3);
     }
+
     .personal-bg-lightpink-reverse {
-        background-image: linear-gradient(to top, #ffd2dc 20% , #fff0f3);
+        background-image: linear-gradient(to top, #ffd2dc 20%, #fff0f3);
     }
-    .height-100{
+
+    .height-100 {
         height: 100vh;
     }
+
     .personal-text-LoginRegister {
         color: #ff3d60;
         font-weight: bold;
     }
+
     .nav-link:hover {
         transform: scale(1.1);
         letter-spacing: 0.1rem;
         color: #f33b5d;
         text-shadow: 0 0 30px #cb1515;
     }
+
     .personal-font-weight-900 {
         font-weight: 900;
     }

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Http\Controllers\Controller;
+use App\Models\Apartment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
@@ -15,8 +17,10 @@ class MessageController extends Controller
      */
     public function index($id)
     {
-
-
+        //
+        $messages = Message::where('apartmentId', $id)->get();
+        //dd($messages);
+        return view('admin.apartment.messages', compact('messages'));
     }
 
     /**
@@ -37,21 +41,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $email= $request->input('email');
-        $message = $request->input('message');
-        $x = $request->input('apartmentId');
-        $apartmentId = parseInt($x);
-        dd($apartmentId);
-        $newRecord = new Message();
-        $request->validate([
-            'email' => 'required',
-            'message' => 'required',
-            'apartmentId' => 'required',
-        ]);
-        $newRecord->fill($data);
-        $newRecord->save();
-
-        return redirect()->route('/');
+        //
     }
 
     /**
@@ -96,6 +86,13 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = Auth::user()->id;
+        $info=Apartment::where('userId', $id)->get();
+
+
+
+        $destroy=Message::findOrFail($id);
+        $destroy->delete();
+        return view('admin.apartment.index', compact('info'));
     }
 }

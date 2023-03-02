@@ -39,11 +39,7 @@ Route::namespace('Api')->prefix('/aptservices')->group(function(){
     Route::get('/{id}', 'ApartmentServiceController@show');
 });
 
-Route::namespace('Api')->prefix('/messages')->group(function(){
-    Route::post('/', 'MessageController@store');
 
-
-});
 
 
 

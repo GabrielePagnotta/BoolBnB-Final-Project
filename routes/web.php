@@ -31,6 +31,8 @@ Route::middleware('auth')
         Route::get('/edit{id}', 'ApartmentController@edit')->name('editApartment');
         Route::get('/update{id}', 'ApartmentController@update')->name('updateApartment');
         Route::get('/destroy{id}', 'ApartmentController@destroy')->name('destroyApartment');
+        Route::get('/show/{id}', 'MessageController@index')->name('showMessages');
+        Route::get('/destroy/{id}', 'MessageController@destroy')->name('destroyMessage');
 
     });
 
@@ -40,6 +42,8 @@ Route::middleware('auth')
 Route::get("{any?}", function(){
     return view("guest.home");
 })->where("any", ".*");
+
+
 
 
 
