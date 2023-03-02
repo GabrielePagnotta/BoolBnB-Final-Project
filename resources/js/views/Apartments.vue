@@ -147,11 +147,11 @@
                             <div id="card" class="card mx-3 border"
                                 style="max-width: 300px; height: 400px; border-radius: 20px">
                                 <div style="
-                                                                                    width: 100%;
-                                                                                    height: 300px;
-                                                                                    object-fit: cover;
-                                                                                    overflow: hidden;
-                                                                                  ">
+                                                                                            width: 100%;
+                                                                                            height: 300px;
+                                                                                            object-fit: cover;
+                                                                                            overflow: hidden;
+                                                                                          ">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -242,8 +242,8 @@ export default {
         };
     },
     created() {
-  this.counters = JSON.parse(localStorage.getItem('counters')) || {};
-},
+        this.counters = JSON.parse(localStorage.getItem('counters')) || {};
+    },
     mounted() {
         this.getServices();
         this.getRelation();
@@ -484,9 +484,36 @@ export default {
             params.bedrooms = this.camereDaLetto;
 
             axios.get('/api/apartment', { params }).then((res) => {
-                this.ApartmentsChecked = res.data;
+
+                //this.ApartmentsChecked = res.data;
+                if (this.services2.length == 0) {
+                    this.ApartmentsChecked = res.data;
+                } else {
+                    let fuckingFiltro = [];
+
+                    for (let z = 0; z < res.data.length; z++) {
+
+
+                        for (let y = 0; y < res.data[z].services.length; y++) {
+
+                            for (let v = 0; v < this.services2.length; v++) {
+                                if (res.data[z].services[y].id == this.services2[v]) {
+                                    fuckingFiltro.push('motherfucker');
+                                }
+                            }
+                            console.log(fuckingFiltro);
+                            if (fuckingFiltro.length == this.services2.length) {
+                                this.ApartmentsChecked.push(res.data[z]);
+                                fuckingFiltro = [];
+                            }
+                        }
+
+                    }
+                }
 
             })
+
+
         },
 
 
