@@ -60,12 +60,12 @@
                                     Privato
                                 @elseif($elem['visibility'] == 1)
                                     <i class="fa-solid fa-circle-check text-success"></i>
-                                    Pubblico
+
                                 @endif
                             </article>
                         </td>
 
-                        <td><a href="{{route('showMessages', $elem->id)}}">leggi messaggi</a></td>
+                        <td><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
 
                         {{-- Dati Appartamento --}}
                         <td class="d-flex justify-content-between">
@@ -110,6 +110,14 @@
         }
         .bg-lightpink-gradient {
             background: #fff8f9;
+        }
+        .fa-eye {
+            color: #E84C69;
+            margin-left: 20px;
+        }
+
+        .fa-circle-check {
+            margin-left: 10px;
         }
     </style>
 @endsection
