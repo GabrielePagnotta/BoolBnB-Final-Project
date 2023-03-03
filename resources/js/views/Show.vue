@@ -15,51 +15,65 @@
           alt="apartment-image"
         />
         <div class="card-body">
-          <h2 class="card-title">{{ ShowApartment.title }}</h2>
-          <hr class="mb-2" />
+            <div class="d-flex justify-content-between align-items-center mx-3">
 
-          <div class="status justify-content-around my-4">
+                <h2 class="card-title">{{ ShowApartment.title }}</h2>
+
+                <div>
+                    <p class="mx-2 btn" style="background-color: rgb(232, 76, 105);color: white">
+                        <strong>Prezzo: </strong> {{ ShowApartment.price }}€
+                    </p>
+                </div>
+            </div>
+          <hr>
+          <h4 class="mx-3 my-3">Descrizione</h4>
+          <div class="d-flex mx-4">
+
+              <p>{{ ShowApartment.description }}</p>
+          </div>
+
+          <hr>
+        <div class="status justify-content-around">
             <div class="area">
-              <p class="mx-2">
-                <strong>metri quadri: </strong> {{ ShowApartment.square_meters }}
-              </p>
-              <hr />
-              <p class="mx-2">
-                <strong>Bagno/i: </strong> {{ ShowApartment.bathrooms }}
-              </p>
-              <hr />
-              <p class="mx-2">
-                <strong>Stanze/a: </strong> {{ ShowApartment.rooms }}
-              </p>
-              <hr />
-              <p>Servizi: </p>
+                <h4 class="mx-3 my-3">Informazioni:</h4>
+                <div class="my-4 mx-3">
+
+                    <p class="mx-2">
+                      <strong>metri quadri: </strong> {{ ShowApartment.square_meters }}
+                    </p>
+
+                    <p class="mx-2">
+                      <strong>Bagno/i: </strong> {{ ShowApartment.bathrooms }}
+                    </p>
+
+                    <p class="mx-2">
+                      <strong>Stanza/e: </strong> {{ ShowApartment.rooms }}
+                    </p>
+                </div>
+                <hr>
+              <h4 class="mt-5 mx-3">Servizi:</h4>
               <div class="p-3">
 
                 <div class="d-flex flex-wrap gap-15 mb-4">
                     <!-- <li>{{ ShowService.services.ty }}</li> -->
                     <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
                   <span
-                  class="badge badge-pill badge-primary p-2 personal-lightblue-gradient"
-                  v-for="elem in ShowService.services" :key="elem.id"
-                  >{{ elem.typeOfService }}</span>
+                  class="badge badge-pill p-2" v-for="elem in ShowService.services" :key="elem.id" style="background-color: rgb(232, 76, 105);color: white">{{ elem.typeOfService }}</span>
 
                 </div>
 
 
 
               </div>
-              <div>
-                <p class="mx-2 btn btn-primary">
-                  <strong>Prezzo: </strong> {{ ShowApartment.price }}€
-                </p>
-              </div>
+
             </div>
-            <div class="area">
+            <div class="area" style="margin-top: 20px;">
                     <!-- messaggio -->
+                    <h4>Contatti:</h4>
                 <form @submit.prevent="sendMessage">
                     <div v-if="authUser == null">
                     <input
-                        class="w-100 my-2"
+                        class="w-100 my-5"
                         type="email"
                         placeholder="inserisci email"
                         name="mail"
@@ -85,7 +99,7 @@
                     v-model="message"
                     ></textarea>
 
-                    <button @click="showAlert = true" class="btn btn-primary">Invia</button>
+                    <button @click="showAlert = true" class="btn" style="background-color: rgb(232, 76, 105);color: white;" >Invia</button>
                 </form>
                 <transition name="fade">
                     <div class="alert alert-success mt-3" role="alert" v-if="showSuccessAlert">
@@ -94,13 +108,12 @@
                 </transition>
             </div>
           </div>
-          <hr />
-          <h4>Descrizione:</h4>
+          <!-- <hr /> -->
+          <!-- <h4>Descrizione:</h4>
           <div class="d-flex justify-content-center">
             <p class="card-text">{{ ShowApartment.description }}</p>
-          </div>
-          <!--Mappa-->
-        <div id="map"></div>
+          </div> -->
+
         </div>
 
       </div>
@@ -132,17 +145,6 @@
       // console.log(this.ShowApartment);
       this.getShowService();
 
-    //   console.log(this.center);
-    //   const map = tt.map({
-    //     key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-    //     container: "map",
-    //     center: this.center,
-    //     zoom: 10
-    //   })
-
-    //   map.on('load', () => {
-    //       new tt.Marker().setLngLat(this.center).addTo('map');
-    //   })
     },
 
     methods: {
@@ -245,6 +247,10 @@
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+
+.bg-lightpink-gradient {
+            background: #fff8f9;
+        }
   </style>
 
 
