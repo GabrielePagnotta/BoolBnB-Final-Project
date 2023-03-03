@@ -22,7 +22,7 @@
       <!-- Searchbar Geo -->
       <div id="inputIndirizzo" class="my-5"></div>
 
-      <div class="dropdown d-flex" style="margin-left: 20px">
+      <div class="dropdown d-flex align-items-center" style="margin-left: 20px">
         <a
           class="btn btn-secondary dropdown-toggle align-self-center"
           style="margin-top: 10px"
@@ -37,6 +37,7 @@
         <div class="position-relative" id="searchContainer"></div>
         <!--Stanze NUMERO 1-->
 
+        <!-- Tendina Filtri -->
         <div class="search" id="hello">
           <div class="d-flex justify-content-around">
             <p class="m-0">Stanze:</p>
@@ -85,6 +86,22 @@
         </div>
 
         <div class="my-dropdown-menu"></div>
+
+        <!-- Mostra numero appartamenti -->
+        <div>
+          <p>Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
+          <!-- RICORDATI di mettere un v-if appartamenti = 0 stampa "Non sono stati trovati appartamenti" -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Stampa servizi selezionati dopo "Applica" -->
+    <div class="d-flex justify-content-center">
+      <div v-for="service in services2" :key="service.id">
+        <div class="mx-1">
+            <span class="badge badge-pill badge-danger">{{ Service[service-1]['typeOfService'] }}</span>
+        </div>
+
       </div>
     </div>
 
@@ -117,16 +134,13 @@
               >
                 <!-- Div immagine -->
                 <div
-                  style="
-                    width: 100%;
-                    height: 200px;
-                  "
+                  style="width: 100%; height: 200px"
                   @click="incrementCounter(apartment.id)"
                 >
                   <!-- Controllo immagine non trovata -->
                   <img
                     v-if="apartment.cover == null"
-                    style="border-radius: 20px;"
+                    style="border-radius: 20px"
                     class="h-100"
                     src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                     alt="fff"
@@ -134,7 +148,11 @@
                   <img
                     v-else
                     class="w-100 h-100"
-                    style="border-radius: 20px; overflow: hidden; object-fit: cover; "
+                    style="
+                      border-radius: 20px;
+                      overflow: hidden;
+                      object-fit: cover;
+                    "
                     :src="`/storage/${apartment.cover}`"
                     alt="apartment-image"
                   />
@@ -171,7 +189,9 @@
 
                     <!-- Dettagli Servizi -->
                     <div class="d-flex justify-content-center">
-                      <div class="d-flex flex-wrap w-100 justify-content-around">
+                      <div
+                        class="d-flex flex-wrap w-100 justify-content-around"
+                      >
                         <span
                           v-for="elem in apartment['services']"
                           :key="elem.id"
@@ -181,7 +201,6 @@
                       </div>
                     </div>
                   </div>
-
 
                   <div>
                     <!-- Prezzo -->
@@ -663,7 +682,7 @@ export default {
 }
 
 .personal-lightblue-gradient {
-    background-color: #E84C69;
+  background-color: #e84c69;
 }
 
 .height-93 {
