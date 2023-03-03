@@ -34,6 +34,11 @@ Route::namespace('Api')->prefix('/pivot')->group(function(){
 
 });
 
+Route::namespace('Api')->prefix('/messages')->group(function(){
+    Route::post('/', 'MessageController@store'); //ricordati di sostituirlo con store
+
+});
+
 Route::namespace('Api')->prefix('/aptservices')->group(function(){
     Route::get('/', 'ApartmentServiceController@index');
     Route::get('/{id}', 'ApartmentServiceController@show');

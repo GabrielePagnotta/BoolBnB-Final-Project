@@ -26,7 +26,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')"
+                                onclick="return confirm('Sei sicuro di voler eliminare questo messaggio?')"
                                 class="bg-danger text-light border-0 rounded">
                                 <i class="fa-solid fa-trash fs-1"></i>
                             </button>

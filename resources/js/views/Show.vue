@@ -55,40 +55,43 @@
               </div>
             </div>
             <div class="area">
-                <!-- messaggio -->
-              <form @submit.prevent="sendMessage">
+                    <!-- messaggio -->
+                <form @submit.prevent="sendMessage">
+                    <div v-if="authUser == null">
+                    <input
+                        class="w-100 my-2"
+                        type="email"
+                        placeholder="inserisci email"
+                        name="mail"
+                        v-model="userEmail"
+                    />
+                    </div>
+                    <div v-else>
+                    <input
+                        class="w-100 my-2"
+                        type="email"
+                        name="mail"
+                        v-model="authUser.email"
+                    />
+                    </div>
 
+                    <textarea
+                    class="w-100"
+                    name="message"
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="scrivi del testo..."
+                    v-model="message"
+                    ></textarea>
 
-                <div v-if="authUser == null">
-                  <input
-                    class="w-100 my-2"
-                    type="email"
-                    placeholder="inserisci email"
-                    name="mail"
-                    v-model="mail"
-                  />
-                </div>
-                <div v-else>
-                  <input
-                    class="w-100 my-2"
-                    type="email"
-                    name="mail"
-                    v-model="authUser.email"
-
-                  />
-                </div>
-
-                <textarea
-                  class="w-100"
-                  name="message"
-                  id=""
-                  cols="30"
-                  rows="10"
-                  placeholder="scrivi del testo..."
-                  v-model="message"
-                ></textarea>
-                <button class="btn btn-primary">Invia</button>
-              </form>
+                    <button @click="showAlert = true" class="btn btn-primary">Invia</button>
+                </form>
+                <transition name="fade">
+                    <div class="alert alert-success mt-3" role="alert" v-if="showSuccessAlert">
+                        Messaggio inviato con successo!
+                    </div>
+                </transition>
             </div>
           </div>
           <hr />
@@ -115,9 +118,13 @@
       return {
         ShowApartment: [],
         ShowService: [],
-        messageValue:'',
+        message:'',
         authUser: window.authUser,
+        userEmail: '',
         center: [4, 4.44],
+        // dati per pop up invio messaggio
+        messageSent: false,
+        showSuccessAlert: false
       };
     },
     mounted() {
@@ -126,16 +133,16 @@
       this.getShowService();
 
     //   console.log(this.center);
-      const map = tt.map({
-        key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
-        container: "map",
-        center: this.center,
-        zoom: 10
-      })
+    //   const map = tt.map({
+    //     key: "gfJDXxUVZKnn9kqVOkZ2tzc6DyGlkaWn",
+    //     container: "map",
+    //     center: this.center,
+    //     zoom: 10
+    //   })
 
-      map.on('load', () => {
-          new tt.Marker().setLngLat(this.center).addTo('map');
-      })
+    //   map.on('load', () => {
+    //       new tt.Marker().setLngLat(this.center).addTo('map');
+    //   })
     },
 
     methods: {
@@ -158,17 +165,28 @@
             .then((response) => {
                 this.ShowService = response.data;
                 //this.center = [response.data.latitude, response.data.longitude];
-                console.log('Gab <3: ', this.ShowService);
-                this.ShowService.forEach(elem => {
-                    console.log(elem.typeOfService)
-                });
-
             });
 
         },
 
         sendMessage(){
-            axios.post('/api/messages', {mail: this.authUser.email, message: this.message, apartmentId: this.$route.params.id })
+            if(this.authUser) {
+                this.userEmail = this.authUser.email;
+            }
+            axios.post('/api/messages', {
+                email: this.userEmail,
+                message: this.message,
+                apartmentId: this.$route.params.id
+            })
+            .then((response) => {
+                console.log(response.data);
+                this.message = '';
+                // Switch variabile soldatino
+                this.messageSent = true;
+                this.showSuccessAlert = true;
+
+                setTimeout(() => {this.showSuccessAlert = false;}, 3000);
+            });
         }
 
 
@@ -219,6 +237,14 @@
   .personal-lightblue-gradient {
     background: linear-gradient(to top, #67b0ff, #007bff 30%);
   }
+
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
   </style>
 
 
