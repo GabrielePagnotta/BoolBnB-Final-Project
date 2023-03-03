@@ -92,7 +92,7 @@
     <div class="d-flex flex-wrap">
       <div
         v-if="this.soldatino == false"
-        class="d-flex justify-content-center flex-wrap"
+        class="d-flex justify-content-md-start flex-wrap"
       >
         <!-- Ciclo stampa appartamenti -->
         <div
@@ -113,7 +113,7 @@
               <div
                 id="card"
                 class="card m-3 border"
-                style="max-width: 300px; height: 500px; border-radius: 20px"
+                style="width: 300px; height: 500px; border-radius: 20px"
               >
                 <!-- Div immagine -->
                 <div
