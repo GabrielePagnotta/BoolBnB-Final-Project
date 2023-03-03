@@ -92,7 +92,7 @@
     <div class="d-flex flex-wrap">
       <div
         v-if="this.soldatino == false"
-        class="d-flex justify-content-center flex-wrap"
+        class="d-flex justify-content-md-start flex-wrap"
       >
         <!-- Ciclo stampa appartamenti -->
         <div
@@ -113,73 +113,76 @@
               <div
                 id="card"
                 class="card m-3 border"
-                style="max-width: 300px; height: 500px; border-radius: 20px"
+                style="width: 300px; height: 500px; border-radius: 20px"
               >
+                <!-- Div immagine -->
                 <div
                   style="
                     width: 100%;
-                    height: 300px;
-                    object-fit: cover;
-                    overflow: hidden;
+                    height: 200px;
                   "
                   @click="incrementCounter(apartment.id)"
                 >
                   <!-- Controllo immagine non trovata -->
                   <img
                     v-if="apartment.cover == null"
-                    style="border-radius: 20px"
-                    class="w-100"
+                    style="border-radius: 20px;"
+                    class="h-100"
                     src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                     alt="fff"
                   />
                   <img
                     v-else
-                    class="w-100"
-                    style="border-radius: 20px"
+                    class="w-100 h-100"
+                    style="border-radius: 20px; overflow: hidden; object-fit: cover; "
                     :src="`/storage/${apartment.cover}`"
                     alt="apartment-image"
                   />
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">{{ apartment["title"] }}</h5>
-                  <!-- Dettagli -->
-                  <div class="d-flex justify-content-center">
-                    <div class="d-flex w-100 justify-content-around">
-                      <div>
-                        <i class="fa-solid fa-toilet px-2"></i>
-                        <span>{{ apartment["bathrooms"] }}</span>
-                      </div>
+                  <div style="height: 150px">
+                    <h5 class="card-title">{{ apartment["title"] }}</h5>
+                    <!-- Dettagli -->
+                    <div class="d-flex justify-content-center mb-3">
+                      <div class="d-flex w-100 justify-content-around">
+                        <div>
+                          <i class="fa-solid fa-toilet px-2"></i>
+                          <span>{{ apartment["bathrooms"] }}</span>
+                        </div>
 
-                      <div>
-                        <i class="fa-solid fa-bed"></i>
-                        <span>{{ apartment["bedrooms"] }}</span>
+                        <div>
+                          <i class="fa-solid fa-bed"></i>
+                          <span>{{ apartment["bedrooms"] }}</span>
+                        </div>
+                      </div>
+                      <div class="d-flex w-100 justify-content-around">
+                        <div>
+                          <i class="fa-solid fa-door-closed"></i>
+                          <span>{{ apartment["rooms"] }}</span>
+                        </div>
+
+                        <div>
+                          <i class="fa-solid fa-ruler-combined"></i>
+                          <span>{{ apartment["square_meters"] }}</span>
+                        </div>
                       </div>
                     </div>
-                    <div class="d-flex w-100 justify-content-around">
-                      <div>
-                        <i class="fa-solid fa-door-closed"></i>
-                        <span>{{ apartment["rooms"] }}</span>
-                      </div>
 
-                      <div>
-                        <i class="fa-solid fa-ruler-combined"></i>
-                        <span>{{ apartment["square_meters"] }}</span>
+                    <!-- Dettagli Servizi -->
+                    <div class="d-flex justify-content-center">
+                      <div class="d-flex flex-wrap w-100 justify-content-around">
+                        <span
+                          v-for="elem in apartment['services']"
+                          :key="elem.id"
+                          class="badge badge-pill badge-primary personal-lightblue-gradient mb-2"
+                          >{{ elem.typeOfService }}
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Dettagli Servizi -->
-                  <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-wrap w-100 justify-content-around">
-                      <span
-                        v-for="elem in apartment['services']"
-                        :key="elem.id"
-                        class="badge badge-pill badge-primary personal-lightblue-gradient"
-                        >{{ elem.typeOfService }}
-                      </span>
-                    </div>
-                  </div>
+
                   <div>
                     <!-- Prezzo -->
                     <p class="text-center my-3">
@@ -660,7 +663,7 @@ export default {
 }
 
 .personal-lightblue-gradient {
-    background: linear-gradient(to top, #67b0ff, #007bff 30%);
+    background-color: #E84C69;
 }
 
 .height-93 {
