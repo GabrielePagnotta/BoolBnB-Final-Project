@@ -141,44 +141,48 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">{{ apartment["title"] }}</h5>
-                  <!-- Dettagli -->
-                  <div class="d-flex justify-content-center">
-                    <div class="d-flex w-100 justify-content-around">
-                      <div>
-                        <i class="fa-solid fa-toilet px-2"></i>
-                        <span>{{ apartment["bathrooms"] }}</span>
-                      </div>
+                  <div style="height: 150px">
+                    <h5 class="card-title">{{ apartment["title"] }}</h5>
+                    <!-- Dettagli -->
+                    <div class="d-flex justify-content-center mb-3">
+                      <div class="d-flex w-100 justify-content-around">
+                        <div>
+                          <i class="fa-solid fa-toilet px-2"></i>
+                          <span>{{ apartment["bathrooms"] }}</span>
+                        </div>
 
-                      <div>
-                        <i class="fa-solid fa-bed"></i>
-                        <span>{{ apartment["bedrooms"] }}</span>
+                        <div>
+                          <i class="fa-solid fa-bed"></i>
+                          <span>{{ apartment["bedrooms"] }}</span>
+                        </div>
+                      </div>
+                      <div class="d-flex w-100 justify-content-around">
+                        <div>
+                          <i class="fa-solid fa-door-closed"></i>
+                          <span>{{ apartment["rooms"] }}</span>
+                        </div>
+
+                        <div>
+                          <i class="fa-solid fa-ruler-combined"></i>
+                          <span>{{ apartment["square_meters"] }}</span>
+                        </div>
                       </div>
                     </div>
-                    <div class="d-flex w-100 justify-content-around">
-                      <div>
-                        <i class="fa-solid fa-door-closed"></i>
-                        <span>{{ apartment["rooms"] }}</span>
-                      </div>
 
-                      <div>
-                        <i class="fa-solid fa-ruler-combined"></i>
-                        <span>{{ apartment["square_meters"] }}</span>
+                    <!-- Dettagli Servizi -->
+                    <div class="d-flex justify-content-center">
+                      <div class="d-flex flex-wrap w-100 justify-content-around">
+                        <span
+                          v-for="elem in apartment['services']"
+                          :key="elem.id"
+                          class="badge badge-pill badge-primary personal-lightblue-gradient mb-2"
+                          >{{ elem.typeOfService }}
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Dettagli Servizi -->
-                  <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-wrap w-100 justify-content-around">
-                      <span
-                        v-for="elem in apartment['services']"
-                        :key="elem.id"
-                        class="badge badge-pill badge-primary personal-lightblue-gradient"
-                        >{{ elem.typeOfService }}
-                      </span>
-                    </div>
-                  </div>
+
                   <div>
                     <!-- Prezzo -->
                     <p class="text-center my-3">
@@ -659,7 +663,7 @@ export default {
 }
 
 .personal-lightblue-gradient {
-    background: linear-gradient(to top, #67b0ff, #007bff 30%);
+    background-color: #E84C69;
 }
 
 .height-93 {
