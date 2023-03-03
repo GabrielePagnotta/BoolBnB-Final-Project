@@ -115,27 +115,26 @@
                 class="card m-3 border"
                 style="max-width: 300px; height: 500px; border-radius: 20px"
               >
+                <!-- Div immagine -->
                 <div
                   style="
                     width: 100%;
-                    height: 300px;
-                    object-fit: cover;
-                    overflow: hidden;
+                    height: 200px;
                   "
                   @click="incrementCounter(apartment.id)"
                 >
                   <!-- Controllo immagine non trovata -->
                   <img
                     v-if="apartment.cover == null"
-                    style="border-radius: 20px"
-                    class="w-100"
+                    style="border-radius: 20px;"
+                    class="h-100"
                     src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                     alt="fff"
                   />
                   <img
                     v-else
-                    class="w-100"
-                    style="border-radius: 20px"
+                    class="w-100 h-100"
+                    style="border-radius: 20px; overflow: hidden; object-fit: cover; "
                     :src="`/storage/${apartment.cover}`"
                     alt="apartment-image"
                   />
