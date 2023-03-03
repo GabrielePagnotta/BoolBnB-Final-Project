@@ -56,7 +56,7 @@
                     <!--distanza-->
                     <div class="px-3">
                         <p class="m-0">Distanza : {{ this.distanza }}</p>
-                        <input type="range" min="20" max="100" v-model="distanza" />
+                        <input type="range" min="2" max="20" v-model="distanza" />
                     </div>
                     <button @click="researchApartment()" class="bFilter p-1 px-2">
                         Applica
@@ -224,7 +224,7 @@ export default {
             soldatino: false,
             camereDaLetto: 0,
             stanze: 0,
-            distanza: 20,
+            distanza: 5,
             Lat: 0,
             Lng: 0,
 
