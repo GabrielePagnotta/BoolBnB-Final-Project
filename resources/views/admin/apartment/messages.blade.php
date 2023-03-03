@@ -13,29 +13,34 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach ($messages as $elem)
-                    {{-- Mittente --}}
-                    <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['email'] }}</td>
-                    {{-- orario --}}
-                    <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['created_at'] }}</td>
-                    {{-- messaggio --}}
-                    <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['message'] }}</td>
-                    {{-- delete --}}
-                    <td>
-                        <form class="d-inline" action="{{ route('destroyMessage', $elem->id) }}" method="GET">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                onclick="return confirm('Sei sicuro di voler eliminare questo messaggio?')"
-                                class="bg-danger text-light border-0 rounded">
-                                <i class="fa-solid fa-trash fs-1"></i>
-                            </button>
+                    <tr>
+                        {{-- Mittente --}}
+                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['email'] }}</td>
+                        {{-- orario --}}
+                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['created_at'] }}</td>
+                        {{-- messaggio --}}
+                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['message'] }}</td>
+                        {{-- delete --}}
+                        <td>
+                            <form class="d-inline" action="{{ route('destroyMessage', $elem->id) }}" method="GET">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    onclick="return confirm('Sei sicuro di voler eliminare questo messaggio?')"
+                                    class="bg-danger text-light border-0 rounded">
+                                    <i class="fa-solid fa-trash fs-1"></i>
+                                </button>
 
 
-                        </form>
-                    </td>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
+
             </tbody>
+
 
         </table>
     </div>

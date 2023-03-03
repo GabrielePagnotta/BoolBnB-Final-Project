@@ -86,13 +86,10 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        $id = Auth::user()->id;
-        $info=Apartment::where('userId', $id)->get();
-
-
 
         $destroy=Message::findOrFail($id);
         $destroy->delete();
-        return view('admin.apartment.index', compact('info'));
+        //return view('admin.apartment.index', compact('info'));
+        return redirect()->route('mainPage');
     }
 }
