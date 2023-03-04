@@ -43,7 +43,7 @@
         <nav class="navbar navbar-expand height-7 personal-bg-lightpink shadow-sm p-4 container-fluid d-flex justify-content-between align-items-center">
 
             <a class="personal-width" href="{{ url('/') }}">
-                <img class="w-75" src="{{ asset('images/B.png') }}" alt="logo">
+                <img class="w-100" src="{{ asset('images/B.png') }}" alt="logo">
             </a>
             {{-- <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
