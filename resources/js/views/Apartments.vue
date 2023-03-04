@@ -189,13 +189,11 @@
 
                     <!-- Dettagli Servizi -->
                     <div class="d-flex justify-content-center">
-                      <div
-                        class="d-flex flex-wrap w-100 justify-content-around"
-                      >
+                      <div class="d-flex flex-wrap w-100 justify-content-center">
                         <span
                           v-for="elem in apartment['services']"
                           :key="elem.id"
-                          class="badge badge-pill badge-primary personal-lightblue-gradient mb-2"
+                          class="badge badge-pill badge-primary personal-lightblue-gradient m-1"
                           >{{ elem.typeOfService }}
                         </span>
                       </div>
@@ -226,12 +224,12 @@
               <div
                 id="card"
                 class="card mx-3 border"
-                style="max-width: 300px; height: 400px; border-radius: 20px"
+                style="max-width: 300px; height: 500px; border-radius: 20px"
               >
                 <div
                   style="
                     width: 100%;
-                    height: 300px;
+                    height: 200px;
                     object-fit: cover;
                     overflow: hidden;
                   "
@@ -252,33 +250,44 @@
                   />
                 </div>
 
-                <div class="card-body">
-                  <h5 class="card-title">{{ apartment["title"] }}</h5>
-                  <!-- Dettagli -->
-                  <div class="d-flex justify-content-center">
-                    <div class="d-flex w-100 justify-content-around">
-                      <div>
-                        <i class="fa-solid fa-toilet px-2"></i>
-                        <span>{{ apartment["bathrooms"] }}</span>
-                      </div>
+                <div class="card-body" style="height: 150px">
+                    <div style="height: 150px">
+                        <h5 class="card-title">{{ apartment["title"] }}</h5>
+                        <!-- Dettagli -->
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="d-flex w-100 justify-content-around">
+                            <div>
+                                <i class="fa-solid fa-toilet px-2"></i>
+                                <span>{{ apartment["bathrooms"] }}</span>
+                            </div>
 
-                      <div>
-                        <i class="fa-solid fa-bed"></i>
-                        <span>{{ apartment["bedrooms"] }}</span>
-                      </div>
-                    </div>
-                    <div class="d-flex w-100 justify-content-around">
-                      <div>
-                        <i class="fa-solid fa-door-closed"></i>
-                        <span>{{ apartment["rooms"] }}</span>
-                      </div>
+                            <div>
+                                <i class="fa-solid fa-bed"></i>
+                                <span>{{ apartment["bedrooms"] }}</span>
+                            </div>
+                            </div>
+                            <div class="d-flex w-100 justify-content-around">
+                            <div>
+                                <i class="fa-solid fa-door-closed"></i>
+                                <span>{{ apartment["rooms"] }}</span>
+                            </div>
 
-                      <div>
-                        <i class="fa-solid fa-ruler-combined"></i>
-                        <span>{{ apartment["square_meters"] }}</span>
-                      </div>
+                            <div>
+                                <i class="fa-solid fa-ruler-combined"></i>
+                                <span>{{ apartment["square_meters"] }}</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <!-- Dettagli Servizi -->
+                    <div class="d-flex justify-content-center">
+                        <div class="d-flex flex-wrap w-100 justify-content-around">
+                            <span v-for="elem in apartment['services']" :key="elem.id" class="badge badge-pill badge-primary personal-lightblue-gradient mb-2">{{ elem.typeOfService }}</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
                   <div>
                     <!-- Prezzo -->
                     <p class="text-center my-3">
