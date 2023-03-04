@@ -203,6 +203,14 @@
 
   <style lang="scss" scoped>
 
+  .background{
+    background-color: white;
+  }
+
+  .card-body{
+    background-color: #ffe9ed;
+  }
+
   .border-personal{
     border-radius: 15px;
     border-color: lightgray;
@@ -252,7 +260,7 @@
 }
 
 .bg-lightpink-gradient {
-            background: #fff8f9;
+            background: white;
         }
   </style>
 

@@ -32,6 +32,6 @@
     // }
 
     .personal-bg-lightpink {
-    background-image: linear-gradient(to bottom, #ffd2dc 20% , #fff0f3);
+    background-color: white;
 }
 </style>
