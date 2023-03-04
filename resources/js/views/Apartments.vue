@@ -311,23 +311,23 @@
 // import axios from 'axios';
 
 export default {
-  name: "Apartments",
-  components: {},
-  data() {
-    return {
-      Apartments: [],
-      ApartmentsChecked: [],
-      coordinates: [],
-      Service: [],
-      Relation: [],
-      services2: [],
-      counters: [],
-      soldatino: false,
-      camereDaLetto: 0,
-      stanze: 0,
-      distanza: 20,
-      Lat: 0,
-      Lng: 0,
+    name: "Apartments",
+    components: {},
+    data() {
+        return {
+            Apartments: [],
+            ApartmentsChecked: [],
+            coordinates: [],
+            Service: [],
+            Relation: [],
+            services2: [],
+            counters: [],
+            soldatino: false,
+            camereDaLetto: 0,
+            stanze: 0,
+            distanza: 5,
+            Lat: 0,
+            Lng: 0,
 
       options: {
         searchOptions: {
