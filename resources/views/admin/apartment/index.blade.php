@@ -60,26 +60,54 @@
                                     Privato
                                 @elseif($elem['visibility'] == 1)
                                     <i class="fa-solid fa-circle-check text-success"></i>
-                                    Pubblico
+
                                 @endif
                             </article>
                         </td>
 
-                        <td><a href="{{route('showMessages', $elem->id)}}">leggi messaggi</a></td>
+                        <td><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
 
                         {{-- Dati Appartamento --}}
                         <td class="d-flex justify-content-between">
                             <a href="{{ route('editApartment', $elem->id) }}"><i
                                     class="fa-regular fa-pen-to-square fs-1"></i></a>
                             <a href="/statistics"><i class="fa-solid fa-chart-simple fs-1"></i></a>
+                        </td>
+
+                        <td>
+                            {{-- <button type="button" class="bg-danger text-light border-0 rounded" data-toggle="modal" data-target="#confirmDeleteModal">
+                                <i class="fa-solid fa-trash fs-1"></i>
+                            </button>
+
+                            <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmDeleteModalLabel">Conferma eliminazione appartamento</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Sei sicuro di voler eliminare questo appartamento?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                                            <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Conferma</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')" class="bg-danger text-light border-0 rounded">
                                     <i class="fa-solid fa-trash fs-1"></i>
                                 </button>
-
-
                             </form>
                         </td>
                     </tr>
@@ -87,7 +115,24 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        $('#confirmDeleteModal').on('hidden.bs.modal', function () {
+            $(this).find('form').off('submit').remove();
+        })
+    </script>
+
     <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid black;
+        }
         .personal-width-200 {
             max-width: 200px;
             min-width: 200px;
@@ -110,6 +155,14 @@
         }
         .bg-lightpink-gradient {
             background: #fff8f9;
+        }
+        .fa-eye {
+            color: #E84C69;
+            margin-left: 20px;
+        }
+
+        .fa-circle-check {
+            margin-left: 10px;
         }
     </style>
 @endsection

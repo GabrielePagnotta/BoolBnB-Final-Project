@@ -9,7 +9,7 @@
                     <th scope="col">Mittente</th>
                     <th scope="col">Orario</th>
                     <th scope="col">Messaggio</th>
-                    <th scope="col">Opzioni</th>
+                    {{-- <th scope="col">Opzioni</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -23,7 +23,7 @@
                         {{-- messaggio --}}
                         <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['message'] }}</td>
                         {{-- delete --}}
-                        <td>
+                        {{-- <td>
                             <form class="d-inline" action="{{ route('destroyMessage', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
@@ -35,7 +35,7 @@
 
 
                             </form>
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
 

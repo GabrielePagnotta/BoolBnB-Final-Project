@@ -3,9 +3,9 @@
         <nav class="navbar navbar-expand-lg position-relative p-3 personal-bg-lightpink height-7 personal-shadow-bottom">
             <div class="container-fluid d-flex justify-content-between align-items-center px-4">
                 <!-- left side -->
-                <div class="">
+                <div class="personal-width">
                    <a href="/" style="">
-                    <img class="size-logo w-50" src="../assets/B.png" alt="logo">
+                    <img class="size-logo w-75" src="../assets/B.png" alt="logo">
                     <!-- <span class="text-dark">[Logo]</span> -->
                    </a>
                 </div>
@@ -129,4 +129,17 @@ a {
 // .personal-bg-pink {
 //     background: #f7b2c2;
 // }
+
+@media screen and (min-width: 425px) {
+  .personal-width{
+      width: 150px;
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .personal-width{
+      width: 200px;
+  }
+}
 </style>
