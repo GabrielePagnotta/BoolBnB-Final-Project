@@ -1,5 +1,5 @@
 <template>
-    <div class="personal-bg-lightpink-reverse height-93">
+    <div class="height-93 personal-bg-lightpink-reverse pb-3">
         <!-- <div class="d-flex justify-content-center">
               <span @click="showApartments(false)" class="tag">tutti</span>
               <div v-for="service in Service" :key="service.id" @click="showApartments()">
@@ -12,15 +12,15 @@
               </div>
           </div> -->
 
-        <div class="d-flex m-auto justify-content-center align-items-center" style="width: 60%; height: auto">
+        <div class="d-flex m-auto justify-content-start justify-content-md-center align-items-center">
             <input type="hidden" name="latitude" id="inputLat" />
             <input type="hidden" name="longitude" id="inputLong" />
 
             <!-- Searchbar Geo -->
-            <div id="inputIndirizzo" class="my-5"></div>
+            <div id="inputIndirizzo" class="mt-3 col-9 col-md-6 col-lg-4 "></div>
 
-            <div class="dropdown d-flex align-items-center" style="margin-left: 20px">
-                <a class="btn btn-secondary dropdown-toggle align-self-center" style="margin-top: 10px" href="#"
+            <div class="dropdown d-flex align-items-center">
+                <a class="btn btn-secondary dropdown-toggle h-100" style="margin-top: 25px" href="#"
                     role="button" aria-expanded="false" @click="showSerarch()">
                     <i class="fa-solid fa-filter"></i>
                 </a>
@@ -66,12 +66,14 @@
 
                 <div class="my-dropdown-menu"></div>
 
-                <!-- Mostra numero appartamenti -->
-                <div>
-                    <p>Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
-                    <!-- RICORDATI di mettere un v-if appartamenti = 0 stampa "Non sono stati trovati appartamenti" -->
-                </div>
+
             </div>
+            <!-- Mostra numero appartamenti -->
+
+        </div>
+        <div class="p-3">
+            <p>Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
+            <!-- RICORDATI di mettere un v-if appartamenti = 0 stampa "Non sono stati trovati appartamenti" -->
         </div>
 
         <!-- Stampa servizi selezionati dopo "Applica" -->
@@ -85,8 +87,8 @@
         </div>
 
         <!-- appartamenti -->
-        <div class="d-flex flex-wrap">
-            <div v-if="this.soldatino == false" class="d-flex justify-content-md-start flex-wrap">
+        <div class="px-3">
+            <div v-if="this.soldatino == false" class="d-flex justify-content-center justify-content-md-start flex-wrap gap-15">
                 <!-- Ciclo stampa appartamenti -->
                 <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta"
                     @click="incrementCounter(apartment.id)">
@@ -99,7 +101,7 @@
                         <!-- Redirect Show singolo appartamento -->
                         <router-link class="text" :to="`/showed/${apartment.id}`">
                             <!-- Carta -->
-                            <div id="card" class="card m-3 border" style="width: 300px; height: 500px; border-radius: 20px">
+                            <div id="card" class="card border" style="width: 300px; height: 500px; border-radius: 20px">
                                 <!-- Div immagine -->
                                 <div style="width: 100%; height: 200px" @click="incrementCounter(apartment.id)">
                                     <!-- Controllo immagine non trovata -->
@@ -557,9 +559,9 @@ export default {
     background-color: crimson;
 }
 
-.stampaCarta {
-    gap: 30px;
-}
+// .stampaCarta {
+//     gap: 30px;
+// }
 
 .search {
     display: none;
@@ -585,4 +587,13 @@ export default {
     height: 93vh;
     overflow-y: scroll;
 }
+
+
+@media screen and (min-width: 768px) {
+
+}
+.gap-15 {
+    gap: 15px;
+}
+
 </style>
