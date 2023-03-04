@@ -26,7 +26,7 @@
                 </div>
             </div>
           <hr>
-          <h4 class="mx-3 my-3">Descrizione</h4>
+          <h4 class="mx-3 my-3 title-center">Descrizione</h4>
           <div class="d-flex mx-4">
 
               <p>{{ ShowApartment.description }}</p>
@@ -35,8 +35,8 @@
           <hr>
         <div class="status justify-content-around">
             <div class="area">
-                <h4 class="mx-3 my-3">Informazioni:</h4>
-                <div class="my-4 mx-3">
+                <h4 class="mx-3 my-3 title-center">Informazioni:</h4>
+                <div class="my-4 mx-3 title-center">
 
                     <p class="mx-2">
                       <strong>metri quadri: </strong> {{ ShowApartment.square_meters }}
@@ -51,14 +51,14 @@
                     </p>
                 </div>
                 <hr>
-              <h4 class="mt-5 mx-3">Servizi:</h4>
-              <div class="p-3">
+              <h4 class="mt-5 mx-3 title-center">Servizi:</h4>
+              <div class="p-">
 
-                <div class="d-flex flex-wrap gap-15 mb-4">
+                <div class="d-flex justify-content-center flex-wrap gap-15 mb-4">
                     <!-- <li>{{ ShowService.services.ty }}</li> -->
                     <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
                   <span
-                  class="badge badge-pill p-2" v-for="elem in ShowService.services" :key="elem.id" style="background-color: rgb(232, 76, 105);color: white">{{ elem.typeOfService }}</span>
+                  class="badge badge-pill p-2 mt-3" v-for="elem in ShowService.services" :key="elem.id" style="background-color: rgb(232, 76, 105);color: white">{{ elem.typeOfService }}</span>
 
                 </div>
 
@@ -69,11 +69,11 @@
             </div>
             <div class="area" style="margin-top: 20px;">
                     <!-- messaggio -->
-                    <h4>Contatti:</h4>
-                <form @submit.prevent="sendMessage">
+                    <h4 class="title-contact title-center">Contatti:</h4>
+                <form @submit.prevent="sendMessage" class="title-center">
                     <div v-if="authUser == null">
                     <input
-                        class="w-100 my-5 border-personal-2"
+                        class="w-100 my-2 border-personal"
                         type="email"
                         placeholder="inserisci email"
                         name="mail"
@@ -203,6 +203,10 @@
 
   <style lang="scss" scoped>
 
+  .title-contact{
+    margin-top: -5px;
+  }
+
   .background{
     background-color: white;
   }
@@ -219,6 +223,7 @@
 
   .status {
     display: flex;
+    flex-direction: row;
   }
 
   .card {
@@ -229,18 +234,18 @@
     width: 50%;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     .card {
       width: 100%;
     }
 
-    .status {
-      display: block;
+    .area {
+      width: 100%;
+      margin: auto;
     }
 
-    .area {
-      width: 80%;
-      margin: auto;
+    .title-contact{
+      margin-top: 0;
     }
   }
 
@@ -262,6 +267,25 @@
 .bg-lightpink-gradient {
             background: white;
         }
+
+@media screen and (min-width: 425px) {
+    .card-title{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .status{
+        flex-direction: column;
+    }
+
+    .title-center{
+        text-align: center;
+    }
+
+}
+
+
   </style>
 
 
