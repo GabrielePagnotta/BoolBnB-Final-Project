@@ -68,18 +68,11 @@
                         <td><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
 
                         {{-- Dati Appartamento --}}
-                        {{-- <td class="d-flex justify-content-between">
+                        <td class="d-flex justify-content-between">
                             <a href="{{ route('editApartment', $elem->id) }}"><i
                                     class="fa-regular fa-pen-to-square fs-1"></i></a>
                             <a href="/statistics"><i class="fa-solid fa-chart-simple fs-1"></i></a>
-                            <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')" class="bg-danger text-light border-0 rounded">
-                                    <i class="fa-solid fa-trash fs-1"></i>
-                                </button>
-                            </form>
-                        </td> --}}
+                        </td>
 
                         <td>
                             <button type="button" class="bg-danger text-light border-0 rounded" data-toggle="modal" data-target="#confirmDeleteModal">
