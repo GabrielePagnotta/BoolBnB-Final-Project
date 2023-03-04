@@ -71,37 +71,11 @@
                         <td class="d-flex justify-content-between">
                             <a href="{{ route('editApartment', $elem->id) }}"><i
                                     class="fa-regular fa-pen-to-square fs-1"></i></a>
-                            <a href="/statistics"><i class="fa-solid fa-chart-simple fs-1"></i></a>
+                            <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a>
                         </td>
 
                         <td>
-                            {{-- <button type="button" class="bg-danger text-light border-0 rounded" data-toggle="modal" data-target="#confirmDeleteModal">
-                                <i class="fa-solid fa-trash fs-1"></i>
-                            </button>
 
-                            <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="confirmDeleteModalLabel">Conferma eliminazione appartamento</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Sei sicuro di voler eliminare questo appartamento?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                                            <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Conferma</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')

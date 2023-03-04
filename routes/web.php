@@ -32,6 +32,7 @@ Route::middleware('auth')
         Route::get('/destroy{id}', 'ApartmentController@destroy')->name('destroyApartment');
         Route::get('/show/{id}', 'MessageController@index')->name('showMessages');
         Route::get('/destroy/{id}', 'MessageController@destroy')->name('destroyMessage');
+        Route::get('/stats/{id}', 'ImpressionController@index')->name('statistic');
 
     });
 
