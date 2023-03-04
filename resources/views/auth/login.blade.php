@@ -14,8 +14,8 @@
                         <div class="d-flex flex-column align-items-center mb-4">
                             <label for="email" class="col-form-label text-md-right text-light text-shadow"><h5>{{ __('E-Mail Address') }}</h5></label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="text-center form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <div class="col-md-8">
+                                <input id="email" type="email" class="text-center form-control col-12 mx-auto @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -28,8 +28,8 @@
                         <div class="d-flex flex-column align-items-center mb-4">
                             <label for="password" class="col-form-label text-md-right text-light text-shadow"><h5>{{ __('Password') }}</h5></label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="text-center form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" minlength="8">
+                            <div class="col-md-8">
+                                <input id="password" type="password" class="text-center form-control col-12 mx-auto @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" minlength="8">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="d-flex flex-column align-items-center mb-4">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-8">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -53,7 +53,7 @@
 
                         <div class="d-flex flex-column align-items-center mb-4">
                             <div class="col-md-8 d-flex flex-column align-items-center">
-                                <button type="submit" class="col-md-2 d-block btn btn-light border-danger text-danger box-shadow text-fw">
+                                <button type="submit" class="d-block btn btn-light border-danger text-danger box-shadow text-fw" style="width: 100px">
                                     {{ __('Login') }}
                                 </button>
 
@@ -101,5 +101,7 @@
     .text-fw {
         font-weight: 900;
     }
+
+
 </style>
 @endsection

@@ -41,15 +41,15 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md height-7 personal-bg-lightpink shadow-sm p-4">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="w-50" src="{{ asset('images/B.png') }}" alt="logo">
+            <div class="container-fluid align-items-center">
+                <a class="navbar-brand personal-width" href="{{ url('/') }}">
+                    <img class="w-75" src="{{ asset('images/B.png') }}" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                {{-- <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -58,7 +58,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -146,5 +146,13 @@
 
     .personal-font-weight-900 {
         font-weight: 900;
+    }
+
+
+
+
+    /* RESPONSIVE */
+    .personal-width {
+        width: 150px;
     }
 </style>
