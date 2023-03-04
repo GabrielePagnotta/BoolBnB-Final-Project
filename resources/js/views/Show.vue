@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center background">
+    <div class="d-flex justify-content-center background mt-4">
       <div class="card mb-3 card">
         <img
           v-if="ShowApartment.cover == null"
@@ -73,7 +73,7 @@
                 <form @submit.prevent="sendMessage">
                     <div v-if="authUser == null">
                     <input
-                        class="w-100 my-5"
+                        class="w-100 my-5 border-personal-2"
                         type="email"
                         placeholder="inserisci email"
                         name="mail"
@@ -82,7 +82,7 @@
                     </div>
                     <div v-else>
                     <input
-                        class="w-100 my-2"
+                        class="border-personal w-100 my-2"
                         type="email"
                         name="mail"
                         v-model="authUser.email"
@@ -90,7 +90,7 @@
                     </div>
 
                     <textarea
-                    class="w-100"
+                    class="w-100 border-personal"
                     name="message"
                     id=""
                     cols="30"
@@ -202,12 +202,15 @@
 
 
   <style lang="scss" scoped>
-  .status {
-    display: flex;
+
+  .border-personal{
+    border-radius: 15px;
+    border-color: lightgray;
   }
 
-  .background {
-    background-image: url(../assets/pattern.jpg);
+
+  .status {
+    display: flex;
   }
 
   .card {
@@ -220,7 +223,7 @@
 
   @media screen and (max-width: 900px) {
     .card {
-      width: 80%;
+      width: 100%;
     }
 
     .status {
