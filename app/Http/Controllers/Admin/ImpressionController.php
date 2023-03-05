@@ -16,8 +16,12 @@ class ImpressionController extends Controller
      */
     public function index($id)
     {
-        $stat = DB::table('impressions')->where('apartmentId', $id)->get();
-        return view('admin.apartment.statistic', compact('stat'));
+        $data = DB::table('impressions')
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
+            ->groupBy('date')
+            ->get();
+        //dd($data);
+        return view('admin.apartment.statistic', compact('data'));
     }
 
     /**

@@ -100,6 +100,7 @@
     <main class="py-4 personal-bg-lightpink-reverse height-93">
         @yield('content')
     </main>
+    @yield('scripts')
 </body>
 
 </html>

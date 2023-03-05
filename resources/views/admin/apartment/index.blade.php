@@ -72,7 +72,7 @@
                         <td>
                             <a href="{{ route('editApartment', $elem->id) }}"><i
                                     class="fa-regular fa-pen-to-square fs-1 mr-2"></i></a>
-                            <!-- <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a> -->
+                             <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a>
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
