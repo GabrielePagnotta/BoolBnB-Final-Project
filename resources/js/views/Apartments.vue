@@ -88,7 +88,7 @@
 
         <!-- appartamenti -->
         <div class="px-3">
-            <div v-if="this.soldatino == false" class="d-flex justify-content-center justify-content-md-start flex-wrap gap-15">
+            <div v-if="this.soldatino == false" class="status justify-content-center justify-content-md-start flex-wrap gap-15">
                 <!-- Ciclo stampa appartamenti -->
                 <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta"
                     @click="incrementCounter(apartment.id)">
@@ -170,13 +170,13 @@
                     </div>
                 </div>
             </div>
-            <div v-else class="d-flex">
+            <div v-else class="status">
                 <div v-for="apartment in ApartmentsChecked" :key="apartment.id" @click="incrementCounter(apartment.id)">
                     <!-- counter -->
                     <div v-if="counters[apartment.id] === undefined">
                         {{ $set(counters, apartment.id, 0) }}
                     </div>
-                    <div v-if="apartment.visibility == 1">
+                    <div v-if="apartment.visibility == 1" class="centramento">
                         <!-- Redirect Show singolo appartamento -->
                         <router-link class="text" :to="`/showed/${apartment.id}`">
                             <!-- Carta -->
@@ -508,6 +508,10 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.status {
+    display: flex;
+}
 .bFilter {
     color: white;
     background-color: black;
@@ -589,8 +593,21 @@ export default {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 650px) {
+    .status{
+        display: block;
+    }
 
+    #card{
+        margin: auto;
+
+    }
+
+    .centramento{
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
 }
 .gap-15 {
     gap: 15px;
