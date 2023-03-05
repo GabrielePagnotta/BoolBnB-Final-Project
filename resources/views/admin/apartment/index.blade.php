@@ -10,21 +10,22 @@
               @endif
 
         </div>
-        <div class="d-flex justify-content-between my-5">
-            <h1>Aggiungi appartamento:</h1>
-            <a class="btn btn-success p-3" href="{{ route('addApartment') }}">Aggiungi appartamento</a>
+        <div class="d-flex justify-content-around my-5">
+            <h1>I tuoi appartamenti:</h1>
+            <a class="btn btn-success p-3 d-none d-lg-inline" href="{{ route('addApartment') }}">Aggiungi appartamento</a>
+            <a class="d-lg-none" href="{{ route('addApartment') }}"><i class="fa-solid fa-plus "></i></a>
 
         </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nome</th>
+                    <th class="w-25" scope="col">Nome</th>
                     <th scope="col">Indirizzo</th>
-                    <th scope="col">Foto</th>
-                    <th scope="col">Descrizione</th>
-                    <th scope="col">Stato</th>
-                    <th scope="col">Messaggi</th>
-                    <th scope="col">Dati</th>
+                    <th class=" d-none d-lg-table-cell" scope="col">Foto</th>
+                    <th class="d-none d-lg-table-cell" scope="col">Descrizione</th>
+                    <th class="d-none d-lg-table-cell" scope="col">Stato</th>
+                    <th class="d-none d-lg-table-cell" scope="col">Messaggi</th>
+                    <th scope="col ">Dati</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +38,7 @@
                         <td class="personal-width-80 overflow-hidden-ellipsis">{{ $elem['address'] }}</td>
 
                         {{-- Copertina Appartamento --}}
-                        <td class="personal-width-150">
+                        <td class="personal-width-150  d-none d-lg-table-cell">
                             @if ($elem['cover'])
                                 <img class="img-fluid" src="{{ asset("storage/$elem->cover") }}" alt="cover-img">
                             @else
@@ -48,12 +49,12 @@
                         </td>
 
                         {{-- Descrizione Appartamento --}}
-                        <td class="personal-width-200 overflow-hidden-ellipsis">
+                        <td class="personal-width-200 overflow-hidden-ellipsis d-none d-lg-block">
                             <article>{{ $elem['description'] }}</article>
                         </td>
 
                         {{-- Visibilità Appartamento --}}
-                        <td class="personal-width-80">
+                        <td class="personal-width-80 d-none d-lg-table-cell">
                             <article>
                                 @if ($elem['visibility'] == 0)
                                     <i class="fa-solid fa-ban text-danger"></i>
@@ -65,17 +66,13 @@
                             </article>
                         </td>
 
-                        <td><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
+                        <td class="d-none d-lg-table-cell"><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
 
                         {{-- Dati Appartamento --}}
-                        <td class="d-flex justify-content-between">
-                            <a href="{{ route('editApartment', $elem->id) }}"><i
-                                    class="fa-regular fa-pen-to-square fs-1"></i></a>
-                            <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a>
-                        </td>
-
                         <td>
-
+                            <a href="{{ route('editApartment', $elem->id) }}"><i
+                                    class="fa-regular fa-pen-to-square fs-1 mr-2"></i></a>
+                            <!-- <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a> -->
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
@@ -137,6 +134,11 @@
 
         .fa-circle-check {
             margin-left: 10px;
+        }
+
+        .fa-plus{
+            font-size: 1.8rem;
+            margin-top: 10px;
         }
     </style>
 @endsection
