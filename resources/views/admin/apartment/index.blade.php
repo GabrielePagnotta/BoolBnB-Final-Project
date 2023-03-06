@@ -23,8 +23,8 @@
                     <th scope="col">Indirizzo</th>
                     <th class=" d-none d-lg-table-cell" scope="col">Foto</th>
                     <th class="d-none d-lg-table-cell" scope="col">Descrizione</th>
-                    <th class="d-none d-lg-table-cell" scope="col">Stato</th>
-                    <th class="d-none d-lg-table-cell" scope="col">Messaggi</th>
+                    <th class="d-none d-md-table-cell" scope="col">Stato</th>
+                    <th class="d-none d-sm-table-cell" scope="col">Messaggi</th>
                     <th scope="col ">Dati</th>
                 </tr>
             </thead>
@@ -54,7 +54,7 @@
                         </td>
 
                         {{-- Visibilità Appartamento --}}
-                        <td class="personal-width-80 d-none d-lg-table-cell">
+                        <td class="personal-width-80 d-none d-md-table-cell">
                             <article>
                                 @if ($elem['visibility'] == 0)
                                     <i class="fa-solid fa-ban text-danger"></i>
@@ -66,7 +66,7 @@
                             </article>
                         </td>
 
-                        <td class="d-none d-lg-table-cell"><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
+                        <td class="d-none d-sm-table-cell"><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
 
                         {{-- Dati Appartamento --}}
                         <td>
@@ -76,8 +76,8 @@
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" id="button-delete" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')" class="bg-danger text-light border-0 rounded">
-                                    <i class="fa-solid fa-trash fs-1"></i>
+                                <button type="submit" id="button-delete" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')" class="border-0 rounded">
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                             </form>
                         </td>
@@ -96,7 +96,18 @@
     <style>
 
         #button-delete{
-            margin-left: 10px;
+            margin-left: 5px;
+            background-color: transparent;
+        }
+
+        #button-delete i{
+            font-size: 14px;
+            color: dodgerblue;
+            transition: color 1s;
+        }
+
+        #button-delete i:hover{
+            color: red;
         }
         .popup {
             display: none;
