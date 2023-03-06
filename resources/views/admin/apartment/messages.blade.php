@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container hg">
         <table class="table">
             <thead>
                 <tr>
@@ -45,5 +45,9 @@
         </table>
     </div>
 
-    <style></style>
+    <style>
+        .hg{
+            height: 60vh;
+        }
+    </style>
 @endsection
