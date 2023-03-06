@@ -1,6 +1,6 @@
 <template>
     <div class="height-93 personal-bg-lightpink-reverse pb-3 position-relative">
-        <div class="bottoneAlessia rounded-circle">
+        <div class="bottoneAlessia rounded-circle d-md-none">
             <a href="/">
                 <i class="fa-solid fa-arrow-up"></i>
             </a>
