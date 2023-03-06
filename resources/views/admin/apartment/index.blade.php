@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container hg">
+    <div class="container">
         <div>
 
               @if (\Session::has('alert-message'))
@@ -16,7 +16,7 @@
             <a class="d-lg-none" href="{{ route('addApartment') }}"><i class="fa-solid fa-plus "></i></a>
 
         </div>
-        <table class="table">.
+        <table class="table hg">.
             <thead>
                 <tr>
                     <th class="w-25" scope="col">Nome</th>

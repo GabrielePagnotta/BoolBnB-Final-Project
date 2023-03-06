@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container hg">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card personal-opacity-70 personal-radius-bottom d-flex justyfi-content-center">
@@ -167,6 +167,10 @@
         .personal-radius-bottom {
             border-bottom-left-radius: 300px;
             border-bottom-right-radius: 300px;
+        }
+
+        .hg{
+            height: 100vh;
         }
     </style>
 @endsection
