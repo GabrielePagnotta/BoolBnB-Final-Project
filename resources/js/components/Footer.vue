@@ -35,7 +35,7 @@
 
 <style lang="scss" scoped>
     .footercontainer{
-        background-color: #FF3E61;
+        background-color: #e57b8e;
         color:white;
     }
 

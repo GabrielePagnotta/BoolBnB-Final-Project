@@ -1,9 +1,9 @@
 <template>
     <div class="height-93 personal-bg-lightpink-reverse pb-3 position-relative">
-        <div class="bottoneAlessia rounded-circle d-md-none">
-            <a href="/">
-                <i class="fa-solid fa-arrow-up"></i>
-            </a>
+        <div class="bottoneAlessia rounded-circle">
+                <a href="/">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
         </div>
 
         <!-- <div class="d-flex justify-content-center">
@@ -620,16 +620,16 @@ export default {
     .bottoneAlessia{
         position: fixed;
         z-index: 1;
-        bottom: 20px;
-        right: 20px;
+        bottom: 40px;
+        right: 40px;
         background-color: #e84c69;
         color: white;
-        padding: 5px 10px;
+        padding: 10px 15px;
         a {
             text-decoration: none;
             color: inherit;
             i {
-                font-size: 1rem;
+                font-size: 1.5rem;
             }
         }
     }
