@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container hg">
         <div>
 
               @if (\Session::has('alert-message'))
@@ -154,6 +154,9 @@
         .fa-plus{
             font-size: 1.8rem;
             margin-top: 10px;
+        }
+        .hg{
+            height: 60vh;
         }
     </style>
 @endsection
