@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center background mt-4">
+    <div class="d-flex justify-content-center background pt-4 personal-bg-lightpink-reverse">
       <div class="card mb-3 card">
         <img
           v-if="ShowApartment.cover == null"
@@ -255,6 +255,10 @@
   .personal-lightblue-gradient {
     background: linear-gradient(to top, #67b0ff, #007bff 30%);
   }
+
+  .personal-bg-lightpink-reverse {
+    background-image: linear-gradient(to top, #ffd2dc 20%, #fff0f3);
+}
 
   .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
