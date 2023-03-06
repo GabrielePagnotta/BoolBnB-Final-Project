@@ -76,6 +76,7 @@
                         placeholder="inserisci email"
                         name="mail"
                         v-model="userEmail"
+                        required
                     />
                     </div>
                     <div v-else>
