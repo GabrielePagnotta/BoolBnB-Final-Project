@@ -97,7 +97,7 @@
                     v-model="message"
                     ></textarea>
 
-                    <button @click="showAlert = true" class="btn" style="background-color: rgb(232, 76, 105);color: white;" >Invia</button>
+                    <button @click="showAlert = true" class="btn" style="background-color: rgb(232, 76, 105);color: white; margin-top: 10px;" >Invia</button>
                 </form>
                 <transition name="fade">
                     <div class="alert alert-success mt-3" role="alert" v-if="showSuccessAlert">
