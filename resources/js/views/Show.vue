@@ -26,8 +26,8 @@
                 </div>
             </div>
           <hr>
-          <h4 class="mx-3 my-3 title-center">Descrizione</h4>
-          <div class="d-flex mx-4 title-center">
+          <h4 class="mx-3 my-3">Descrizione</h4>
+          <div class="d-flex mx-4 ">
 
               <p>{{ ShowApartment.description }}</p>
           </div>
@@ -35,8 +35,8 @@
           <hr>
         <div class="status justify-content-around">
             <div class="area">
-                <h4 class="mx-3 my-3 title-center">Informazioni:</h4>
-                <div class="my-4 mx-3 title-center">
+                <h4 class="mx-3 my-3">Informazioni:</h4>
+                <div class="my-4 mx-3">
 
                     <p class="mx-2">
                       <strong>metri quadri: </strong> {{ ShowApartment.square_meters }}
@@ -51,7 +51,7 @@
                     </p>
                 </div>
                 <hr>
-              <h4 class="mt-5 mx-3 title-center">Servizi:</h4>
+              <h4 class="mt-5 mx-3">Servizi:</h4>
               <div class="p-">
 
                 <div class="d-flex justify-content-center flex-wrap gap-15 mb-4">
@@ -270,7 +270,7 @@
 
 @media screen and (max-width: 425px) {
     .card-title{
-    font-size: 15px;
+    font-size: 20px;
     }
 }
 
