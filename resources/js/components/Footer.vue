@@ -12,7 +12,7 @@
                     <p class="bold my-3">Alessia Carrera</p>
                 </div>
                 <div>
-                    <div class="mx-2 yuri"></div>
+                    <div class="mx-2 andrea"></div>
                     <p class="bold my-3">Andrea Panzeri</p>
                 </div>
                 <div>
@@ -70,6 +70,16 @@
         background-size:91%;
         background-repeat: no-repeat;
         background-position: center;
+        border-radius: 100px 100px 100px 100px;
+    }
+    .andrea{
+        background-image: url(../assets/andrea.png);
+        width:200px;
+        height: 200px;
+        background-color: white;
+        background-size:91%;
+        background-repeat: no-repeat;
+        background-position:bottom;
         border-radius: 100px 100px 100px 100px;
     }
 
