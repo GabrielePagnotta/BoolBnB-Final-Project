@@ -65,7 +65,7 @@
                             </article>
                         </td>
 
-                        <td class="d-none d-sm-table-cell"><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
+                        <td class="d-none d-sm-table-cell"><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-comment"></i></a></td>
 
                         {{-- Dati Appartamento --}}
                         <td class="d-flex align-items-center gap">
