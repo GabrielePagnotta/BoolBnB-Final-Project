@@ -57,8 +57,7 @@
                         <td class="personal-width-80 d-none d-md-table-cell">
                             <article>
                                 @if ($elem['visibility'] == 0)
-                                    <i class="fa-solid fa-ban text-danger"></i>
-                                    Privato
+                                    <i class="fa-solid fa-ban text-danger" style="padding-left: 0.70rem;"></i>
                                 @elseif($elem['visibility'] == 1)
                                     <i class="fa-solid fa-circle-check text-success"></i>
 
@@ -95,6 +94,7 @@
 
     <style>
 
+
        .gap{
         gap: 12px;
        }
@@ -106,6 +106,8 @@
         .mex{
             display: block;
         }
+
+
        }
 
         #button-delete{
