@@ -270,7 +270,7 @@
 
 @media screen and (min-width: 425px) {
     .card-title{
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 
