@@ -12,7 +12,7 @@
               </div>
           </div> -->
 
-        <div class="d-flex m-auto justify-content-start justify-content-md-center align-items-center">
+        <div class="d-flex m-auto justify-content-center justify-content-md-center align-items-center">
             <input type="hidden" name="latitude" id="inputLat" />
             <input type="hidden" name="longitude" id="inputLong" />
 
