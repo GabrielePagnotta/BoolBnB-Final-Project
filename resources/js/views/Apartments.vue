@@ -1,5 +1,11 @@
 <template>
-    <div class="height-93 personal-bg-lightpink-reverse pb-3">
+    <div class="height-93 personal-bg-lightpink-reverse pb-3 position-relative">
+        <div class="bottoneAlessia rounded-circle">
+            <a href="/">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+
         <!-- <div class="d-flex justify-content-center">
               <span @click="showApartments(false)" class="tag">tutti</span>
               <div v-for="service in Service" :key="service.id" @click="showApartments()">
@@ -65,12 +71,10 @@
                 </div>
 
                 <div class="my-dropdown-menu"></div>
-
-
             </div>
-            <!-- Mostra numero appartamenti -->
-
         </div>
+
+        <!-- Mostra numero appartamenti -->
         <div  class="p-3">
             <p v-if="ApartmentsChecked.length > 0">Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
             <!-- RICORDATI di mettere un v-if appartamenti = 0 stampa "Non sono stati trovati appartamenti" -->
@@ -82,15 +86,14 @@
                 <div class="mx-1">
                     <span class="badge badge-pill badge-danger">{{ Service[service - 1]['typeOfService'] }}</span>
                 </div>
-
             </div>
         </div>
 
         <!-- appartamenti -->
-        <div class="px-3">
+        <div class="p-3">
             <div v-if="this.soldatino == false" class="status justify-content-center justify-content-md-start flex-wrap">
                 <!-- Ciclo stampa appartamenti -->
-                <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta "
+                <div v-for="apartment in Apartments" :key="apartment.id"
                     @click="incrementCounter(apartment.id)">
                     <!-- counter -->
                     <div v-if="counters[apartment.id] === undefined">
@@ -170,7 +173,7 @@
                     </div>
                 </div>
             </div>
-            <div v-else class="status">
+            <div v-else class="status justify-content-center justify-content-md-start flex-wrap">
                 <div v-for="apartment in ApartmentsChecked" :key="apartment.id" @click="incrementCounter(apartment.id)">
                     <!-- counter -->
                     <div v-if="counters[apartment.id] === undefined">
@@ -180,8 +183,8 @@
                         <!-- Redirect Show singolo appartamento -->
                         <router-link class="text" :to="`/showed/${apartment.id}`">
                             <!-- Carta -->
-                            <div id="card" class="card mx-3 border"
-                                style="max-width: 300px; height: 500px; border-radius: 20px">
+                            <div id="card" class="card border mb-3 mr-md-3"
+                                style="width: 300px; height: 500px; border-radius: 20px">
                                 <div style="
                             width: 100%;
                             height: 200px;
@@ -536,9 +539,7 @@ export default {
     border-radius: 20px;
 }
 
-.card:hover {
-    transform: scale(1.1);
-}
+
 
 .text {
     text-decoration: none;
@@ -563,9 +564,9 @@ export default {
     background-color: crimson;
 }
 
-// .stampaCarta {
-//     gap: 30px;
-// }
+.marginPORCODIOCANE {
+    margin: 0 auto;
+}
 
 .search {
     display: none;
@@ -592,6 +593,48 @@ export default {
     overflow-y: scroll;
 }
 
+@media screen and (max-width: 425px) {
+    .bottoneAlessia{
+        position: fixed;
+        z-index: 1;
+        bottom: 20px;
+        right: 20px;
+        background-color: #e84c69;
+        color: white;
+        padding: 5px 10px;
+        a {
+            text-decoration: none;
+            color: inherit;
+            i {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .card:hover {
+        transform: scale(1.1);
+    }
+
+    .bottoneAlessia{
+        position: fixed;
+        z-index: 1;
+        bottom: 20px;
+        right: 20px;
+        background-color: #e84c69;
+        color: white;
+        padding: 5px 10px;
+        a {
+            text-decoration: none;
+            color: inherit;
+            i {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
 
 @media screen and (max-width: 650px) {
     .status{
@@ -609,8 +652,12 @@ export default {
         margin-top: 1rem;
     }
 }
+
+
 .gap-15 {
     gap: 15px;
 }
+
+
 
 </style>
