@@ -15,7 +15,7 @@ class CreateImpressionsTable extends Migration
     {
         Schema::create('impressions', function (Blueprint $table) {
             $table->id();
-            $table->string('ipAddress');
+            $table->string('ipAddress')->nullable();
             $table->timestamps();
         });
     }

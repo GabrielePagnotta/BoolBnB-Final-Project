@@ -26,6 +26,7 @@ class ImpressionController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'ipAddress',
             'apartmentId' => 'required',

@@ -353,7 +353,8 @@ export default {
     methods: {
         // counter
         incrementCounter(apartmentId) {
-            axios.post('/api/statistic', {
+            console.log(apartmentId);
+            axios.post('api/statistic', {
                 apartmentId: apartmentId,
             }).then((res) => {
                 console.log(res);
