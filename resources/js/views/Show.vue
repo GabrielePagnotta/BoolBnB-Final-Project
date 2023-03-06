@@ -27,7 +27,7 @@
             </div>
           <hr>
           <h4 class="mx-3 my-3 title-center">Descrizione</h4>
-          <div class="d-flex mx-4">
+          <div class="d-flex mx-4 title-center">
 
               <p>{{ ShowApartment.description }}</p>
           </div>
