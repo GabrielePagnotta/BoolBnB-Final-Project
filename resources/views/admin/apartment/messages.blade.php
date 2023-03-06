@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <th scope="col">Mittente</th>
-                    <th scope="col">Orario</th>
+                    <th class="cell" scope="col ">Orario</th>
                     <th scope="col">Messaggio</th>
                     {{-- <th scope="col">Opzioni</th> --}}
                 </tr>
@@ -19,7 +19,7 @@
                         {{-- Mittente --}}
                         <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['email'] }}</td>
                         {{-- orario --}}
-                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['created_at'] }}</td>
+                        <td class="personal-width-200 overflow-hidden-ellipsis cell">{{ $elem['created_at'] }}</td>
                         {{-- messaggio --}}
                         <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['message'] }}</td>
                         {{-- delete --}}
@@ -47,5 +47,14 @@
 
     <style>
 
+        .cell{
+            display: block;
+        }
+
+        @media screen and (max-width: 450px){
+            .cell{
+                display: none
+            }
+        }
     </style>
 @endsection
