@@ -1,10 +1,6 @@
 <template>
-    <div class="height-93 personal-bg-lightpink-reverse pb-3 position-relative">
-        <div class="bottoneAlessia rounded-circle">
-                <a href="/">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </a>
-        </div>
+    <div class=" personal-bg-lightpink-reverse pb-3 position-relative">
+        <button v-show="scrollPosition > 100" @click="scrollTop()" class="bottoneAlessia rounded-circle"><i class="fa-solid fa-chevron-up"></i></button>
 
         <!-- <div class="d-flex justify-content-center">
               <span @click="showApartments(false)" class="tag">tutti</span>
@@ -26,8 +22,8 @@
             <div id="inputIndirizzo" class="mt-3 col-9 col-md-6 col-lg-4 "></div>
 
             <div class="dropdown d-flex align-items-center">
-                <a class="btn btn-secondary dropdown-toggle h-100" style="margin-top: 25px" href="#"
-                    role="button" aria-expanded="false" @click="showSerarch()">
+                <a class="btn btn-secondary dropdown-toggle h-100" style="margin-top: 25px" href="#" role="button"
+                    aria-expanded="false" @click="showSerarch()">
                     <i class="fa-solid fa-filter"></i>
                 </a>
 
@@ -75,7 +71,7 @@
         </div>
 
         <!-- Mostra numero appartamenti -->
-        <div  class="p-3">
+        <div class="p-3">
             <p v-if="ApartmentsChecked.length > 0">Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
             <!-- RICORDATI di mettere un v-if appartamenti = 0 stampa "Non sono stati trovati appartamenti" -->
         </div>
@@ -93,8 +89,7 @@
         <div class="p-3">
             <div v-if="this.soldatino == false" class="status justify-content-center justify-content-md-start flex-wrap">
                 <!-- Ciclo stampa appartamenti -->
-                <div v-for="apartment in Apartments" :key="apartment.id"
-                    @click="incrementCounter(apartment.id)">
+                <div v-for="apartment in Apartments" :key="apartment.id" @click="incrementCounter(apartment.id)">
                     <!-- counter -->
                     <div v-if="counters[apartment.id] === undefined">
                         {{ $set(counters, apartment.id, 0) }}
@@ -104,7 +99,8 @@
                         <!-- Redirect Show singolo appartamento -->
                         <router-link class="text" :to="`/showed/${apartment.id}`">
                             <!-- Carta -->
-                            <div id="card" class="card border mb-3 mr-md-3" style="width: 300px; height: 500px; border-radius: 20px">
+                            <div id="card" class="card border mb-3 mr-md-3"
+                                style="width: 300px; height: 500px; border-radius: 20px">
                                 <!-- Div immagine -->
                                 <div style="width: 100%; height: 200px" @click="incrementCounter(apartment.id)">
                                     <!-- Controllo immagine non trovata -->
@@ -112,10 +108,10 @@
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
                                         alt="fff" />
                                     <img v-else class="w-100 h-100" style="
-                              border-radius: 20px;
-                              overflow: hidden;
-                              object-fit: cover;
-                            " :src="`/storage/${apartment.cover}`" alt="apartment-image" />
+                                      border-radius: 20px;
+                                      overflow: hidden;
+                                      object-fit: cover;
+                                    " :src="`/storage/${apartment.cover}`" alt="apartment-image" />
                                 </div>
 
                                 <div class="card-body">
@@ -186,11 +182,10 @@
                             <div id="card" class="card border mb-3 mr-md-3"
                                 style="width: 300px; height: 500px; border-radius: 20px">
                                 <div style="
-                            width: 100%;
-                            height: 200px;
-                            object-fit: cover;
-                            overflow: hidden;"
-                            @click="incrementCounter(apartment.id)">
+                                    width: 100%;
+                                    height: 200px;
+                                    object-fit: cover;
+                                    overflow: hidden;" @click="incrementCounter(apartment.id)">
                                     <!-- Controllo immagine non trovata -->
                                     <img v-if="apartment.cover == null" class="w-100"
                                         src="https://cdn.open2b.com/5jwg8ozdvx/var/products/218/07/0-ac06c2c2-416-fornitura-di-proiettore-di-immagini-oleografiche.jpg"
@@ -266,6 +261,7 @@ export default {
     components: {},
     data() {
         return {
+            scrollPosition: 0,
             Apartments: [],
             ApartmentsChecked: [],
             coordinates: [],
@@ -349,6 +345,11 @@ export default {
             //verifico se in quel raggio esistano o meno degli appartamenti
             this.researchApartment();
         });
+
+        window.addEventListener("scroll", this.updateScrollPosition);
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.updateScrollPosition);
     },
     methods: {
         // counter
@@ -492,6 +493,12 @@ export default {
                 }
             });
         },
+        updateScrollPosition() {
+            this.scrollPosition = window.scrollY;
+        },
+        scrollTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        },
 
         showSerarch() {
             var bar = document.getElementById("hello");
@@ -512,10 +519,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
 .status {
     display: flex;
 }
+
 .bFilter {
     color: white;
     background-color: black;
@@ -591,21 +598,24 @@ export default {
 
 .height-93 {
     height: 93vh;
-    overflow-y: scroll;
+
 }
 
 @media screen and (max-width: 425px) {
-    .bottoneAlessia{
+    .bottoneAlessia {
         position: fixed;
         z-index: 1;
         bottom: 20px;
         right: 20px;
-        background-color: #e84c69;
+        background-color: #6b212f;
         color: white;
         padding: 5px 10px;
+        border: none;
+
         a {
             text-decoration: none;
             color: inherit;
+
             i {
                 font-size: 1rem;
             }
@@ -618,17 +628,20 @@ export default {
         transform: scale(1.1);
     }
 
-    .bottoneAlessia{
+    .bottoneAlessia {
         position: fixed;
         z-index: 1;
         bottom: 40px;
         right: 40px;
-        background-color: #e84c69;
+        background-color: #6b212f;
         color: white;
         padding: 10px 15px;
+        border: none;
+
         a {
             text-decoration: none;
             color: inherit;
+
             i {
                 font-size: 1.5rem;
             }
@@ -638,16 +651,16 @@ export default {
 
 
 @media screen and (max-width: 650px) {
-    .status{
+    .status {
         display: block;
     }
 
-    #card{
+    #card {
         margin: auto;
 
     }
 
-    .centramento{
+    .centramento {
         display: flex;
         justify-content: center;
         margin-top: 1rem;
@@ -658,7 +671,4 @@ export default {
 .gap-15 {
     gap: 15px;
 }
-
-
-
 </style>

@@ -40,7 +40,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand height-7 personal-bg-lightpink shadow-sm p-4 container-fluid d-flex justify-content-between align-items-center">
+        <nav
+            class="navbar navbar-expand height-7 personal-bg-lightpink shadow-sm p-4 container-fluid d-flex justify-content-between align-items-center">
 
             <a class="personal-width" href="{{ url('/') }}">
                 <img class="w-100" src="{{ asset('images/B.png') }}" alt="logo">
@@ -56,8 +57,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link personal-text-LoginRegister"
-                            href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link personal-text-LoginRegister" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
@@ -68,8 +68,8 @@
                 @else
                     <!-- username -->
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-danger" href="#"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-danger" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <span class="personal-font-weight-900">{{ Auth::user()->first_name }}</span>
                         </a>
                         <!-- logut -->
@@ -97,36 +97,36 @@
 
 
     </div>
-    <main class="py-4 personal-bg-lightpink-reverse height-93">
+    <main class="py-4 personal-bg-lightpink-reverse ">
         @yield('content')
     </main>
     <footer>
-    <div class="container-fluid d-flex justify-content-center footercontainer">
-        <div class="text-center">
-            <p>Developed by:</p>
-            <div class="d-flex flex-wrap justify-content-center">
-                <div>
-                    <div class="mx-2 yuri"></div>
-                    <p class="bold my-3">Yuri Di Domenico</p>
-                </div>
-                <div>
-                    <div class="mx-2 ale"></div>
-                    <p class="bold my-3">Alessia Carrera</p>
-                </div>
-                <div>
-                    <div class="mx-2 andrea"></div>
-                    <p class="bold my-3">Andrea Panzeri</p>
-                </div>
-                <div>
-                    <div class="mx-2 gab"></div>
-                    <p class="bold my-3">Gabriele Pagnotta</p>
-                </div>
+        <div class="container-fluid d-flex justify-content-center footercontainer height93">
+            <div class="text-center">
+                <p>Developed by:</p>
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div>
+                        <div class="mx-2 yuri"></div>
+                        <p class="bold my-3">Yuri Di Domenico</p>
+                    </div>
+                    <div>
+                        <div class="mx-2 ale"></div>
+                        <p class="bold my-3">Alessia Carrera</p>
+                    </div>
+                    <div>
+                        <div class="mx-2 andrea"></div>
+                        <p class="bold my-3">Andrea Panzeri</p>
+                    </div>
+                    <div>
+                        <div class="mx-2 gab"></div>
+                        <p class="bold my-3">Gabriele Pagnotta</p>
+                    </div>
 
 
+                </div>
+
+            </div>
         </div>
-
-        </div>
-    </div>
     </footer>
     @yield('scripts')
 </body>
@@ -140,7 +140,7 @@
 
     .height-93 {
         height: 93vh;
-        overflow-y: scroll
+
     }
 
     .personal-bg-lightpink {
@@ -170,57 +170,60 @@
     .personal-font-weight-900 {
         font-weight: 900;
     }
-    .footercontainer{
+
+    .footercontainer {
         background-color: #e57b8e;
-        color:white;
+        color: white;
     }
 
 
 
-    .yuri{
-        background-image: url("{{asset('images/yuri.png')}}");
-        width:200px;
+    .yuri {
+        background-image: url("{{ asset('images/yuri.png') }}");
+        width: 200px;
         height: 200px;
         background-color: white;
-        background-size:76%;
+        background-size: 76%;
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 100px 100px 100px 100px;
     }
 
-    .ale{
-        background-image: url("{{asset('images/alessia.jpg')}}");
-        width:200px;
+    .ale {
+        background-image: url("{{ asset('images/alessia.jpg') }}");
+        width: 200px;
         height: 200px;
         background-color: white;
-        background-size:95%;
+        background-size: 95%;
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 100px 100px 100px 100px;
     }
-    .gab{
-        background-image: url("{{asset('images/gab.png')}}");
-        width:200px;
+
+    .gab {
+        background-image: url("{{ asset('images/gab.png') }}");
+        width: 200px;
         height: 200px;
         background-color: white;
-        background-size:91%;
+        background-size: 91%;
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 100px 100px 100px 100px;
     }
-    .andrea{
-        background-image: url("{{asset('images/andrea.png')}}");
-        width:200px;
+
+    .andrea {
+        background-image: url("{{ asset('images/andrea.png') }}");
+        width: 200px;
         height: 200px;
         background-color: white;
-        background-size:91%;
+        background-size: 91%;
         background-repeat: no-repeat;
-        background-position:bottom;
+        background-position: bottom;
         border-radius: 100px 100px 100px 100px;
     }
 
 
-    .bold{
+    .bold {
         font-weight: bold;
     }
 
