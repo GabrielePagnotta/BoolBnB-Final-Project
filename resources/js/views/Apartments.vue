@@ -12,7 +12,7 @@
               </div>
           </div> -->
 
-        <div class="d-flex m-auto justify-content-start justify-content-md-center align-items-center">
+        <div class="d-flex m-auto justify-content-center justify-content-md-center align-items-center">
             <input type="hidden" name="latitude" id="inputLat" />
             <input type="hidden" name="longitude" id="inputLong" />
 
@@ -71,8 +71,8 @@
             <!-- Mostra numero appartamenti -->
 
         </div>
-        <div class="p-3">
-            <p>Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
+        <div  class="p-3">
+            <p v-if="ApartmentsChecked.length > 0">Numero Appartamenti: {{ ApartmentsChecked.length }}</p>
             <!-- RICORDATI di mettere un v-if appartamenti = 0 stampa "Non sono stati trovati appartamenti" -->
         </div>
 
@@ -88,9 +88,9 @@
 
         <!-- appartamenti -->
         <div class="px-3">
-            <div v-if="this.soldatino == false" class="status justify-content-center justify-content-md-start flex-wrap gap-15">
+            <div v-if="this.soldatino == false" class="status justify-content-center justify-content-md-start flex-wrap">
                 <!-- Ciclo stampa appartamenti -->
-                <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta"
+                <div v-for="apartment in Apartments" :key="apartment.id" class="stampaCarta "
                     @click="incrementCounter(apartment.id)">
                     <!-- counter -->
                     <div v-if="counters[apartment.id] === undefined">
@@ -101,7 +101,7 @@
                         <!-- Redirect Show singolo appartamento -->
                         <router-link class="text" :to="`/showed/${apartment.id}`">
                             <!-- Carta -->
-                            <div id="card" class="card border" style="width: 300px; height: 500px; border-radius: 20px">
+                            <div id="card" class="card border mb-3 mr-md-3" style="width: 300px; height: 500px; border-radius: 20px">
                                 <!-- Div immagine -->
                                 <div style="width: 100%; height: 200px" @click="incrementCounter(apartment.id)">
                                     <!-- Controllo immagine non trovata -->

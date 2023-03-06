@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="navbar navbar-expand position-relative p-4 personal-bg-lightpink height-7 personal-shadow-bottom">
-            <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
                 <!-- left side -->
                 <div class="personal-width">
                    <a href="/" style="">
