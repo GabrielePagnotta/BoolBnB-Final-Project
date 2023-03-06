@@ -178,7 +178,7 @@
 
 
     .yuri{
-        background-image: url('{{asset('images/yuri.png')}}');
+        background-image: url("{{asset('images/yuri.png')}}");
         width:200px;
         height: 200px;
         background-color: white;
@@ -189,7 +189,7 @@
     }
 
     .ale{
-        background-image: url('{{asset('images/alessia.jpg')}}');
+        background-image: url("{{asset('images/alessia.jpg')}}");
         width:200px;
         height: 200px;
         background-color: white;
@@ -199,7 +199,7 @@
         border-radius: 100px 100px 100px 100px;
     }
     .gab{
-        background-image: url('{{asset('images/gab.png')}}');
+        background-image: url("{{asset('images/gab.png')}}");
         width:200px;
         height: 200px;
         background-color: white;
@@ -209,7 +209,7 @@
         border-radius: 100px 100px 100px 100px;
     }
     .andrea{
-        background-image: url('{{asset('images/andrea.png')}}');
+        background-image: url("{{asset('images/andrea.png')}}");
         width:200px;
         height: 200px;
         background-color: white;
