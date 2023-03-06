@@ -21,7 +21,7 @@
                         {{-- orario --}}
                         <td class="personal-width-200 overflow-hidden-ellipsis cell">{{ $elem['created_at'] }}</td>
                         {{-- messaggio --}}
-                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['message'] }}</td>
+                        <td class="personal-width-200 overflow-hidden-ellipsis message_cell">{{ $elem['message'] }}</td>
                         {{-- delete --}}
                         {{-- <td>
                             <form class="d-inline" action="{{ route('destroyMessage', $elem->id) }}" method="GET">
@@ -48,6 +48,21 @@
     <style>
         .hg{
             height: 100vh;
+        }
+        .cell{
+            display: block;
+        }
+
+        @media only screen and (max-width:600px){
+            .message_cell{
+                max-height: 200px;
+                overflow: auto;
+                display: flex;
+            }
+
+            .cell{
+                display: none;
+            }
         }
     </style>
 @endsection
