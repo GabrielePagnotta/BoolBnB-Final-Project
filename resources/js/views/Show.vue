@@ -52,11 +52,9 @@
                 </div>
                 <hr>
               <h4 class="mt-5 mx-3">Servizi:</h4>
-              <div class="p-">
+              <div>
 
                 <div class="d-flex justify-content-center flex-wrap gap-15 mb-4">
-                    <!-- <li>{{ ShowService.services.ty }}</li> -->
-                    <!-- <li v-for="elem in ShowService" :key="elem.id">{{ elem.address }}</li> -->
                   <span
                   class="badge badge-pill p-2 mt-3" v-for="elem in ShowService.services" :key="elem.id" style="background-color: rgb(232, 76, 105);color: white">{{ elem.typeOfService }}</span>
 
@@ -108,11 +106,7 @@
                 </transition>
             </div>
           </div>
-          <!-- <hr /> -->
-          <!-- <h4>Descrizione:</h4>
-          <div class="d-flex justify-content-center">
-            <p class="card-text">{{ ShowApartment.description }}</p>
-          </div> -->
+
 
         </div>
 
@@ -154,9 +148,7 @@
             "http://127.0.0.1:8000/api/apartment/showed/" + this.$route.params.id
           )
           .then((response) => {
-            // console.log(this.$route.params.id);
             this.ShowApartment = response.data;
-            //this.center = [response.data.latitude, response.data.longitude];
           });
         },
         getShowService() {
@@ -166,7 +158,6 @@
             )
             .then((response) => {
                 this.ShowService = response.data;
-                //this.center = [response.data.latitude, response.data.longitude];
             });
 
         },
@@ -294,8 +285,6 @@
     }
 
 }
-
-
   </style>
 
 
