@@ -2,18 +2,6 @@
     <div class=" personal-bg-lightpink-reverse pb-3 position-relative">
         <button v-show="scrollPosition > 100" @click="scrollTop()" class="bottoneAlessia rounded-circle"><i class="fa-solid fa-chevron-up"></i></button>
 
-        <!-- <div class="d-flex justify-content-center">
-              <span @click="showApartments(false)" class="tag">tutti</span>
-              <div v-for="service in Service" :key="service.id" @click="showApartments()">
-                  <div>
-                      <div>
-
-                          <span class="tag">{{ service['typeOfService'].toUpperCase() }}</span>
-                      </div>
-                  </div>
-              </div>
-          </div> -->
-
         <div class="d-flex m-auto justify-content-center justify-content-md-center align-items-center">
             <input type="hidden" name="latitude" id="inputLat" />
             <input type="hidden" name="longitude" id="inputLong" />
@@ -228,12 +216,9 @@
                                                 <span v-for="elem in apartment['services']" :key="elem.id"
                                                     class="badge badge-pill badge-primary personal-lightblue-gradient mb-2">{{
                                                         elem.typeOfService }}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-
-
                                     <div>
                                         <!-- Prezzo -->
                                         <p class="text-center my-3">
@@ -310,8 +295,7 @@ export default {
 
         var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
         var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
-        // document.body.append(searchBoxHTML)
-        // var inputLat = document.getElementById("lat");
+
 
         var inputElement = searchBoxHTML.querySelector("input"); // Selezione input della barra di ricerca
         inputElement.setAttribute("name", "address"); // Aggiunto l'attributo "name" con valore "address"

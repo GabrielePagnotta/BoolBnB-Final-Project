@@ -1,9 +1,8 @@
 <template>
     <div class="personal-bg-lightpink">
         <Navbar />
-        <!-- <Apartments :info="Apartments"/> -->
         <router-view></router-view>
-        <Footer/>
+        <Footer />
     </div>
 </template>
 
