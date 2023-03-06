@@ -32,7 +32,7 @@
                 @foreach ($info as $elem)
                     <tr>
                         {{-- Nome Appartamento --}}
-                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['title'] }}</td>
+                        <td class="personal-width-120 overflow-hidden-ellipsis">{{ $elem['title'] }}</td>
 
                         {{-- Indirizzo Appartamento --}}
                         <td class="personal-width-80 overflow-hidden-ellipsis">{{ $elem['address'] }}</td>
@@ -69,10 +69,10 @@
                         <td class="d-none d-sm-table-cell"><a href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
 
                         {{-- Dati Appartamento --}}
-                        <td>
-                            <a href="{{ route('editApartment', $elem->id) }}"><i
-                                    class="fa-regular fa-pen-to-square fs-1 mr-2"></i></a>
-                             <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a>
+                        <td class="d-flex align-items-center gap">
+                            <a class="mex d-md-none" href="{{route('showMessages', $elem->id)}}"><i class="fa-solid fa-comment"></i></a>
+                            <a href="{{ route('editApartment', $elem->id) }}"><i class="fa-regular fa-pen-to-square fs-1"></i></a>
+                            <a href="{{ route ('statistic', $elem->id)}}"><i class="fa-solid fa-chart-simple fs-1"></i></a>
                             <form class="d-inline" action="{{ route('destroyApartment', $elem->id) }}" method="GET">
                                 @csrf
                                 @method('DELETE')
@@ -95,8 +95,20 @@
 
     <style>
 
+       .gap{
+        gap: 12px;
+       }
+       .mex{
+        display: none;
+       }
+
+       @media screen and (max-width: 426px){
+        .mex{
+            display: block;
+        }
+       }
+
         #button-delete{
-            margin-left: 5px;
             background-color: transparent;
         }
 
@@ -126,6 +138,11 @@
         .personal-width-150 {
             max-width: 150px;
             min-width: 150px;
+        }
+
+        .personal-width-120 {
+            max-width: 120px;
+            min-width: 120px;
         }
         .personal-width-80 {
             max-width: 80px;
