@@ -47,7 +47,7 @@
 
     <style>
         .hg{
-            height: 100wh;
+            height: 100vh;
         }
     </style>
 @endsection
