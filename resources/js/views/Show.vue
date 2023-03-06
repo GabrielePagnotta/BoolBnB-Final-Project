@@ -268,6 +268,12 @@
             background: white;
         }
 
+@media screen and (max-width: 425px) {
+    .card-title{
+    font-size: 15px;
+    }
+}
+
 @media screen and (min-width: 425px) {
     .card-title{
         font-size: 22px;
