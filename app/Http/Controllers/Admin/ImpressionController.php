@@ -18,6 +18,7 @@ class ImpressionController extends Controller
     {
         $data = DB::table('impressions')
             ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
+            ->where('apartmentId', $id)
             ->groupBy('date')
             ->get();
         //dd($data);
