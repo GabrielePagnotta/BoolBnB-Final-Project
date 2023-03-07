@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container hg">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Mittente</th>
-                    <th scope="col">Orario</th>
+                    <th class="cell" scope="col ">Orario</th>
                     <th scope="col">Messaggio</th>
                     {{-- <th scope="col">Opzioni</th> --}}
                 </tr>
@@ -19,9 +19,9 @@
                         {{-- Mittente --}}
                         <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['email'] }}</td>
                         {{-- orario --}}
-                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['created_at'] }}</td>
+                        <td class="personal-width-200 overflow-hidden-ellipsis cell">{{ $elem['created_at'] }}</td>
                         {{-- messaggio --}}
-                        <td class="personal-width-200 overflow-hidden-ellipsis">{{ $elem['message'] }}</td>
+                        <td class="personal-width-200 overflow-hidden-ellipsis message_cell">{{ $elem['message'] }}</td>
                         {{-- delete --}}
                         {{-- <td>
                             <form class="d-inline" action="{{ route('destroyMessage', $elem->id) }}" method="GET">
@@ -45,5 +45,24 @@
         </table>
     </div>
 
-    <style></style>
+    <style>
+        .hg{
+            height: 100vh;
+        }
+        .cell{
+            display: block;
+        }
+
+        @media only screen and (max-width:600px){
+            .message_cell{
+                max-height: 200px;
+                overflow: auto;
+                display: flex;
+            }
+
+            .cell{
+                display: none;
+            }
+        }
+    </style>
 @endsection

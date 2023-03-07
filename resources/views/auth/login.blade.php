@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container hg">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card personal-radius-top personal-radius-bottom personal-opacity-70">
@@ -102,6 +102,8 @@
         font-weight: 900;
     }
 
-
+.hg{
+    height: 100vh;
+}
 </style>
 @endsection
